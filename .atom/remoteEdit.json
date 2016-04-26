@@ -1,1 +1,0 @@
-{"hostList":[{"alias":"","hostname":"198.211.104.26","directory":"/","username":"sean","port":"22","localFiles":[],"useAgent":false,"usePrivateKey":true,"usePassword":false,"passphrase":"stormygoogle2","privateKeyPath":"/Users/Sean/.ssh/id_rsa","lastOpenDirectory":"/home","deserializer":"SftpHost"}],"deserializer":"InterProcessData"}
