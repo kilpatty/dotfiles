@@ -1,0 +1,79 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
+// for a full listing of what's available.
+@import "ui-variables";
+@import "buttons";
+
+.quick-editor {
+  overflow: hidden;
+
+  atom-text-editor {
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.add-selector-view {
+  padding: @component-padding 5px;
+
+  h2 {
+    margin: 0px 0px 0px 0px;
+  }
+  .top-container {
+    display: flex;
+    flex-direction: row;
+
+    .top-container-left {
+      margin-right: 20px;
+      .no-selector-container {
+        display: flex;
+        margin-bottom: 10px;
+
+        .no-selector-text {
+          margin-right: 10px;
+          margin-top: auto;
+
+          color: @text-color-subtle;
+        }
+
+        .selector {
+          display: inline-block;
+          font-size: @font-size+2;
+          max-width: 60%
+        }
+      }
+    }
+
+    .top-container-right {
+      display: flex;
+      flex-direction: row;
+      margin: auto 30px;
+      .btn {
+        width: 90px;
+        height: 25px;
+        background-color: @text-color-subtle;
+      }
+    }
+
+  }
+
+
+  .add-new-style-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: auto;
+    height: @component-line-height;
+
+    .add-new-selector-text {
+      font-size: @font-size;
+      margin: auto 5px;
+
+    }
+    atom-text-editor {
+      margin-left: 2px;
+    }
+  }
+
+
+}
