@@ -13,6 +13,10 @@ alias dg="cd ~/Google\ Drive"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 
+# SSH Aliases
+alias zzrot="ssh sean@45.55.220.74"
+alias me="ssh sean@198.211.104.26"
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -128,9 +132,6 @@ alias map="xargs -n1"
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "$method"="lwp-request -m '$method'"
 done
-
-# Make Grunt print stack traces by default
-command -v grunt > /dev/null && alias grunt="grunt --stack"
 
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
