@@ -12,3 +12,10 @@ Thumbs.db
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
+
+#Unnecessary Atom Files
+.atom/packages
+.atom/.apm
+
+
+We recommend that you store config.cson, init.coffee, keymap.cson, snippets.cson, and styles.less in your dotfiles. T
