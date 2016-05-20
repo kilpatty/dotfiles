@@ -30,7 +30,6 @@ brew install gnu-sed --with-default-names
 # running `chsh`.
 brew install bash
 brew tap homebrew/versions
-brew tap zzrotdesign/tap
 brew install bash-completion2
 
 # Install `wget` with IRI support.
@@ -70,8 +69,7 @@ brew install webkit2png
 brew install zopfli
 
 #Install docker tools
-brew install docker
-brew install docker-compose
+brew install docker-clean
 
 # Remove outdated versions from the cellar.
 brew cleanup
