@@ -125,6 +125,9 @@
 	changed = green
 	untracked = cyan
 
+[commit]
+	gpgsign = true
+
 [diff]
 
 	# Detect copies as well as renames
@@ -174,3 +177,11 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+
+[user]
+	name = Sean Kilgarriff
+	email = seanpkilgarriff@gmail.com
+	signingkey = F79768BC
+
+[gpg]
+	program = gpg2
