@@ -12,7 +12,6 @@
       "solarized-dark-syntax"
     ]
   editor:
-    fontSize: 10
     invisibles: {}
     softWrapAtPreferredLineLength: true
   emmet: {}
