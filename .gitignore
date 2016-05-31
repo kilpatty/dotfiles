@@ -21,4 +21,11 @@ atom.symlink/blob-store
 atom.symlink/compile-cache/
 atom.symlink/packages
 atom.symlink/storage
-atom.symlink/themes 
+atom.symlink/themes
+
+#GPG things we don't want online
+gnupg.symlink/pubring.gpg*
+gnupg.symlink/secring.gpg*
+gnupg.symlink/trustdb.gpg*
+gnupg.symlink/random_seed*
+gnupg.symlink/private-keys-v1.d*
