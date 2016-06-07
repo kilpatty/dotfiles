@@ -27,6 +27,8 @@
   "linter-htmlhint": {}
   "linter-scss-lint": {}
   "linter-shellcheck": {}
+  "linter-stylelint":
+    useStandard: true
   "linter-tidy": {}
   "markdown-preview-plus": {}
   "one-light-ui": {}
