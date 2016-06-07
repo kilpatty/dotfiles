@@ -187,3 +187,5 @@
 
 [gpg]
 	program = gpg2
+[credential]
+	helper = osxkeychain
