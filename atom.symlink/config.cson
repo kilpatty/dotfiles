@@ -1,4 +1,6 @@
 "*":
+  autosave:
+    enabled: true
   core:
     disabledPackages: [
       "jslint"
@@ -14,7 +16,9 @@
   editor:
     fontSize: 12
     invisibles: {}
+    showIndentGuide: true
     softWrapAtPreferredLineLength: true
+    tabLength: 4
   emmet: {}
   "exception-reporting":
     userId: "4569bb35-01de-b4e5-58e9-1be2df920467"
