@@ -49,8 +49,6 @@ brew install woff2
 
 # Install other useful binaries.
 brew install ack
-brew install dark-mode
-#brew install exiv2
 brew install git
 brew install git-lfs
 brew install imagemagick --with-webp
@@ -63,13 +61,15 @@ brew install rename
 brew install rhino
 brew install speedtest_cli
 brew install ssh-copy-id
+brew install shellcheck
 brew install testssl
 brew install tree
 brew install webkit2png
 brew install zopfli
 
-#Install docker tools
+#Install DevOps tools
 brew install docker-clean
+brew install rancher-compose
 
 # Remove outdated versions from the cellar.
 brew cleanup
