@@ -26,3 +26,6 @@ export LESS_TERMCAP_md="${yellow}";
 
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X';
+
+# Export Path of Kubernetes for Kubectl
+export PATH=/Users/Sean/kubernetes/platforms/darwin/amd64:$PATH
