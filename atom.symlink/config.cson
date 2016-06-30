@@ -6,6 +6,7 @@
       "jslint"
       "linter-htmlhint"
       "linter-scss-lint"
+      "git-plus"
     ]
     excludeVcsIgnoredPaths: false
     projectHome: "/Users/Sean/Developer"
@@ -28,6 +29,11 @@
   "imdone-atom-github":
     accessToken: "eeef29973243a9adcd0767c1f9a04494fac91650"
   linter: {}
+  "linter-flake8":
+    ignoreErrorCodes: [
+      "E501"
+      "F403"
+    ]
   "linter-htmlhint": {}
   "linter-scss-lint": {}
   "linter-shellcheck": {}
