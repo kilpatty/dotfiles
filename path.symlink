@@ -2,3 +2,6 @@ export PATH="/usr/local/bin:$PATH"
 
 #Export PATH for GOPATH bin
 export PATH=$PATH:$GOPATH/bin
+
+# Export Path of Kubernetes for Kubectl
+export PATH=/Users/Sean/kubernetes/platforms/darwin/amd64:$PATH
