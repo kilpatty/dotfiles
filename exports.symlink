@@ -29,3 +29,6 @@ export MANPAGER='less -X';
 
 # Export Path of Kubernetes for Kubectl
 export PATH=/Users/Sean/kubernetes/platforms/darwin/amd64:$PATH
+
+# Export Path of Go Work Directory
+export GOPATH=/Users/Sean/Developer/Go
