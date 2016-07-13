@@ -29,3 +29,4 @@ gnupg.symlink/secring.gpg*
 gnupg.symlink/trustdb.gpg*
 gnupg.symlink/random_seed*
 gnupg.symlink/private-keys-v1.d*
+gnupg.symlink/gpg-agent-info
