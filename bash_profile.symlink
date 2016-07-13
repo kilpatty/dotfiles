@@ -56,6 +56,7 @@ if [ -f ~/.gnupg/gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
     source ~/.gnupg/gpg-agent-info
 else
     eval $(gpg-agent --daemon --enable-ssh-support --write-env-file ~/.gnupg/gpg-agent-info)
+	ssh-add
 fi
 export GPG_AGENT_INFO
 export SSH_AUTH_SOCK
