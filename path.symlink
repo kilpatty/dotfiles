@@ -1,5 +1,8 @@
 export PATH="/usr/local/bin:$PATH"
 
+# Export Path of Go Work Directory
+export GOPATH=/Users/Sean/Developer/Go
+
 #Export PATH for GOPATH bin
 export PATH=$PATH:$GOPATH/bin
 
