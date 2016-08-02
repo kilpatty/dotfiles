@@ -2,11 +2,23 @@
   autosave:
     enabled: true
   core:
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+      ]
+      "source.json": [
+        ".arcconfig"
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
     disabledPackages: [
       "jslint"
       "linter-htmlhint"
       "linter-scss-lint"
       "git-plus"
+      "tree-view"
     ]
     excludeVcsIgnoredPaths: false
     projectHome: "/Users/Sean/Developer"
@@ -23,6 +35,10 @@
   emmet: {}
   "exception-reporting":
     userId: "4569bb35-01de-b4e5-58e9-1be2df920467"
+  "file-watcher":
+    promptWhenFileHasChangedOnDisk: false
+  gofmt:
+    formatTool: "gofmt"
   "imdone-atom":
     openIn: {}
     todaysJournal: {}
@@ -41,9 +57,24 @@
     useStandard: true
   "linter-tidy": {}
   "markdown-preview-plus": {}
+  nuclide:
+    "nuclide-home":
+      showHome: false
   "one-light-ui": {}
   "quick-editor": {}
   "remote-edit": {}
   "tree-view": {}
   welcome:
     showOnStartup: false
+".ansi.text":
+  editor:
+    tabLength: 4
+".hack.html.text":
+  editor:
+    tabLength: 4
+".hackfragment.source":
+  editor:
+    tabLength: 4
+".hg-commit.text":
+  editor:
+    tabLength: 4
