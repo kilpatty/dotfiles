@@ -1,4 +1,16 @@
 "*":
+  "atom-material-ui":
+    colors:
+      genAccent: true
+      paintCursor: true
+    tabs:
+      compactTabs: true
+      noTabMinWidth: true
+    treeView:
+      compactList: true
+    ui:
+      panelContrast: true
+      panelShadows: true
   autosave:
     enabled: true
   core:
@@ -18,13 +30,12 @@
       "linter-htmlhint"
       "linter-scss-lint"
       "git-plus"
-      "tree-view"
     ]
     excludeVcsIgnoredPaths: false
     projectHome: "/Users/Sean/Developer"
     themes: [
-      "one-dark-ui"
-      "solarized-dark-syntax"
+      "atom-material-ui"
+      "atom-material-syntax"
     ]
   editor:
     fontSize: 12
@@ -63,10 +74,14 @@
   "one-light-ui": {}
   "quick-editor": {}
   "remote-edit": {}
-  "tree-view": {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
 ".ansi.text":
+  editor:
+    tabLength: 4
+".dockerfile.source":
   editor:
     tabLength: 4
 ".hack.html.text":
