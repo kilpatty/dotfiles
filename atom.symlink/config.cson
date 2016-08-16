@@ -48,8 +48,7 @@
     userId: "4569bb35-01de-b4e5-58e9-1be2df920467"
   "file-watcher":
     promptWhenFileHasChangedOnDisk: false
-  gofmt:
-    formatTool: "gofmt"
+  gofmt: {}
   "imdone-atom":
     openIn: {}
     todaysJournal: {}
