@@ -51,11 +51,24 @@ source <(kubectl completion bash)
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
-# Setup for Gpg-agent automatically
-if [ -f ~/.gpg/gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
-    source ~/.gpg/gpg-agent-info
+# gpg-agent setup
+function _start_gpg_agent {
+  gpg-agent --daemon --enable-ssh-support \
+  --write-env-file "${HOME}/.gpg-agent-info" > /dev/null 2>&1
+  . "${HOME}/.gpg-agent-info"
+}
+
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+  . "${HOME}/.gpg-agent-info"
+
+  if $(! kill -0 ${SSH_AGENT_PID} > /dev/null 2>&1); then
+    # gpg-agent not running, restarting
+    _start_gpg_agent;
+  fi
+  export GPG_AGENT_INFO
+  export SSH_AUTH_SOCK
+  export SSH_AGENT_PID
 else
-    eval $(gpg-agent --daemon --enable-ssh-support)
+  _start_gpg_agent
 fi
-export GPG_AGENT_INFO
-export SSH_AUTH_SOCK
+export GPG_TTY=$(tty)
