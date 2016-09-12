@@ -1,7 +1,7 @@
 [alias]
 
 	aa = add --all
-	
+
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
@@ -61,6 +61,8 @@
 
 	# List contributors with number of commits
 	contributors = shortlog --summary --numbered
+
+    stash-unapply = "!git stash show -p | git apply -R"
 
 	# Merge GitHub pull request on top of the current branch or,
 	# if a branch name is specified, on top of the specified branch
