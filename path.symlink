@@ -8,3 +8,6 @@ export PATH=$PATH:$GOPATH/bin
 
 # Export Path of Kubernetes for Kubectl
 export PATH=/Users/Sean/kubernetes/platforms/darwin/amd64:$PATH
+
+# Export Path of Yarn
+export PATH=$HOME/.yarn/bin:$PATH
