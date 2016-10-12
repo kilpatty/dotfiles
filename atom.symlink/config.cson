@@ -1,4 +1,8 @@
 "*":
+  _dartlang:
+    _errorsInitialized: true
+    _firstRun: true
+    _version: "0.6.39"
   "atom-material-ui":
     colors:
       genAccent: true
@@ -11,12 +15,18 @@
     ui:
       panelContrast: true
       panelShadows: true
+  "atom-toolbar":
+    visible: false
+  "autocomplete-plus":
+    autoActivationDelay: 500
   autosave:
     enabled: true
   core:
     customFileTypes:
       "source.ini": [
         ".buckconfig"
+        ".hgrc"
+        ".flowconfig"
       ]
       "source.json": [
         ".arcconfig"
@@ -30,14 +40,20 @@
       "linter-htmlhint"
       "linter-scss-lint"
       "git-plus"
+      "linter-js-standard"
+      "language-babel"
+      "linter"
     ]
     excludeVcsIgnoredPaths: false
+    followSymlinks: false
     projectHome: "/Users/Sean/Developer"
+    telemetryConsent: "no"
     themes: [
       "atom-material-ui"
       "atom-material-syntax"
     ]
   editor:
+    backUpBeforeSaving: true
     fontSize: 12
     invisibles: {}
     showIndentGuide: true
@@ -46,21 +62,28 @@
   emmet: {}
   "exception-reporting":
     userId: "4569bb35-01de-b4e5-58e9-1be2df920467"
-  "file-watcher":
-    promptWhenFileHasChangedOnDisk: false
-  gofmt: {}
+  gofmt:
+    formatTool: "gofmt"
+  "gometalinter-linter": {}
   "imdone-atom":
     openIn: {}
     todaysJournal: {}
   "imdone-atom-github":
     accessToken: "eeef29973243a9adcd0767c1f9a04494fac91650"
-  linter: {}
+  linter:
+    displayLinterInfo: false
+    showErrorPanel: false
+  "linter-eslint":
+    disableWhenNoEslintConfig: false
+    fixOnSave: true
   "linter-flake8":
     ignoreErrorCodes: [
       "E501"
       "F403"
     ]
   "linter-htmlhint": {}
+  "linter-js-standard":
+    honorStyleSettings: false
   "linter-scss-lint": {}
   "linter-shellcheck": {}
   "linter-stylelint":
@@ -68,16 +91,40 @@
   "linter-tidy": {}
   "markdown-preview-plus": {}
   nuclide:
+    installRecommendedPackages: true
+    "nuclide-code-format": {}
+    "nuclide-flow":
+      enableStructuredTypeHints: true
     "nuclide-home":
       showHome: false
+    use:
+      "nuclide-file-tree": false
+      "nuclide-side-bar": false
   "one-light-ui": {}
   "quick-editor": {}
   "remote-edit": {}
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    syncHorizontalScroll: true
+  "standard-formatter":
+    formatOnSave: true
+    honorPackageConfig: false
+  "tester-go":
+    runCoverageOnSave: true
   "tree-view":
     hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
 ".ansi.text":
+  editor:
+    tabLength: 4
+".coffee.jsx.source":
+  editor:
+    tabLength: 4
+".dart.source":
   editor:
     tabLength: 4
 ".dockerfile.source":
@@ -90,5 +137,17 @@
   editor:
     tabLength: 4
 ".hg-commit.text":
+  editor:
+    tabLength: 4
+".js.jsx.source":
+  editor:
+    tabLength: 4
+".source.ts":
+  editor:
+    tabLength: 4
+".source.tsx":
+  editor:
+    tabLength: 4
+".source.yaml-ext":
   editor:
     tabLength: 4
