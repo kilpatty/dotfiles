@@ -22,43 +22,10 @@
 
 // style the background and foreground colors on the atom-text-editor-element itself
 atom-text-editor {
-  // color: white;
-  // background-color: hsl(180, 24%, 12%);
+  font-family: 'Operator Mono';
 }
 
 // To style other content in the text editor's shadow DOM, use the ::shadow expression
 atom-text-editor::shadow .cursor {
   // border-color: red;
-}
-
-atom-text-editor {
-  font-family: 'Fira Code';
-  font-style: normal;
-  text-rendering: optimizeLegibility;
-}
-atom-text-editor::shadow {
-  .string.quoted,
-  .string.regexp {
-    -webkit-font-feature-settings: "liga" off, "calt" off;
-  }
-  .source.js.jsx > .keyword.control.flow.js,
-  .storage, .type .function {
-    vertical-align: baseline;
-    font-family: 'flottflott';
-    height: inherit;
-    font-size: 1.5em;
-    line-height: 1rem;
-  }
-  .source.js.jsx,
-  .storage.type.function.arrow.js,
-  .variable {
-    font-family: 'Fira Code';
-    font-style: normal;
-  }
-  .string.unquoted.js {
-    color: #CDD3DE;
-  }
-  .entity.name {
-    font-weight: bold;
-  }
 }
