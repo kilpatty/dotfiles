@@ -39,8 +39,6 @@
       "jslint"
       "linter-htmlhint"
       "linter-scss-lint"
-      "git-plus"
-      "linter-js-standard"
       "language-babel"
       "linter"
     ]
