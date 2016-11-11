@@ -12,8 +12,7 @@ alias s="cd ~/Sites"
 alias dg="cd ~/Google\ Drive"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias sezzle="cd ~/Developer/Sezzle"
-alias sezzlego="cd ~/Developer/Go/src/sezzle"
+alias sean="cd ~/Sites/Sean\ Kilgarriff/www"
 
 #GPG Alias
 alias gpg="gpg2"
