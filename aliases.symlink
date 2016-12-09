@@ -12,7 +12,7 @@ alias s="cd ~/Sites"
 alias dg="cd ~/Google\ Drive"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias sean="cd ~/Sites/Sean\ Kilgarriff/www"
+alias sean="cd ~/Developer/MyWebsites"
 
 #GPG Alias
 alias gpg="gpg2"
