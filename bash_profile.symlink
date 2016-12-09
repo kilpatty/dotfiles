@@ -60,12 +60,6 @@ function _start_gpg_agent {
 
 if [ -f "${HOME}/.gpg-agent-info" ]; then
   . "${HOME}/.gpg-agent-info"
-
-  if $(! kill -0 ${SSH_AGENT_PID} > /dev/null 2>&1); then
-    # gpg-agent not running, restarting
-    echo "this didn't work"
-    _start_gpg_agent;
-  fi
   export GPG_AGENT_INFO
 else
   _start_gpg_agent
