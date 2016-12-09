@@ -8,7 +8,6 @@ alias -- -="cd -"
 
 # Shortcuts
 alias dv="cd ~/Developer"
-alias s="cd ~/Sites"
 alias dg="cd ~/Google\ Drive"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
