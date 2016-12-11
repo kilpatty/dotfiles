@@ -1,4 +1,4 @@
-# Make vim the default editor.
+# Make nano the default editor.
 export EDITOR='nano';
 
 # Enable persistent REPL history for `node`.
