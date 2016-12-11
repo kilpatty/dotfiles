@@ -12,6 +12,7 @@ alias dg="cd ~/Google\ Drive"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias sean="cd ~/Developer/MyWebsites"
+alias dot="cd ~/dotfiles"
 
 #GPG Alias
 alias gpg="gpg2"
