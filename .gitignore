@@ -14,14 +14,13 @@ Thumbs.db
 .Trashes
 
 #Unnecessary Atom Files
-atom.symlink/.apm
-atom.symlink/.node-gyp
-atom.symlink/.storage
-atom.symlink/blob-store
-atom.symlink/compile-cache/
-atom.symlink/packages
-atom.symlink/storage
-atom.symlink/themes
+atom.symlink/*
+!atom.symlink/config.cson
+!atom.symlink/init.coffee
+!atom.symlink/keymap.cson
+!atom.symlink/snippets.cson
+!atom.symlink/styles.less
+
 
 #GPG things we don't want online
 gnupg.symlink/pubring.gpg*
