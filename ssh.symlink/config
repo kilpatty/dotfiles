@@ -1,3 +1,7 @@
 Host *
     IdentityFile ~/.ssh/id_rsa
     AddKeysToAgent yes
+
+Host me
+    HostName 198.211.104.26
+    User sean
