@@ -34,7 +34,7 @@ These dotfiles also use a slightly modified version of [Mathias Bynens' macOS de
 
 ##how to contribute
 
-#inspiration
+##Inspiration
 
 ## License
 

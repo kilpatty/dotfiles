@@ -31,6 +31,7 @@ brew 'glide'
 brew 'gnu-sed', args: ['with-default-names']
 brew 'gpg-agent'
 brew 'gnupg2'
+brew 'mas'
 brew 'openssl'
 brew 'sqlite'
 brew 'python3'
