@@ -30,11 +30,31 @@ These dotfiles also use a slightly modified version of [Mathias Bynens' macOS de
 ```
 
 
-##
+##The Specs
 
-##how to contribute
+These dotfiles are for the following software and programs:
+
+*[MacOS](http://www.apple.com/macos/sierra/)
+*[Bash](https://www.gnu.org/software/bash/)
+*[Atom](https://atom.io/)
+*[Hyper](https://github.com/zeit/hyper)
+*[Homebrew](http://brew.sh/)
+*[GPG Tools](https://gpgtools.org/)
+*[SSH](http://man.openbsd.org/OpenBSD-current/man1/ssh.1)
+
+##Contributing
+
+I'm always open to contributions or suggestions! If you think something should be changed, added, or removed - make a pull request!
 
 ##Inspiration
+
+These dotfiles have arisen due to a large amount of inspiration and borrowing from many sources. Here are some of the sources of Inspiration used most:
+
+*[Mathias Bynes](https://github.com/mathiasbynens/dotfiles)
+*[Zach Holman](https://github.com/holman/dotfiles)
+*[Nick Plekhanov](https://github.com/nicksp/dotfiles)
+*[Github Does Dotfiles](https://dotfiles.github.io/)
+
 
 ## License
 
