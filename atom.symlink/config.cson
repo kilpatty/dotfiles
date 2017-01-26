@@ -93,6 +93,8 @@
     "nuclide-code-format": {}
     "nuclide-flow":
       enableStructuredTypeHints: true
+    "nuclide-health":
+      toolbarJewel: "None"
     "nuclide-home":
       showHome: false
     use:
