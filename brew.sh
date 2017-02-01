@@ -12,8 +12,6 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
-brew cask update
-
 # Run Homebrew through the Brewfile
 echo "› brew bundle"
 brew bundle
