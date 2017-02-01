@@ -2,6 +2,10 @@
 
 #this just installs Brew now, and then makes sure that the brew install bashed shell is defaulted.
 
+if ! which brew; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
+fi;
+
 # Make sure we’re using the latest Homebrew.
 brew update
 
