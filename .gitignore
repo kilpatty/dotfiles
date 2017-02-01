@@ -20,6 +20,7 @@ atom.symlink/*
 !atom.symlink/keymap.cson
 !atom.symlink/snippets.cson
 !atom.symlink/styles.less
+!atom.symlink/packages.cson
 
 
 #GPG things we don't want online
