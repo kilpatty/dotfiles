@@ -56,7 +56,6 @@ brew 'homebrew/dupes/screen'
 brew 'homebrew/versions/bash-completion2'
 
 #Casks
-cask 'hyper'
 cask 'atom'
 cask 'google-chrome'
 cask 'slack'
@@ -66,3 +65,4 @@ cask 'spotify'
 cask 'evernote'
 cask 'flux'
 cask 'google-drive'
+cask 'iterm2'
