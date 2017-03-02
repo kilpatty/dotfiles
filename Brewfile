@@ -48,7 +48,7 @@ brew 'ssh-copy-id'
 brew 'vim', args: ['with-override-system-vi']
 brew 'wget', args: ['with-iri']
 brew 'yarn'
-
+brew 'tmux'
 
 brew 'homebrew/dupes/grep'
 brew 'homebrew/dupes/openssh'
