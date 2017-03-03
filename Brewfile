@@ -9,6 +9,9 @@ tap 'homebrew/dupes'
 tap 'homebrew/services'
 tap 'homebrew/versions'
 
+# Install ZSH for my shell
+brew 'zsh'
+brew 'zsh-completions'
 
 brew 'archey'
 brew 'awscli'
