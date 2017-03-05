@@ -1,26 +1,10 @@
-# Compiled Python files
-*.pyc
-
 # Folder view configuration files
 .DS_Store
 Desktop.ini
 
-# Thumbnail cache files
-._*
-Thumbs.db
-
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
-
-#Unnecessary Atom Files
-atom.symlink/*
-!atom.symlink/config.cson
-!atom.symlink/init.coffee
-!atom.symlink/keymap.cson
-!atom.symlink/snippets.cson
-!atom.symlink/styles.less
-!atom.symlink/packages.cson
 
 
 #GPG things we don't want online
