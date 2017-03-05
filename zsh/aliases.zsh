@@ -15,6 +15,8 @@ alias dt="cd ~/Desktop"
 alias sean="cd ~/Developer/MyWebsites"
 alias dot="cd ~/dotfiles"
 
+alias v="code ."
+
 #GPG Alias
 alias gpg="gpg2"
 
