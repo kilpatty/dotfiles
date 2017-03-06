@@ -161,6 +161,13 @@
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
 
+[fetch]
+
+    prune = true
+
+[include]
+        path = ~/.gitconfig.local
+
 # URL shorthands
 
 [url "git@github.com:"]
@@ -183,12 +190,5 @@
 
 	insteadOf = "gist:"
 
-[user]
-	name = Sean Kilgarriff
-	email = seanpkilgarriff@gmail.com
-	signingkey = F79768BC
-
 [gpg]
 	program = gpg2
-[credential]
-	helper = osxkeychain
