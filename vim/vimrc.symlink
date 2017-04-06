@@ -2,3 +2,10 @@ syntax on
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
+
+"Declare directory for plugins
+call plug#begin('~/.vim/plugged')
+
+
+" Initialize plugin system
+call plug#end()
