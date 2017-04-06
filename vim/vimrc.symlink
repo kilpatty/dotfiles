@@ -3,9 +3,14 @@ syntax on
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
 
+"Set hybrid mode for line numbers
+set relativenumber 
+set number
+
 "Declare directory for plugins
 call plug#begin('~/.vim/plugged')
 
+Plug 'fatih/vim-go'
 
 " Initialize plugin system
 call plug#end()
