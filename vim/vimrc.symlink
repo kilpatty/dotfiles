@@ -7,6 +7,9 @@ filetype indent plugin on
 set relativenumber 
 set number
 
+"Set autowrite mainly for :GoBuild and :make
+set autowrite
+
 "Declare directory for plugins
 call plug#begin('~/.vim/plugged')
 
