@@ -11,6 +11,7 @@ set number
 call plug#begin('~/.vim/plugged')
 
 Plug 'fatih/vim-go'
+Plug 'tpope/vim-dispatch'
 
 " Initialize plugin system
 call plug#end()
