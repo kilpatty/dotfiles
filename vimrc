@@ -13,6 +13,9 @@ set autowrite
 "Set a colored column for easier line breaks
 set colorcolumn=90
 
+"Remap the leader key to space
+let mapleader=" "
+
 "Declare directory for plugins
 call plug#begin('~/.vim/plugged')
 
