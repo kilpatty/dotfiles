@@ -16,6 +16,35 @@ set colorcolumn=90
 "Remap the leader key to space
 let mapleader=" "
 
+set timeoutlen=1000 ttimeoutlen=0
+
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+"if exists('$ITERM_PROFILE')
+"  if exists('$TMUX')
+"    let &t_SI = "\<Esc>[3 q"
+"    let &t_EI = "\<Esc>[0 q"
+"  else
+"    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+"  endif
+"end
+
+"
+"inoremap <special> <Esc> <Esc>hl
+
+"if exists('$TMUX')
+"  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+ "   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+ "   else
+"	      let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"	        let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+"	endif
+	":autocmd InsertEnter * set cul
+	":autocmd InsertLeave * set nocul
+set guicursor+=i:blinkwait0
 "Declare directory for plugins
 call plug#begin('~/.vim/plugged')
 
@@ -24,3 +53,8 @@ Plug 'tpope/vim-dispatch'
 
 " Initialize plugin system
 call plug#end()
+
+"Go-VIM Customization
+"
+"Swap Go FMT with GoImports
+let g:go_fmt_command = "goimports"

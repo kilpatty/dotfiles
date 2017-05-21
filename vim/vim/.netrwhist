@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/seankilgarriff/Developer/Leadpages/lp-jenkins-config/.git'
+let g:netrw_dirhist_2='/Users/seankilgarriff/Developer/Go/src/github.com/Leadpages/textus/ci'
+let g:netrw_dirhist_3='/Users/seankilgarriff/Developer/Go/src/github.com/Leadpages/slack-cleaner/vendor'
+let g:netrw_dirhist_4='/Users/seankilgarriff/Developer/Go/src/github.com/Leadpages/slack-cleaner/vendor/golang.org'
+let g:netrw_dirhist_5='/Users/seankilgarriff/Developer/Leadpages/lp-jenkins-workflows'

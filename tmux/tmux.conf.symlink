@@ -22,3 +22,4 @@ set -g status-justify left
 setw -g window-status-format         ' #(echo "#{pane_current_command}") '
 setw -g window-status-current-format ' #(echo "#{pane_current_command}") '
 set -g status-right " "
+set -sg escape-time 0
