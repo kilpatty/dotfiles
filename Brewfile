@@ -15,14 +15,12 @@ brew 'zsh-completions'
 
 brew 'archey'
 brew 'awscli'
-brew 'bash'
 brew 'gcc'
 brew 'p7zip'
 brew 'coreutils'
 brew 'git'
 brew 'docker'
 brew 'docker-clean'
-brew 'docker-machine'
 brew 'libyaml'
 brew 'docker-compose'
 brew 'findutils'
@@ -53,10 +51,9 @@ brew 'wget', args: ['with-iri']
 brew 'yarn'
 brew 'tmux'
 
-brew 'homebrew/dupes/grep'
-brew 'homebrew/dupes/openssh'
-brew 'homebrew/dupes/screen'
-brew 'homebrew/versions/bash-completion2'
+brew 'grep'
+brew 'openssh'
+brew 'screen'
 
 #Casks
 cask 'atom'
