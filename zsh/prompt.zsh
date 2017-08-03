@@ -22,6 +22,15 @@
 # \e8   => restore cursor position
 # \e[K  => clears everything after the cursor on the current line
 # \e[2K => clear everything on the current line
+# u - the current user's username
+#h - the current machine's hostname
+# j - the number of jobs managed by this shell
+# @ - the current time (12 hour format)
+# d - the current date
+# w - path of the current working directory
+# W - just the current working directory
+# e - an ASCII escape character (033)
+# n - adds a newline character
 
 
 # turns seconds into human readable time
@@ -116,15 +125,15 @@ prompt_pure_preprompt_render() {
 	[[ -n ${prompt_pure_cmd_timestamp+x} && "$1" != "precmd" ]] && return
 
 	# set color for git branch/dirty status, change color if dirty checking has been delayed
-	local git_color=cyan
+	local git_color=10
 	[[ -n ${prompt_pure_git_last_dirty_check_timestamp+x} ]] && git_color=red
 
 	# construct preprompt, beginning with path
-	local preprompt="%F{blue}%~%f"
+	local preprompt="%F{13}%~%f"
 	# git info
 	preprompt+="%F{$git_color}${vcs_info_msg_0_}${prompt_pure_git_dirty}%f"
 	# git pull/push arrows
-	preprompt+="%F{cyan}${prompt_pure_git_arrows}%f"
+	preprompt+="%F{10}${prompt_pure_git_arrows}%f"
 	# username and machine if applicable
 	preprompt+=$prompt_pure_username
 	# execution time
@@ -430,7 +439,7 @@ prompt_pure_setup() {
 	[[ $UID -eq 0 ]] && prompt_pure_username=' %F{white}%n%f%F{242}@%m%f'
 
 	# prompt turns red if the previous command didn't exit with 0
-	PROMPT='%(?.%F{green}.%F{red})${PURE_PROMPT_SYMBOL:-❯}%f '
+	PROMPT='%F{11}${PURE_PROMPT_SYMBOL:-❯}%f '
 }
 
 prompt_pure_setup "$@"

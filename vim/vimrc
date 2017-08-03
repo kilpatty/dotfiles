@@ -13,6 +13,9 @@ set autowrite
 "Set a colored column for easier line breaks
 set colorcolumn=90
 
+"Use True Colors
+set termguicolors
+
 "Remap the leader key to space
 let mapleader=" "
 
@@ -50,11 +53,52 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'fatih/vim-go'
 Plug 'tpope/vim-dispatch'
+Plug 'maralla/completor.vim'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree'
+
+" Unmanaged plugin (manually installed and updated)
+Plug '~/Developer/10xprogrammer/tarsier-vim'
 
 " Initialize plugin system
 call plug#end()
+
+colors tarsier
 
 "Go-VIM Customization
 "
 "Swap Go FMT with GoImports
 let g:go_fmt_command = "goimports"
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+
+" Go-T
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+\ }
