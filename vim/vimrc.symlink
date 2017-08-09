@@ -16,6 +16,9 @@ set colorcolumn=90
 "Use True Colors
 set termguicolors
 
+"Allow go-vim to automatically create folds
+set foldmethod=syntax
+
 "Remap the leader key to space
 let mapleader=" "
 
@@ -69,6 +72,32 @@ colors tarsier
 "
 "Swap Go FMT with GoImports
 let g:go_fmt_command = "goimports"
+
+"Have all lists be quickfix
+let g:go_list_type = "quickfix"
+
+"Map quickfix list movements to better keybindings
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
+
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
