@@ -50,7 +50,7 @@ brew 'vim', args: ['with-override-system-vi']
 brew 'wget', args: ['with-iri']
 brew 'yarn'
 brew 'tmux'
-
+brew 'neovim'
 brew 'grep'
 brew 'openssh'
 brew 'screen'
