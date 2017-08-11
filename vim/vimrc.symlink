@@ -22,6 +22,16 @@ set foldmethod=syntax
 "Remap the leader key to space
 let mapleader=" "
 
+"Set split windows to how I like it.
+set splitbelow
+set splitright
+
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 set timeoutlen=1000 ttimeoutlen=0
 
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -59,6 +69,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'maralla/completor.vim'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-commentary'
 
 " Unmanaged plugin (manually installed and updated)
 Plug '~/Developer/10xprogrammer/tarsier-vim'
