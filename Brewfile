@@ -54,6 +54,7 @@ brew 'neovim'
 brew 'grep'
 brew 'openssh'
 brew 'screen'
+brew 'cockroach'
 
 #Casks
 cask 'atom'
