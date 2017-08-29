@@ -55,6 +55,7 @@ brew 'grep'
 brew 'openssh'
 brew 'screen'
 brew 'cockroach'
+brew 'dep'
 
 #Casks
 cask 'atom'
