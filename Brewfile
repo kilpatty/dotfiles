@@ -56,6 +56,7 @@ brew 'openssh'
 brew 'screen'
 brew 'cockroach'
 brew 'dep'
+brew 'fzf'
 
 #Casks
 cask 'atom'
