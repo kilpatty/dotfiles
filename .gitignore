@@ -21,3 +21,6 @@ ssh.symlink/*
 
 #Don't commit local gitconfig
 git/gitconfig.local.symlink
+
+#Don't commit vim plugged
+vim/vim.symlink/plugged
