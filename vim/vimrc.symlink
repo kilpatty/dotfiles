@@ -71,6 +71,11 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'w0rp/ale'
+Plug 'vim-airline/vim-airline'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'dracula/vim'
 
 " Unmanaged plugin (manually installed and updated)
 Plug '~/Developer/10xprogrammer/tarsier-vim'
@@ -78,7 +83,7 @@ Plug '~/Developer/10xprogrammer/tarsier-vim'
 " Initialize plugin system
 call plug#end()
 
-colors tarsier
+colorscheme dracula
 
 "Go-VIM Customization
 "
@@ -143,3 +148,20 @@ let g:tagbar_type_go = {
 	\ 'ctagsbin'  : 'gotags',
 	\ 'ctagsargs' : '-sort -silent'
 \ }
+
+" Plugins {
+" 	ALE {
+		" Put this in vimrc or a plugin file of your own.
+		" After this is configured, :ALEFix will try and fix your JS code with ESLint.
+		let g:ale_fixers = {
+		\	'javascript': ['eslint'],
+		\}
+
+		" Set this setting in vimrc if you want to fix files automatically on save.
+		" This is off by default.
+		let g:ale_fix_on_save = 1
+" 	}
+" 	Airline {
+		let g:airline#extensions#ale#enabled = 1
+" 	}
+" }
