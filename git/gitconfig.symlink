@@ -130,7 +130,7 @@
 	untracked = cyan
 
 [commit]
-	gpgsign = true
+	#gpgsign = true
     template = ~/.gitmessage
 
 [diff]

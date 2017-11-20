@@ -1,0 +1,167 @@
+syntax on
+
+" Wrap gitcommit file types at the appropriate length
+filetype indent plugin on
+
+"Set hybrid mode for line numbers
+set relativenumber 
+set number
+
+"Set autowrite mainly for :GoBuild and :make
+set autowrite
+
+"Set a colored column for easier line breaks
+set colorcolumn=90
+
+"Use True Colors
+set termguicolors
+
+"Allow go-vim to automatically create folds
+set foldmethod=syntax
+
+"Remap the leader key to space
+let mapleader=" "
+
+"Set split windows to how I like it.
+set splitbelow
+set splitright
+
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set timeoutlen=1000 ttimeoutlen=0
+
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+"if exists('$ITERM_PROFILE')
+"  if exists('$TMUX')
+"    let &t_SI = "\<Esc>[3 q"
+"    let &t_EI = "\<Esc>[0 q"
+"  else
+"    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+"  endif
+"end
+
+"
+"inoremap <special> <Esc> <Esc>hl
+
+"if exists('$TMUX')
+"  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+ "   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+ "   else
+"	      let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"	        let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+"	endif
+	":autocmd InsertEnter * set cul
+	":autocmd InsertLeave * set nocul
+set guicursor+=i:blinkwait0
+"Declare directory for plugins
+call plug#begin('~/.vim/plugged')
+
+Plug 'fatih/vim-go'
+Plug 'tpope/vim-dispatch'
+Plug 'maralla/completor.vim'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-commentary'
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'w0rp/ale'
+Plug 'vim-airline/vim-airline'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'dracula/vim'
+
+" Unmanaged plugin (manually installed and updated)
+Plug '~/Developer/10xprogrammer/tarsier-vim'
+
+" Initialize plugin system
+call plug#end()
+
+colorscheme dracula
+
+"Go-VIM Customization
+"
+"Swap Go FMT with GoImports
+let g:go_fmt_command = "goimports"
+
+"Have all lists be quickfix
+let g:go_list_type = "quickfix"
+
+"Map quickfix list movements to better keybindings
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
+
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+
+" Go-T
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+\ }
+
+" Plugins {
+" 	ALE {
+		" Put this in vimrc or a plugin file of your own.
+		" After this is configured, :ALEFix will try and fix your JS code with ESLint.
+		let g:ale_fixers = {
+		\	'javascript': ['eslint'],
+		\}
+
+		" Set this setting in vimrc if you want to fix files automatically on save.
+		" This is off by default.
+		let g:ale_fix_on_save = 1
+" 	}
+" 	Airline {
+		let g:airline#extensions#ale#enabled = 1
+" 	}
+" }
