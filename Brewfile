@@ -57,6 +57,7 @@ brew 'screen'
 brew 'cockroach'
 brew 'dep'
 brew 'fzf'
+brew 'geckodriver'
 
 #Casks
 cask 'atom'
