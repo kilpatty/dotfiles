@@ -81,6 +81,7 @@ Plug 'tpope/vim-surround'
 Plug 'elzr/vim-json'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tomlion/vim-solidity'
+Plug 'tpope/vim-fugitive'
 
 " Unmanaged plugin (manually installed and updated)
 Plug '~/Developer/10xprogrammer/tarsier-vim'
