@@ -75,7 +75,13 @@ Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'mattn/emmet-vim'
 Plug 'dracula/vim'
+Plug 'tpope/vim-surround'
+Plug 'elzr/vim-json'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tomlion/vim-solidity'
+Plug 'tpope/vim-fugitive'
 
 " Unmanaged plugin (manually installed and updated)
 Plug '~/Developer/10xprogrammer/tarsier-vim'
@@ -153,15 +159,31 @@ let g:tagbar_type_go = {
 " 	ALE {
 		" Put this in vimrc or a plugin file of your own.
 		" After this is configured, :ALEFix will try and fix your JS code with ESLint.
+		let g:ale_linters = {
+		\	'go': [''],
+		\}
 		let g:ale_fixers = {
-		\	'javascript': ['eslint'],
+		\	'javascript': ['eslint'], 
+		\	'python': ['yapf'],
+		\	'css': ['prettier'],
 		\}
 
 		" Set this setting in vimrc if you want to fix files automatically on save.
 		" This is off by default.
 		let g:ale_fix_on_save = 1
+		let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+		let g:ale_sign_warning = '.'
+		let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 " 	}
 " 	Airline {
 		let g:airline#extensions#ale#enabled = 1
 " 	}
+" 	Emmet {
+ 		let g:user_emmet_leader_key='<Tab>'
+		let g:user_emmet_settings = {
+		  \  'javascript' : {
+		    \      'extends' : 'jsx',
+		    \  },
+		  \}
+"		}
 " }

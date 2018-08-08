@@ -24,3 +24,4 @@ git/gitconfig.local.symlink
 
 #Don't commit vim plugged
 vim/vim.symlink/plugged
+vim/vim.symlink/autoload/plug.vim.old

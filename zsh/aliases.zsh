@@ -14,6 +14,7 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias sean="cd ~/Developer/MyWebsites"
 alias dot="cd ~/dotfiles"
+alias dgo="cd ~/Developer/Go/src/github.com/Decarium"
 
 alias v="code ."
 
