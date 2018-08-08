@@ -58,6 +58,8 @@ brew 'cockroach'
 brew 'dep'
 brew 'fzf'
 brew 'geckodriver'
+brew 'chromedriver'
+brew 'brotli'
 
 #Casks
 cask 'atom'
@@ -73,3 +75,4 @@ cask 'iterm2'
 cask 'ubersicht'
 cask 'sqlitebrowser'
 cask 'telegram'
+cask 'xquartz'
