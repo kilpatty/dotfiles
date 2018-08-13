@@ -60,6 +60,7 @@ brew 'fzf'
 brew 'geckodriver'
 brew 'chromedriver'
 brew 'brotli'
+brew 'irssi'
 
 #Casks
 cask 'atom'
