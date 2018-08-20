@@ -62,6 +62,7 @@ brew 'chromedriver'
 brew 'brotli'
 brew 'irssi'
 brew 'swagger-codegen'
+brew 'hugo'
 
 #Casks
 cask 'atom'
