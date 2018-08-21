@@ -39,7 +39,6 @@ brew 'python3'
 brew 'mysql'
 brew 'lynis'
 brew 'moreutils'
-brew 'node'
 brew 'nvm'
 brew 'pinentry-mac'
 brew 'python'
@@ -48,7 +47,7 @@ brew 'shellcheck'
 brew 'ssh-copy-id'
 brew 'vim', args: ['with-override-system-vi']
 brew 'wget', args: ['with-iri']
-brew 'yarn'
+brew 'yarn', args:['without-node']
 brew 'tmux'
 brew 'neovim'
 brew 'grep'
