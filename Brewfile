@@ -62,6 +62,7 @@ brew 'brotli'
 brew 'irssi'
 brew 'swagger-codegen'
 brew 'hugo'
+brew 'bat'
 
 #Casks
 cask 'atom'
