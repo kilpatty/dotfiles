@@ -92,3 +92,8 @@ fi
 #Searches for files using fzf and then gives a preview with bat
 alias search="fzf --preview 'bat --color \"always\" {}'"
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort'"
+
+#Changes top to much better htop. Needs sudo to access all services
+alias top="sudo htop"
+
+
