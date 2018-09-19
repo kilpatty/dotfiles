@@ -152,6 +152,10 @@
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
 
+[pager]
+       diff = diff-so-fancy | less --tabs=1,5 -RFX
+       show = diff-so-fancy | less --tabs=1,5 -RFX
+
 [push]
 
 	# Use the Git 1.x.x default to avoid errors on machines with old Git
