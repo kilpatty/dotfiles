@@ -63,6 +63,7 @@ brew 'irssi'
 brew 'swagger-codegen'
 brew 'hugo'
 brew 'bat'
+brew 'htop'
 
 #Casks
 cask 'atom'
