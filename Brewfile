@@ -64,6 +64,7 @@ brew 'swagger-codegen'
 brew 'hugo'
 brew 'bat'
 brew 'htop'
+brew 'diff-so-fancy'
 
 #Casks
 cask 'atom'
