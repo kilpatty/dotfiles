@@ -88,3 +88,7 @@ then
   alias ll="gls -l --color"
   alias la='gls -A --color'
 fi
+
+#Searches for files using fzf and then gives a preview with bat
+alias search="fzf --preview 'bat --color \"always\" {}'"
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort'"
