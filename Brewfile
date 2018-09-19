@@ -65,6 +65,7 @@ brew 'hugo'
 brew 'bat'
 brew 'htop'
 brew 'diff-so-fancy'
+brew 'ncdu'
 
 #Casks
 cask 'atom'

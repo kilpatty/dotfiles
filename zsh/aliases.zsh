@@ -96,4 +96,7 @@ export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort'"
 #Changes top to much better htop. Needs sudo to access all services
 alias top="sudo htop"
 
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+
+
 
