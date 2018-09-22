@@ -1,0 +1,3 @@
+#Make sure this path comes last............
+#
+#Probably manually update it in the zsh file that loads all paths.
