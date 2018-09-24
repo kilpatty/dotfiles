@@ -67,6 +67,8 @@ brew 'htop'
 brew 'diff-so-fancy'
 brew 'ncdu'
 brew 'ack'
+brew 'rbenv'
+brew 'pyenv'
 
 #Casks
 cask 'atom'
