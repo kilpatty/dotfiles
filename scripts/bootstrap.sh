@@ -160,4 +160,4 @@ install_configs() {
 
 setup_gitconfig
 install_symlinks
-# install_configs
+install_configs
