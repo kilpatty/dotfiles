@@ -10,29 +10,23 @@ tap 'homebrew/services'
 tap 'homebrew/versions'
 
 brew 'ack'
-brew 'archey'
-brew 'awscli'
 brew 'bat'
 brew 'brotli'
 brew 'chromedriver'
-brew 'cockroach'
 brew 'coreutils'
 brew 'dep'
 brew 'diff-so-fancy'
 brew 'findutils'
-brew 'flow'
 brew 'fzf'
 brew 'gcc'
 brew 'geckodriver'
 brew 'git'
 brew 'git-flow'
 brew 'git-lfs'
-brew 'glide'
 brew 'gnu-sed', args: ['with-default-names']
 brew 'gnupg2'
 brew 'go'
 brew 'gpg-agent'
-brew 'grep'
 brew 'htop'
 brew 'hugo'
 brew 'irssi'
@@ -46,9 +40,7 @@ brew 'neovim'
 brew 'nvm'
 brew 'openssh'
 brew 'openssl'
-brew 'p7zip'
 brew 'pinentry-mac'
-brew 'postgresql'
 brew 'pyenv'
 brew 'rbenv'
 brew 'screen'
@@ -57,24 +49,37 @@ brew 'sqlite'
 brew 'ssh-copy-id'
 brew 'swagger-codegen'
 brew 'tmux'
-brew 'vim', args: ['with-override-system-vi']
 brew 'wget', args: ['with-iri']
-brew 'yarn', args:['without-node']
 brew 'zsh'
 brew 'zsh-completions'
+brew "upx"
+brew "tor"
+brew "zstd"
+brew "ethereum/ethereum/ethereum"
 
 #Casks
-cask 'atom'
-cask 'docker'
-cask 'google-chrome'
-cask 'slack'
-cask 'vlc'
 cask 'alfred'
-cask 'spotify'
+cask 'docker'
 cask 'flux'
+cask 'google-chrome'
 cask 'google-drive'
+cask 'java'
 cask 'iterm2'
-cask 'ubersicht'
-cask 'sqlitebrowser'
+cask 'slack'
+cask 'spotify'
 cask 'telegram'
-cask 'xquartz'
+cask 'ubersicht'
+
+#Mac Applications
+mas "Bear", id: 1091189122
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "LastPass", id: 926036361
+mas "Magnet", id: 441258766
+mas "Monit", id: 1014850245
+mas "Numbers", id: 409203825
+mas "Owly", id: 882812218
+mas "Pages", id: 409201541
+mas 'trello'
+mas "Xcode", id: 497799835
