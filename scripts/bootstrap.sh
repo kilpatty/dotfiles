@@ -4,6 +4,7 @@
 
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd -P)
+CONFIGS=".config"
 
 set -e
 
@@ -127,32 +128,36 @@ link_file () {
   fi
 }
 
-install_dotfiles () {
-  info 'installing dotfiles'
+
+
+#This function will install all files with .symlink attached to your home directory.
+install_symlinks() {
+  info 'Installing Symlinks...'
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 3 -name '*.symlink' -not -path '*.git*')
   do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
 }
 
+#This function will install all files with .config to your .config folder
+#For config files use https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
+install_configs() {
+  info 'Installing Configs...'
+
+  local overwrite_all=false backup_all=false skip_all=false
+
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 3 -name '*.config' -not -path '*.git*')
+  do
+    dst="$HOME/$CONFIGS/$(basename "${src%.*}")"
+    link_file "$src" "$dst"
+  done
+
+}
+
 setup_gitconfig
-install_dotfiles
-
-# If we're on a Mac, let's install and setup homebrew.
-if [ "$(uname -s)" == "Darwin" ]
-then
-  info "installing dependencies"
-  if source bin/dot > /tmp/dotfiles-dot 2>&1
-  then
-    success "dependencies installed"
-  else
-    fail "error installing dependencies"
-  fi
-fi
-
-echo ''
-echo '  All installed!'
+install_symlinks
+# install_configs
