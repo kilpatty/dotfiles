@@ -9,6 +9,7 @@ Desktop.ini
 
 #GPG things we don't want online
 gnupg.symlink/
+
 !gnupg.symlink/gpg*.conf
 
 #SSH things we don't want online
