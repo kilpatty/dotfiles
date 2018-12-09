@@ -8,7 +8,7 @@ Desktop.ini
 
 
 #GPG things we don't want online
-gnupg.symlink/
+gnupg.symlink/*
 
 !gnupg.symlink/gpg*.conf
 
