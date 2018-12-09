@@ -1,20 +1,15 @@
-#!/usr/bin/env zsh
+#!/bin/zsh
 
-# Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias -- -="cd -"
 
 # Shortcuts
 alias dv="cd ~/Developer"
-alias dg="cd ~/Google\ Drive"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias sean="cd ~/Developer/MyWebsites"
 alias dot="cd ~/dotfiles"
-alias dgo="cd ~/Developer/Go/src/github.com/Decarium"
 
 alias v="code ."
 
@@ -27,7 +22,6 @@ alias sudo='sudo '
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 alias update='./../scripts/updates.sh; sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; mas upgrade; npm install npm -g; npm update -g; go get -u all'
 
-
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
@@ -36,10 +30,6 @@ alias reload="exec $SHELL -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
-
-# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
-alias stfu="osascript -e 'set volume output muted true'"
-alias pumpitup="osascript -e 'set volume 7'"
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
@@ -56,9 +46,6 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 # Hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-# URL-encode strings
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
 # Merge PDF files
 # Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
@@ -98,6 +85,10 @@ export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort'"
 alias top="sudo htop"
 
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+
+alias develop="open -g /Applications/Docker.app; open -g /Applications/Karabiner-Elements.app;"
+
+alias wiki="vim ~/Documents/Sean/vimwiki/index.wiki"
 
 
 

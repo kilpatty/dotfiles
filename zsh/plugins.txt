@@ -1,0 +1,9 @@
+denysdovhan/spaceship-prompt
+lukechilds/zsh-nvm
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
+MichaelAquilina/zsh-you-should-use
+
+
+# Need to be last
+zsh-users/zsh-syntax-highlighting

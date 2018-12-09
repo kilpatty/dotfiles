@@ -1,8 +1,45 @@
-# shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/dotfiles
+#!/bin/zsh
 
-# your project folder that we can `c [tab]` to
-export PROJECTS=~/Developer
+zmodload zsh/zprof
+
+export DOTFILES=$HOME/dotfiles
+
+# all of our zsh files
+typeset -U config_files
+config_files=($DOTFILES/*/*.zsh)
+
+# load the path files
+for file in ${(M)config_files:#*/path.zsh}; do
+  source "$file"
+done
+
+#Load config right 
+NVM_AUTO_USE=true
+NVM_LAZY_LOAD=true
+
+# load antibody plugins
+source ~/.zsh_plugins.sh
+
+# load everything but the path and completion files
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
+  source "$file"
+done
+
+autoload -Uz compinit
+typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
+
+if [ $(date +'%j') != $updated_at ]; then
+  compinit -i
+else
+  compinit -C -i
+fi
+
+# load every completion after autocomplete loads
+for file in ${(M)config_files:#*/completion.zsh}; do
+  source "$file"
+done
+
+unset config_files updated_at
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -11,74 +48,3 @@ if [[ -a ~/.localrc ]]
 then
   source ~/.localrc
 fi
-
-#Set Vim mode for terminal entry
-bindkey -v
-
-#Test reducing key timeout for vim
-KEYTIMEOUT=1
-
-# all of our zsh files
-typeset -U config_files
-config_files=($ZSH/**/*.zsh)
-
-# load the path files
-for file in ${(M)config_files:#*/path.zsh}
-do
-  source $file
-done
-
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
-do
-  source $file
-done
-
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
-
-# load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}
-do
-  source $file
-done
-
-unset config_files
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Modal cursor color for vi's insert/normal modes.
-# http://stackoverflow.com/questions/30985436/
-# https://bbs.archlinux.org/viewtopic.php?id=95078
-# http://unix.stackexchange.com/questions/115009/
-zle-line-init () {
-  zle -K viins
-  #echo -ne "\033]12;Grey\007"
-  #echo -n 'grayline1'
-  echo -ne "\033]12;Gray\007"
-  echo -ne "\033[4 q"
-  #print 'did init' >/dev/pts/16
-}
-zle -N zle-line-init
-zle-keymap-select () {
-  if [[ $KEYMAP == vicmd ]]; then
-    if [[ -z $TMUX ]]; then
-      printf "\033]12;Green\007"
-      printf "\033[2 q"
-    else
-      printf "\033Ptmux;\033\033]12;red\007\033\\"
-      printf "\033Ptmux;\033\033[2 q\033\\"
-    fi
-  else
-    if [[ -z $TMUX ]]; then
-      printf "\033]12;Grey\007"
-      printf "\033[4 q"
-    else
-      printf "\033Ptmux;\033\033]12;grey\007\033\\"
-      printf "\033Ptmux;\033\033[4 q\033\\"
-    fi
-  fi
-  #print 'did select' >/dev/pts/16
-}
-zle -N zle-keymap-select
