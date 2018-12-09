@@ -1,7 +1,7 @@
-#Sean Kilgarriff's Dotfiles
+# Kilpatty's Dotfiles
 This is the collection of configuration and setup files that I use for all of my personal computers. This collection has been amassed over the course of a few years, and borrows from many different sources.
 
-##How to use/install
+## How to use/install
 
 *I highly recommend forking this repository before installing it. These files are configured for my personal machine, and therefore I will have an ssh config and aliases' that will not make sense if you are not me.*
 
@@ -30,7 +30,7 @@ These dotfiles also use a slightly modified version of [Mathias Bynens' macOS de
 ```
 
 
-##The Specs
+## The Specs
 
 These dotfiles are for the following software and programs:
 
@@ -42,11 +42,11 @@ These dotfiles are for the following software and programs:
 * [GPG Tools](https://gpgtools.org/)
 * [SSH](http://man.openbsd.org/OpenBSD-current/man1/ssh.1)
 
-##Contributing
+## Contributing
 
 I'm always open to contributions or suggestions! If you think something should be changed, added, or removed - make a pull request!
 
-##Inspiration
+## Inspiration
 
 These dotfiles have arisen due to a large amount of inspiration and borrowing from many sources. Here are some of the sources of Inspiration used most:
 
@@ -59,5 +59,3 @@ These dotfiles have arisen due to a large amount of inspiration and borrowing fr
 ## License
 
 This repository is covered by the [MIT License](/LICENSE)
-
-Copyright (c) 2016 Sean Kilgarriff.
