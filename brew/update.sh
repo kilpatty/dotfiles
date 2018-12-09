@@ -1,9 +1,9 @@
 # Make sure we’re using the latest Homebrew.
-echo "Updating Brew..."
+echo "Updating Homebrew..."
 brew update
 
 # Upgrade any already-installed formulae.
-echo "Updating Brew Formulae..."
+echo "Updating Homebrew Formulae..."
 brew upgrade
 
 
