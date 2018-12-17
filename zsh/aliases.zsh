@@ -69,13 +69,18 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 # grc overides for ls
 #   Made possible through contributions from generous benefactors like
 #   `brew install coreutils`
-if $(gls &>/dev/null)
-then
-  alias ls="gls -F --color"
-  alias l="gls -lAh --color"
-  alias ll="gls -l --color"
-  alias la='gls -A --color'
-fi
+# if $(gls &>/dev/null)
+# then
+#   alias ls="gls -F --color"
+#   alias l="gls -lAh --color"
+#   alias ll="gls -l --color"
+#   alias la='gls -A --color'
+# fi
+
+alias ls="exa -F"
+alias l="exa -la"
+alias ll="exa -l"
+alias la="exa -a"
 
 #Searches for files using fzf and then gives a preview with bat
 alias search="fzf --preview 'bat --color \"always\" {}'"
