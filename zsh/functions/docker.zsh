@@ -1,6 +1,7 @@
 #!/bin/sh	
 
-__docker_started=0
+command docker system info > /dev/null 2>&1
+__docker_started=$?
 
 __docker_init_async() {
 	test $__docker_started = 0 && {
