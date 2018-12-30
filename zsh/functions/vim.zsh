@@ -1,5 +1,8 @@
 #!/bin/sh	
 
+# Make vim the main editor
+export EDITOR="vim"
+
 vim() {
 	#See Python File
 	__pyenv_init
