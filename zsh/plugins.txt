@@ -1,4 +1,5 @@
-denysdovhan/spaceship-prompt
+mafredri/zsh-async
+sindresorhus/pure
 lukechilds/zsh-nvm
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
