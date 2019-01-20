@@ -87,6 +87,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vimwiki/vimwiki'
 Plug 'Yggdroot/indentLine'
 Plug 'digitaltoad/vim-pug'
+Plug 'rust-lang/rust.vim'
 
 " Unmanaged plugin (manually installed and updated)
 Plug '~/Developer/10xprogrammer/tarsier-vim'
@@ -198,7 +199,7 @@ let g:tagbar_type_go = {
 
 		" Set this setting in vimrc if you want to fix files automatically on save.
 		" This is off by default.
-		" let g:ale_fix_on_save = 1
+		let g:ale_fix_on_save = 1
 		" let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 		" let g:ale_sign_warning = '.'
 		let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
