@@ -312,7 +312,11 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>161 129 766 530 0 0 1440 900 </string>
+	<string>14 476 570 401 0 0 1440 877 </string>
+	<key>NeverWarnAboutShortLivedSessions_19638DE7-D6EE-4426-AAA9-6647A7B79397</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_19638DE7-D6EE-4426-AAA9-6647A7B79397_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -2248,6 +2252,10 @@
 			<string>/Users/Sean/Developer</string>
 		</dict>
 	</array>
+	<key>NoSyncConfirmRunOpenFile</key>
+	<true/>
+	<key>NoSyncConfirmRunOpenFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
 	<key>NoSyncHaveWarnedAboutIncompatibleSoftware</key>
@@ -2416,7 +2424,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-12-09T21:15:53Z</date>
+	<date>2019-01-02T12:35:04Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -2438,7 +2446,7 @@
 	<key>TabViewType</key>
 	<integer>1</integer>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1525661184</real>
+	<real>1545772672</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
@@ -2446,7 +2454,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.3.20181128-nightly</string>
+	<string>3.3.20190102-nightly</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
