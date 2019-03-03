@@ -88,6 +88,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'digitaltoad/vim-pug'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'tpope/vim-unimpaired'
 
 
 " Unmanaged plugin (manually installed and updated)
@@ -172,16 +173,24 @@ let g:tagbar_type_go = {
 
 " Plugins {
 " 	ALE {
-		" Put this in vimrc or a plugin file of your own.
-		" After this is configured, :ALEFix will try and fix your JS code with ESLint.
+		" Only run linters named in ale_linters settings.
+		let g:ale_linters_explicit = 1
+
+		" Explicitly listed linters to use.
 		let g:ale_linters = {
 		\	'go': [''],
+		\	'rust': ['cargo'],
 		\}
 		let g:ale_fixers = {
 		\	'javascript': ['prettier', 'eslint'], 
 		\	'python': ['yapf'],
 		\	'css': ['prettier'],
+		\	'rust': ['rustfmt'],
 		\}
+
+
+		" Rust
+		let g:ale_rust_cargo_use_clippy = 1
 
 		" Set this setting in vimrc if you want to fix files automatically on save.
 		" This is off by default.
@@ -189,6 +198,18 @@ let g:tagbar_type_go = {
 		" let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 		" let g:ale_sign_warning = '.'
 		let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+
+		" Custom ale Error Message
+		let g:ale_echo_msg_error_str = 'E'
+		let g:ale_echo_msg_warning_str = 'W'
+		let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+		" Only want 5 lines for ale loc list.
+		let g:ale_list_window_size = 5
+
+
+		" Open the location list when errors are found
+		let g:ale_open_list = 1
 
 		" Credit: https://github.com/desmap/ale-sensible " 
 		let g:ale_set_signs = 0
