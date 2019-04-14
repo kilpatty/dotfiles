@@ -20,7 +20,7 @@ alias gpg="gpg2"
 alias sudo='sudo '
 
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='./../scripts/updates.sh; sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; mas upgrade; npm install npm -g; npm update -g; go get -u all'
+alias update='./../scripts/updates.sh; sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; mas upgrade; npm install npm -g; npm update -g; go get -u all'
 
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
