@@ -8,7 +8,7 @@ else
 fi;
 
 # Run Homebrew updating script
-sh ./update.sh
+sh "${BASH_SOURCE%/*}"/update.sh
 
 # Run Homebrew through the Brewfile
-brew bundle
+brew bundle --file="${BASH_SOURCE%/*}"/Brewfile
