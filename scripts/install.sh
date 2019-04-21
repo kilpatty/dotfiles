@@ -7,7 +7,7 @@ set -e
 cd "$(dirname $0)"/..
 
 # find the installers and run them iteratively
-find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+find . -name install.sh -maxdepth 2 | sort -n | while read installer ; do sh -c "${installer}" ; done
 
 # Switch to using brew-installed bash as default shell
 # Switch to ZSH TODO
