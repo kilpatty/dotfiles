@@ -25,7 +25,6 @@ brew 'git-lfs'
 brew 'gnu-sed', args: ['with-default-names']
 brew 'gnupg2'
 brew 'go'
-brew 'gpg-agent'
 brew 'htop'
 brew 'hugo'
 brew 'irssi'
