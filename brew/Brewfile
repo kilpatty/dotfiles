@@ -44,7 +44,6 @@ brew 'screen'
 brew 'shellcheck'
 brew 'sqlite'
 brew 'ssh-copy-id'
-brew 'swagger-codegen'
 brew 'task'
 brew 'tmux'
 brew 'wget', args: ['with-iri']
