@@ -70,7 +70,6 @@ cask 'lulu'
 cask 'reactotron'
 cask 'slack'
 cask 'spotify'
-cask 'telegram'
 cask 'ubersicht'
 
 #Mac Applications
@@ -84,4 +83,5 @@ mas "Monit", id: 1014850245
 mas "Numbers", id: 409203825
 mas "Owly", id: 882812218
 mas "Pages", id: 409201541
+mas "Telegram", id: 747648890
 mas "Xcode", id: 497799835
