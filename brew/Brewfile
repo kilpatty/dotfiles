@@ -22,7 +22,7 @@ brew 'geckodriver'
 brew 'git'
 brew 'git-flow'
 brew 'git-lfs'
-brew 'gnu-sed', args: ['with-default-names']
+brew 'gnu-sed'
 brew 'gnupg2'
 brew 'go'
 brew 'htop'
@@ -32,7 +32,6 @@ brew 'libyaml'
 brew 'lynis'
 brew 'mas'
 brew 'moreutils'
-brew 'mysql'
 brew 'ncdu'
 brew 'neovim'
 brew 'openssh'
@@ -52,7 +51,6 @@ brew 'zsh-completions'
 brew "upx"
 brew "tor"
 brew "zstd"
-brew "ethereum/ethereum/ethereum"
 brew "getantibody/tap/antibody"
 
 
@@ -60,12 +58,10 @@ brew "getantibody/tap/antibody"
 cask 'alfred'
 cask 'docker'
 cask 'flux'
-cask 'google-chrome'
 cask 'chromedriver'
+cask 'eloston-chromium'
 cask 'iterm2'
-cask 'java'
 cask 'kap'
-cask 'oni'
 cask 'lulu'
 cask 'spotify'
 
