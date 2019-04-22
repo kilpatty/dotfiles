@@ -158,6 +158,23 @@ install_configs() {
 
 }
 
+# Make this search more exhaustive
+if [ -f "~/.ssh/id_rsa" ]; then
+	echo "SSH keys already exist"
+else
+	echo "No SSH keys found"
+	read -p "Would you like to generate new keys for this machine?" -n 1 -r
+	echo    # (optional) move to a new line
+	if [[ $REPLY =~ ^[Yy]$ ]]
+	then
+		echo "Generating new ssh keys..."
+		read -p "Please enter your email to be used for your new key:" -r
+		echo "$REPLY"
+
+	fi
+fi
+
+
 setup_gitconfig
 install_symlinks
 install_configs
