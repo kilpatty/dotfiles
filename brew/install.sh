@@ -16,3 +16,5 @@ brew bundle --file="${BASH_SOURCE%/*}"/Brewfile
 # Run Homebrew updating script
 sh "${BASH_SOURCE%/*}"/update.sh
 
+echo "Homebrew install complete"
+
