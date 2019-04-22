@@ -46,7 +46,7 @@ brew 'sqlite'
 brew 'ssh-copy-id'
 brew 'task'
 brew 'tmux'
-brew 'wget', args: ['with-iri']
+brew 'wget'
 brew 'zsh'
 brew 'zsh-completions'
 brew "upx"
@@ -67,10 +67,7 @@ cask 'java'
 cask 'kap'
 cask 'oni'
 cask 'lulu'
-cask 'reactotron'
-cask 'slack'
 cask 'spotify'
-cask 'ubersicht'
 
 #Mac Applications
 mas "Bear", id: 1091189122
@@ -84,4 +81,5 @@ mas "Numbers", id: 409203825
 mas "Owly", id: 882812218
 mas "Pages", id: 409201541
 mas "Telegram", id: 747648890
+mas "Slack", id: 803453959
 mas "Xcode", id: 497799835
