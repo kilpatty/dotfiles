@@ -7,8 +7,12 @@ else
     echo "Homebrew already installed!"
 fi;
 
-# Run Homebrew updating script
-sh "${BASH_SOURCE%/*}"/update.sh
+# Check for Homebrew Update
+brew update
 
 # Run Homebrew through the Brewfile
 brew bundle --file="${BASH_SOURCE%/*}"/Brewfile
+
+# Run Homebrew updating script
+sh "${BASH_SOURCE%/*}"/update.sh
+
