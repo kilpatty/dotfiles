@@ -13,10 +13,6 @@ for file in ${(M)config_files:#*/path.zsh}; do
   source "$file"
 done
 
-#Load config right 
-NVM_AUTO_USE=true
-NVM_LAZY_LOAD=true
-
 # load antibody plugins
 source ~/.zsh_plugins.sh
 
@@ -48,3 +44,7 @@ if [[ -a ~/.localrc ]]
 then
   source ~/.localrc
 fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# zprof
