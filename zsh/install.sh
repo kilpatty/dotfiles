@@ -6,4 +6,6 @@ else
 fi
 
 #Run update script
-. update.sh
+sh "${BASH_SOURCE%/*}"/update.sh
+
+echo "ZSH installation complete"

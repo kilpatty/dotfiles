@@ -13,9 +13,6 @@ alias dot="cd ~/dotfiles"
 
 alias v="code ."
 
-#GPG Alias
-alias gpg="gpg2"
-
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
