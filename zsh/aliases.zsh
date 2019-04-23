@@ -92,5 +92,7 @@ alias develop="open -g /Applications/Docker.app; open -g /Applications/Karabiner
 
 alias wiki="vim ~/Documents/Sean/vimwiki/index.wiki"
 
+alias testload="for i in \$(seq 1 10); do /usr/bin/time zsh -i -c exit; done;"
+
 
 
