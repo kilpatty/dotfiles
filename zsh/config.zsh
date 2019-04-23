@@ -12,10 +12,6 @@ SAVEHIST=10000
 #Test reducing key timeout for vim
 KEYTIMEOUT=1
 
-# NVM-ZSH Plugin Settings
-NVM_AUTO_USE=true
-NVM_LAZY_LOAD=true
-
 #All ZSH Options can be found here: http://zsh.sourceforge.net/Doc/Release/Options.html
 
 setopt NO_BG_NICE # don't nice background tasks
