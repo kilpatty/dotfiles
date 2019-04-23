@@ -195,4 +195,4 @@
 	insteadOf = "gist:"
 
 [gpg]
-	program = gpg2
+	program = gpg
