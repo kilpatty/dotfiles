@@ -52,6 +52,7 @@ brew 'zsh-completions'
 brew "upx"
 brew "tor"
 brew "zstd"
+brew "zlib"
 brew "getantibody/tap/antibody"
 
 
