@@ -1,7 +1,7 @@
 :set shell=/usr/local/bin/zsh
 
 "Set hybrid mode for line numbers
-set relativenumber 
+set relativenumber
 set number
 
 "Set autowrite mainly for :GoBuild and :make
@@ -174,7 +174,7 @@ let g:tagbar_type_go = {
 " Plugins {
 " 	ALE {
 		" Only run linters named in ale_linters settings.
-		let g:ale_linters_explicit = 1
+		"let g:ale_linters_explicit = 1
 
 		" Explicitly listed linters to use.
 		let g:ale_linters = {
@@ -182,7 +182,7 @@ let g:tagbar_type_go = {
 		\	'rust': ['cargo'],
 		\}
 		let g:ale_fixers = {
-		\	'javascript': ['prettier', 'eslint'], 
+		\	'javascript': ['prettier', 'eslint'],
 		\	'python': ['yapf'],
 		\	'css': ['prettier'],
 		\	'rust': ['rustfmt'],
@@ -207,11 +207,10 @@ let g:tagbar_type_go = {
 		" Only want 5 lines for ale loc list.
 		let g:ale_list_window_size = 5
 
-
 		" Open the location list when errors are found
 		let g:ale_open_list = 1
 
-		" Credit: https://github.com/desmap/ale-sensible " 
+		" Credit: https://github.com/desmap/ale-sensible "
 		let g:ale_set_signs = 0
 		hi link ALEErrorLine ErrorMsg
 		hi link ALEWarningLine WarningMsg
@@ -236,7 +235,11 @@ let g:tagbar_type_go = {
 		let wiki_1 = {}
 		let wiki_1.path = '~/Documents/Sean/vimwiki/'
 		let wiki_1.index = 'index'
-		let g:vimwiki_list = [wiki_1]	
+		let g:vimwiki_list = [wiki_1]
+" 	}
+" 	Coc {
+ 	let g:coc_global_extensions = ["coc-rls"]
+"
 " 	}
 
 " nnoremap <F5> :call LanguageClient_contextMenu()<CR>
