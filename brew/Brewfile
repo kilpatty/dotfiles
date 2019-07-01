@@ -67,6 +67,7 @@ cask 'insomnia'
 cask 'kap'
 cask 'lulu'
 cask 'spotify'
+cask 'wireshark'
 
 #Mac Applications
 mas "Bear", id: 1091189122
