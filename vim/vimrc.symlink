@@ -140,7 +140,8 @@ autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+" inoremap <expr> <cr> pumvisible() ? '\<C-y>\<cr>' : '\<cr>'
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Go-T
 let g:tagbar_type_go = {
@@ -179,7 +180,7 @@ let g:tagbar_type_go = {
 		" Explicitly listed linters to use.
 		let g:ale_linters = {
 		\	'go': [''],
-		\	'rust': ['cargo'],
+		\	'rust': ['rls'],
 		\}
 		let g:ale_fixers = {
 		\	'javascript': ['prettier', 'eslint'],
