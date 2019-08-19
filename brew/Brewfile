@@ -41,6 +41,7 @@ brew 'openssl'
 brew 'pinentry-mac'
 brew 'pyenv'
 brew 'rbenv'
+brew 'ripgrep'
 brew 'screen'
 brew 'shellcheck'
 brew 'sqlite'
@@ -52,6 +53,7 @@ brew 'zsh'
 brew 'zsh-completions'
 brew "upx"
 brew "tor"
+brew "zola"
 brew "zstd"
 brew "zlib"
 brew "getantibody/tap/antibody"
