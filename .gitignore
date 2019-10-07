@@ -21,3 +21,6 @@ git/gitconfig.local.symlink
 #Don't commit vim plugged
 vim/vim.symlink/plugged
 vim/vim.symlink/autoload/plug.vim.old
+
+#Don't commit auto backups from karabiner
+karabiner.config/automatic_backups
