@@ -210,6 +210,7 @@ let g:tagbar_type_go = {
 		let g:ale_rust_cargo_use_clippy = 1
         " let g:ale_rust_rls_executable = 'ra_lsp_server'
         " let g:ale_rust_rls_toolchain = ''
+        let g:ale_rust_rustfmt_options = '--edition 2018'
 
 		" Set this setting in vimrc if you want to fix files automatically on save.
 		" This is off by default.
