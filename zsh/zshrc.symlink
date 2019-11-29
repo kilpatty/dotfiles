@@ -3,6 +3,7 @@
 zmodload zsh/zprof
 
 export DOTFILES=$HOME/dotfiles
+export PROJECTS=$HOME/Developer
 
 # all of our zsh files
 typeset -U config_files
@@ -46,5 +47,7 @@ then
 fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+eval "$(starship init zsh)"
 
 # zprof
