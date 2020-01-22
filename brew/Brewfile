@@ -55,6 +55,7 @@ brew 'zsh'
 brew 'zsh-completions'
 brew "upx"
 brew "tor"
+brew "yarn"
 brew "zola"
 brew "zstd"
 brew "zlib"
