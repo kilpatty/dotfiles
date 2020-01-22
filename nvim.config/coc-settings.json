@@ -1,4 +1,5 @@
 {
+    "rust-analyzer.enableCargoWatchOnStartup": "enabled",
 	"coc.preferences.diagnostic.enable": false,
     "languageserver": {
     "golang": {
@@ -6,5 +7,11 @@
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"]
     }
+  },
+  "snippets.extends": {
+   "javascriptreact": ["javascript"],
+   "javascriptnode": ["javascript"],
+   "typescriptreact": ["javascript"],
+   "typescript": ["javascript"]
   }
 }

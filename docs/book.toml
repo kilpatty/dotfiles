@@ -1,0 +1,6 @@
+[book]
+authors = ["kilpatty"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Kilpatty Dotfiles"
