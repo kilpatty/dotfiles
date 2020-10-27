@@ -74,6 +74,7 @@ cask 'insomnia'
 cask 'kap'
 cask 'karabiner-elements'
 cask 'lulu'
+cask 'rectangle'
 cask 'spotify'
 cask 'wireshark'
 
