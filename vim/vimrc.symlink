@@ -87,7 +87,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'Yggdroot/indentLine'
 Plug 'digitaltoad/vim-pug'
 Plug 'rust-lang/rust.vim'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-unimpaired'
 Plug 'wsdjeg/vim-todo'
 Plug 'honza/vim-snippets'
@@ -258,7 +258,7 @@ let g:tagbar_type_go = {
 		let g:vimwiki_list = [wiki_1]
 " 	}
 " 	Coc {
- 	let g:coc_global_extensions = ["coc-rust-analyzer"]
+ 	let g:coc_global_extensions = ["coc-rust-analyzer", "coc-sql"]
 "
 " 	}
 
