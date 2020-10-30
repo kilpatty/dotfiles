@@ -196,7 +196,7 @@ let g:tagbar_type_go = {
 		" Explicitly listed linters to use.
 		let g:ale_linters = {
 		\	'go': [''],
-		\	'rust': ['cargo'],
+		\	'rust': [''],
 		\}
 		let g:ale_fixers = {
 		\	'javascript': ['prettier', 'eslint'],
