@@ -1,0 +1,2 @@
+[packages]
+zshrc = {from="zsh/zshrc", to="~/.zshrc"}
