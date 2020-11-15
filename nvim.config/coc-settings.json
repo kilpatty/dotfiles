@@ -1,5 +1,7 @@
 {
     "rust-analyzer.enableCargoWatchOnStartup": "enabled",
+    "rust-analyzer.cargo.loadOutDirsFromCheck": true,
+    "rust-analyzer.diagnostics.disabled": ["unresolved-import"],
 	"coc.preferences.diagnostic.enable": false,
     "languageserver": {
     "golang": {
