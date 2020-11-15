@@ -28,6 +28,9 @@ fail () {
   exit
 }
 
+#@todo write a function that is "setup_localrc" that at least creates the file.
+#So then we can write from it later.
+#@todo also clean up all the linting errors in here.
 setup_gitconfig () {
   if ! [ -f git/gitconfig.local.symlink ]
   then
@@ -175,6 +178,6 @@ else
 fi
 
 
-setup_gitconfig
+#setup_gitconfig
 install_symlinks
 install_configs
