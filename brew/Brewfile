@@ -1,14 +1,62 @@
 cask_args appdir: '/Applications'
 
-#Common Taps for the services I install
-tap 'caskroom/cask'
-tap 'caskroom/versions'
-tap 'homebrew/bundle'
+##
+# Preflight
+##
+
+# Tap homebrew
+tap 'homebrew/cask'
+tap 'homebrew/cask-drivers'
+tap 'homebrew/cask-fonts'
+tap 'homebrew/cask-versions'
 tap 'homebrew/core'
+tap 'homebrew/dev-tools'
+tap 'homebrew/bundle'
 tap 'homebrew/services'
 
+##
+# Browsers
+#
+# We prefer Firefox because it's open source.
+##
+
+# Firefox web browser
+cask 'firefox'
+
+# Firefox developer edition, which features programming tools.
+cask 'firefox-developer-edition'
+
+# Brave web browser, which features security by default.
+cask 'brave-browser'
+
+# De-Googled Chrome
+cask 'eloston-chromium'
+
+# Opera web browser
+cask 'opera'
+
+##
+#
+# Kubernetes
+#
+##
+# Cluster management tool for AWS.
+brew 'kops'
+
+# Kubernetes command-line tool to run commands against Kubernetes clusters.
+brew 'kubectl'
+
+##
+# Utilities
+#
+# We prefer Firefox because it's open source.
+##
+
 brew 'ack'
+
+# bat is like `cat` plus line numbers, syntax highlighting, and more.
 brew 'bat'
+
 brew 'brotli'
 brew 'broot'
 brew 'coreutils'
@@ -69,7 +117,6 @@ cask 'alfred'
 cask 'docker'
 cask 'flux'
 cask 'chromedriver'
-cask 'eloston-chromium'
 cask 'firefox'
 cask 'iterm2'
 cask 'insomnia'
