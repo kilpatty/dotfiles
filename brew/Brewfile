@@ -126,6 +126,7 @@ cask 'lulu'
 cask 'rectangle'
 cask 'spotify'
 cask 'wireshark'
+cask 'telegram'
 
 #Mac Applications
 mas "Bear", id: 1091189122
