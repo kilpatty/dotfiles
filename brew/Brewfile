@@ -49,6 +49,9 @@ brew 'kubectl'
 # Helmfile is a declarative spec for deploying helm charts.
 brew 'helmfile'
 
+# Lens is an IDE and Dashboard for Kubernetes
+cask 'lens'
+
 ##
 # Utilities
 #
