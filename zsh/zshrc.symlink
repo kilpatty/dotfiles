@@ -53,4 +53,4 @@ eval "$(starship init zsh)"
 # zprof
 
 #@todo let's move this, but this is what it is if I forget: https://dystroy.org/broot/
-source /Users/sean/Library/Preferences/org.dystroy.broot/launcher/bash/br
+#source /Users/sean/Library/Preferences/org.dystroy.broot/launcher/bash/br
