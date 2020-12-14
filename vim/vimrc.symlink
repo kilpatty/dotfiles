@@ -118,6 +118,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'wsdjeg/vim-todo'
 Plug 'honza/vim-snippets'
 Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'peitalin/vim-jsx-typescript'
 
 
 " Unmanaged plugin (manually installed and updated)
