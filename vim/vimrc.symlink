@@ -288,7 +288,10 @@ let g:tagbar_type_go = {
 		let g:vimwiki_list = [wiki_1]
 " 	}
 " 	Coc {
- 	let g:coc_global_extensions = ["coc-rust-analyzer", "coc-sql", "coc-tsserver", "coc-json", "coc-prettier", "coc-eslint"]
+ 	let g:coc_global_extensions = ["coc-rust-analyzer", "coc-sql", "coc-tsserver", "coc-json", "coc-prettier", "coc-eslint", "coc-styled-components", "coc-react-refactor"]
+
+    xmap <leader>a  <Plug>(coc-codeaction-selected)
+    nmap <leader>a  <Plug>(coc-codeaction-selected)
     " Look into if this makes sense. From here: https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
     " if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   " let g:coc_global_extensions += ['coc-prettier']
