@@ -63,6 +63,9 @@ brew 'ack'
 # bat is like `cat` plus line numbers, syntax highlighting, and more.
 brew 'bat'
 
+# Intuitive find & replace CLI (sed alternative)
+brew 'sd'
+
 brew 'brotli'
 brew 'broot'
 brew 'coreutils'
