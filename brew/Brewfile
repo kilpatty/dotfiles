@@ -137,6 +137,7 @@ cask 'wireshark'
 cask 'telegram'
 
 #Mac Applications
+mas "Amphetamine" id: 937984704
 mas "Bear", id: 1091189122
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
