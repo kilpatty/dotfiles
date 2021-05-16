@@ -52,6 +52,9 @@ brew 'helmfile'
 # Lens is an IDE and Dashboard for Kubernetes
 cask 'lens'
 
+# MacOS implementation of Latex for building PDF documents
+cask 'mactex'
+
 ##
 # Utilities
 #
@@ -92,7 +95,7 @@ brew 'lynis'
 brew 'mas'
 brew 'moreutils'
 brew 'ncdu'
-brew 'neovim'
+brew 'neovim', args: ["HEAD"]
 brew 'nmap'
 brew 'openssh'
 brew 'openssl'
