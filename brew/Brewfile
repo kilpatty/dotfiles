@@ -63,6 +63,9 @@ cask 'mactex'
 
 brew 'ack'
 
+# Atuin replaces your existing shell history with a SQLite database, and records additional context for your commands.
+brew 'atuin'
+
 # bat is like `cat` plus line numbers, syntax highlighting, and more.
 brew 'bat'
 
