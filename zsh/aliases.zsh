@@ -9,7 +9,7 @@ alias .....="cd ../../../.."
 alias dv="cd ~/Developer"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias dot="cd ~/dotfiles"
+# alias dot="cd ~/dotfiles"
 
 alias v="code ."
 

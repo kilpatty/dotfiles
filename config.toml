@@ -1,2 +1,13 @@
 [packages]
-zshrc = {from="zsh/zshrc", to="~/.zshrc"}
+
+  [packages.brew]
+    check = 'command -v brew'
+    install = [
+      '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"',
+      'brew update',
+      'brew bundle --file="${DOTFILES}/brew/Brewfile"',
+    ]
+
+  [packages.zsh]
+    from = "zsh/zshrc"
+    to = "~/.zshrc"
