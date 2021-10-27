@@ -32,9 +32,6 @@ cask 'brave-browser'
 # De-Googled Chrome
 cask 'eloston-chromium'
 
-# Opera web browser
-cask 'opera'
-
 ##
 #
 # Kubernetes
