@@ -3,6 +3,8 @@ This is the collection of configuration and setup files that I use for all of my
 
 ## How to use/install
 
+- Ensure that Xcode has been installed on the device Mac.
+
 *I highly recommend forking this repository before installing it. These files are configured for my personal machine, and therefore I will have an ssh config and aliases' that will not make sense if you are not me.*
 
 To install these files, simply clone the repository into your home directory under the folder dotfiles.
