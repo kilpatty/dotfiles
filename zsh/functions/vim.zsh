@@ -1,7 +1,7 @@
-#!/bin/sh	
+#!/bin/sh
 
 # Make vim the main editor
-export EDITOR="vim"
+export EDITOR="nvim"
 
 vim() {
 	#See Python File
@@ -10,7 +10,7 @@ vim() {
 	__rbenv_init
 	#See Node File we don't have one for npm yet.
 	#rewrite this, remove the plugin
-	
-	
+
+
 	command nvim "$@"
 }
