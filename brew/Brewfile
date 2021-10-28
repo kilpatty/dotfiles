@@ -103,7 +103,11 @@ brew 'lynis'
 brew 'mas'
 brew 'moreutils'
 brew 'ncdu'
-brew 'neovim', args: ["HEAD"]
+# brew 'neovim', args: ["HEAD"]
+# Just until Neovim supports Mac M1 out of the box we need to do this (I belive).:wa
+# brew install --HEAD tree-sitter
+# brew install --HEAD luajit
+# brew install --HEAD neovim
 brew 'nmap'
 brew 'openssh'
 brew 'openssl'
