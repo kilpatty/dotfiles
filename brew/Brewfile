@@ -53,6 +53,30 @@ cask 'lens'
 cask 'mactex'
 
 ##
+# Development
+#
+#
+##
+
+# Mainly used for Bitcoin compilation - helps automate compilation process.
+brew 'automake'
+
+# Bitcoin dep. Used to help compile shared libraries.
+brew 'libtool'
+
+# Bitcoin dep. Brings portable shared C++ libs.
+brew 'boost'
+
+# Bitcoin dep. Helps compiliation.
+brew 'pkg-config'
+
+# Bitcoin dep. Async notifications.
+brew 'libevent'
+
+# Bitcoin dep. Used for legacy wallets
+brew 'berkeley-db@4'
+
+##
 # Utilities
 #
 # We prefer Firefox because it's open source.
