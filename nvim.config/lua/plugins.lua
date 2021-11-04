@@ -7,7 +7,20 @@ end
 
 return require('packer').startup(function(use)
 
+    use 'wbthomason/packer.nvim'
+
+    use({ -- color scheme
+    'folke/tokyonight.nvim',
+    config = function()
+      vim.g.tokyonight_style = 'night'
+      vim.g.tokyonight_sidebars = { 'qf' }
+      vim.cmd('color tokyonight')
+    end,
+  })
+
     -- @todo still need to write config for this, see: https://github.com/numToStr/Comment.nvim
+    -- Additionally check this out: https://www.reddit.com/r/neovim/comments/q35328/commentnvim_simple_and_powerful_comment_plugin/
+    -- and this: https://github.com/JoosepAlviste/nvim-ts-context-commentstring
   use {
     'numToStr/Comment.nvim',
     config = function()

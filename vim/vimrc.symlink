@@ -101,7 +101,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'tpope/vim-surround'
 Plug 'elzr/vim-json'
 Plug 'editorconfig/editorconfig-vim'
@@ -128,11 +127,6 @@ Plug 'dstein64/vim-startuptime'
 
 " Initialize plugin system
 call plug#end()
-
-" Tokyonight configuration
-let g:tokyonight_style = "night"
-
-colorscheme tokyonight
 
 
 set nocompatible
