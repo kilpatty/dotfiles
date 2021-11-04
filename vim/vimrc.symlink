@@ -95,7 +95,6 @@ call plug#begin('~/.vim/plugged')
 " Plug 'tpope/vim-dispatch'
 " Plug 'tpope/vim-commentary'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-Plug 'w0rp/ale'
 Plug 'nvim-lualine/lualine.nvim'
 " If you want to have icons in your statusline choose one of these
 Plug 'kyazdani42/nvim-web-devicons'
@@ -236,65 +235,6 @@ let g:tagbar_type_go = {
 \ }
 
 " Plugins {
-" 	ALE {
-		" Only run linters named in ale_linters settings.
-		"let g:ale_linters_explicit = 1
-
-		" Explicitly listed linters to use.
-		let g:ale_linters = {
-		\	'go': [''],
-		\	'rust': [''],
-		\}
-		let g:ale_fixers = {
-		\	'javascript': ['prettier', 'eslint'],
-		\	'python': ['yapf'],
-		\	'css': ['prettier'],
-		\	'rust': ['rustfmt'],
-		\}
-
-
-		" Rust
-		let g:ale_rust_cargo_use_clippy = 1
-        " let g:ale_rust_rls_executable = 'ra_lsp_server'
-        " let g:ale_rust_rls_toolchain = ''
-        let g:ale_rust_rustfmt_options = '--edition 2018'
-
-		" Set this setting in vimrc if you want to fix files automatically on save.
-		" This is off by default.
-		let g:ale_fix_on_save = 1
-		" let g:ale_sign_error = '●' " Less aggressive than the default '>>'
-		" let g:ale_sign_warning = '.'
-		let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
-
-		" Custom ale Error Message
-		let g:ale_echo_msg_error_str = 'E'
-		let g:ale_echo_msg_warning_str = 'W'
-		let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-
-		" Only want 5 lines for ale loc list.
-		let g:ale_list_window_size = 5
-
-		" Open the location list when errors are found
-		let g:ale_open_list = 1
-
-		" Credit: https://github.com/desmap/ale-sensible "
-		let g:ale_set_signs = 0
-		hi link ALEErrorLine ErrorMsg
-		hi link ALEWarningLine WarningMsg
-		let g:ale_lint_on_text_changed = 'normal'
-		let g:ale_lint_on_insert_leave = 1
-		let g:ale_lint_delay = 0
-		au VimEnter,BufEnter,ColorScheme *
-		  \ exec "hi! ALEInfoLine
-		    \ guifg=".(&background=='light'?'#808000':'#ffff00')."
-		    \ guibg=".(&background=='light'?'#ffff00':'#555500') |
-		  \ exec "hi! ALEWarningLine
-		    \ guifg=".(&background=='light'?'#808000':'#ffff00')."
-		    \ guibg=".(&background=='light'?'#ffff00':'#555500') |
-		  \ exec "hi! ALEErrorLine
-		    \ guifg=".(&background=='light'?'#ff0000':'#ff0000')."
-		    \ guibg=".(&background=='light'?'#ffcccc':'#550000')
-" 	}
 " 	Airline {
 		" let g:airline#extensions#ale#enabled = 1
 " 	}
