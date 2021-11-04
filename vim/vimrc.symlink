@@ -1,4 +1,5 @@
-:set shell=/usr/local/bin/zsh
+" :set shell=/usr/local/bin/zsh
+
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -90,15 +91,20 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 "Declare directory for plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'fatih/vim-go'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-commentary'
+" Plug 'fatih/vim-go'
+" Plug 'tpope/vim-dispatch'
+" Plug 'tpope/vim-commentary'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
-Plug 'vim-airline/vim-airline'
+Plug 'nvim-lualine/lualine.nvim'
+" If you want to have icons in your statusline choose one of these
+Plug 'kyazdani42/nvim-web-devicons'
+
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'dracula/vim'
+" Plug 'Pocco81/Catppuccino.nvim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'tpope/vim-surround'
 Plug 'elzr/vim-json'
 Plug 'editorconfig/editorconfig-vim'
@@ -121,6 +127,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'dstein64/vim-startuptime'
 
 
 
@@ -131,7 +138,13 @@ Plug '~/Developer/10xprogrammer/tarsier-vim'
 " Initialize plugin system
 call plug#end()
 
-colorscheme dracula
+" Tokyonight configuration
+let g:tokyonight_style = "night"
+
+" colorscheme dracula
+" colorscheme catppuccino
+colorscheme tokyonight
+
 
 set nocompatible
 
@@ -283,7 +296,7 @@ let g:tagbar_type_go = {
 		    \ guibg=".(&background=='light'?'#ffcccc':'#550000')
 " 	}
 " 	Airline {
-		let g:airline#extensions#ale#enabled = 1
+		" let g:airline#extensions#ale#enabled = 1
 " 	}
 " 	VimWiki {
 		let wiki_1 = {}
@@ -296,6 +309,19 @@ let g:tagbar_type_go = {
 
     xmap <leader>a  <Plug>(coc-codeaction-selected)
     nmap <leader>a  <Plug>(coc-codeaction-selected)
+    " Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
     " Look into if this makes sense. From here: https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
     " if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   " let g:coc_global_extensions += ['coc-prettier']
