@@ -101,8 +101,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'dracula/vim'
-" Plug 'Pocco81/Catppuccino.nvim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'tpope/vim-surround'
 Plug 'elzr/vim-json'
@@ -128,20 +126,12 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'dstein64/vim-startuptime'
 
-
-
-
-" Unmanaged plugin (manually installed and updated)
-Plug '~/Developer/10xprogrammer/tarsier-vim'
-
 " Initialize plugin system
 call plug#end()
 
 " Tokyonight configuration
 let g:tokyonight_style = "night"
 
-" colorscheme dracula
-" colorscheme catppuccino
 colorscheme tokyonight
 
 
