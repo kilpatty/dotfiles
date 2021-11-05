@@ -9,6 +9,19 @@ return require('packer').startup(function(use)
 
     use 'wbthomason/packer.nvim'
 
+    -- This will be removed once https://github.com/neovim/neovim/pull/15436 is merged - so keep an eye on it
+    use({
+    'lewis6991/impatient.nvim',
+    config = function()
+      require('impatient')
+    end,
+  })
+
+  use({ -- icons
+    'kyazdani42/nvim-web-devicons',
+    after = 'tokyonight.nvim',
+  })
+
     use({ -- color scheme
     'folke/tokyonight.nvim',
     config = function()
@@ -17,6 +30,36 @@ return require('packer').startup(function(use)
       vim.cmd('color tokyonight')
     end,
   })
+
+  use {
+  'nvim-lualine/lualine.nvim',
+  requires = {'kyazdani42/nvim-web-devicons', opt = true},
+  config = function()
+      require('lualine').setup({
+          options = { theme = 'tokyonight' }
+      })
+  end,
+  after = 'nvim-web-devicons',
+}
+
+ -- file explorer
+  use({
+    'kyazdani42/nvim-tree.lua',
+    config = function()
+        -- Coming back to this @todo
+      -- require('cosmic.core.file-explorer')
+    end,
+    opt = true,
+    cmd = {
+      'NvimTreeClipboard',
+      'NvimTreeClose',
+      'NvimTreeFindFile',
+      'NvimTreeOpen',
+      'NvimTreeRefresh',
+      'NvimTreeToggle',
+    },
+  })
+
 
     -- @todo still need to write config for this, see: https://github.com/numToStr/Comment.nvim
     -- Additionally check this out: https://www.reddit.com/r/neovim/comments/q35328/commentnvim_simple_and_powerful_comment_plugin/
