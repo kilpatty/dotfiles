@@ -1,47 +1,16 @@
 " :set shell=/usr/local/bin/zsh
 
-
-" TextEdit might fail if hidden is not set.
-set hidden
-
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
 " Give more space for displaying messages.
 set cmdheight=2
 
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
-
-"Set hybrid mode for line numbers
-set relativenumber
-set number
 
 "Set autowrite mainly for :GoBuild and :make
 set autowrite
 
 "Set a colored column for easier line breaks
 set colorcolumn=90
-
-"Use True Colors
-set termguicolors
-
-"Remap the leader key to space
-let mapleader=" "
 
 "Set split windows to how I like it.
 set splitbelow
@@ -52,8 +21,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-set timeoutlen=1000 ttimeoutlen=0
 
 " let &t_SI = \<Esc>]50;CursorShape=1\x7
 " let &t_SR = \<Esc>]50;CursorShape=2\x7

@@ -1,9 +1,30 @@
+local packer = nil
+
+if packer == nil then
+    packer = require 'packer'
+packer.init({
+  display = {
+    open_fn = function()
+      return require('packer.util').float({ border = 'single' })
+    end,
+    prompt_border = 'single',
+  },
+  git = {
+    clone_timeout = 800, -- Timeout, in seconds, for git clones
+  },
+  compile_path = vim.fn.stdpath('config') .. '/lua/compiled.lua',
+  auto_clean = true,
+  compile_on_sync = true,
+})
+  end
+
 -- @todo this does not work...
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
+
 
 return require('packer').startup(function(use)
 
@@ -16,6 +37,8 @@ return require('packer').startup(function(use)
       require('impatient')
     end,
   })
+
+  use('nathom/filetype.nvim')
 
   use({ -- icons
     'kyazdani42/nvim-web-devicons',
