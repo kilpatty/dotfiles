@@ -35,7 +35,7 @@ end
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
-	-- This will be removed once https://github.com/neovim/neovim/pull/15436 is merged - so keep an eye on it
+	-- @todo I might move this to init similar to cosmic vim.
 	use({
 		"lewis6991/impatient.nvim",
 		config = function()
@@ -43,8 +43,25 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- This will be removed once https://github.com/neovim/neovim/pull/15436 is merged - so keep an eye on it
+
 	use({
 		"neovim/nvim-lspconfig",
+		requires = {
+			{
+				"hrsh7th/cmp-nvim-lsp",
+				after = "nvim-lspconfig",
+			},
+			{
+				"jose-elias-alvarez/nvim-lsp-ts-utils",
+				after = "cmp-nvim-lsp",
+			},
+			{
+				"ray-x/lsp_signature.nvim",
+				after = "nvim-lsp-ts-utils",
+			},
+			{ "onsails/lspkind-nvim", after = "lsp_signature.nvim" },
+		},
 		config = function()
 			require("null-ls").config({
 				sources = { require("null-ls").builtins.formatting.stylua },
@@ -59,8 +76,34 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
+	use({
+		"simrat39/rust-tools.nvim",
+		config = function()
+			require("rust-tools").setup({})
+		end,
+	})
 	use("tamago324/nlsp-settings.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
+	-- @todo look into autoinstalling here. I think that lunarvim handles it and I will eventually get to that, but just putting a note here in the scenario that they don't.
+	use("williamboman/nvim-lsp-installer")
+	-- @todo might want to tag theme here btw.
+	use("rcarriga/nvim-notify")
+
+	use("nvim-lua/plenary.nvim")
+	use("nvim-lua/popup.nvim")
+
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = {
+			"nvim-lua/popup.nvim",
+			"nvim-lua/plenary.nvim",
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				run = "make",
+			},
+		},
+		event = "BufWinEnter",
+	})
 
 	use("nathom/filetype.nvim")
 
@@ -178,6 +221,34 @@ return require("packer").startup(function(use)
 	})
 
 	use("nvim-treesitter/playground")
+
+	use({
+		"L3MON4D3/LuaSnip",
+		event = "InsertEnter",
+	})
+
+	-- autocompletion
+	use({
+		"hrsh7th/nvim-cmp",
+		config = function()
+			require("core.autocomplete").init()
+		end,
+		requires = {
+			{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-buffer", after = "cmp_luasnip" },
+			{ "hrsh7th/cmp-nvim-lua", after = "cmp-buffer" },
+			{ "hrsh7th/cmp-path", after = "cmp-nvim-lua" },
+		},
+		after = "LuaSnip",
+	})
+
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("core.autocomplete").autopairs()
+		end,
+		after = "nvim-cmp",
+	})
 
 	-- Dashboard
 	-- use {
