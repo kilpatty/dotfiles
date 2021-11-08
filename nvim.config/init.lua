@@ -1,15 +1,17 @@
+local g = vim.g
+local opt = vim.opt
+-- local cmd = vim.cmd
+-- local indent = 2
+
+g.mapleader = " "
+
 require("plugins")
 require("compiled")
 -- require("core.lsp")
 require("core.lsp").setup()
-
-local cmd = vim.cmd
-local opt = vim.opt
-local g = vim.g
-local indent = 2
+require("core.bindings")
 
 -- Remap the leader key to space
-g.mapleader = " "
 
 -- TextEdit might fail if hidden is not set.
 opt.hidden = true
@@ -23,6 +25,9 @@ opt.number = true
 opt.signcolumn = "yes"
 -- Use True Colors
 opt.termguicolors = true
+
+opt.splitbelow = true
+opt.splitright = true
 
 -- Backups
 -- Some servers have issues with backup files, see #649.
