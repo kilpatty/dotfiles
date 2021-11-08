@@ -1,6 +1,7 @@
 require("plugins")
 require("compiled")
-require("core.lsp")
+-- require("core.lsp")
+require("core.lsp").setup()
 
 local cmd = vim.cmd
 local opt = vim.opt

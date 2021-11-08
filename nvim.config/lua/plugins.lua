@@ -54,6 +54,9 @@ return require("packer").startup(function(use)
 			},
 			{
 				"jose-elias-alvarez/nvim-lsp-ts-utils",
+				config = function()
+					require("core.ts_utils").config()
+				end,
 				after = "cmp-nvim-lsp",
 			},
 			{
@@ -64,7 +67,10 @@ return require("packer").startup(function(use)
 		},
 		config = function()
 			require("null-ls").config({
-				sources = { require("null-ls").builtins.formatting.stylua },
+				sources = {
+					require("null-ls").builtins.formatting.stylua,
+					require("null-ls").builtins.formatting.eslint_d,
+				},
 			})
 			local on_attach = function(client)
 				if client.resolved_capabilities.document_formatting then
@@ -79,7 +85,7 @@ return require("packer").startup(function(use)
 	use({
 		"simrat39/rust-tools.nvim",
 		config = function()
-			require("rust-tools").setup({})
+			require("core.rust_tools").config()
 		end,
 	})
 	use("tamago324/nlsp-settings.nvim")
