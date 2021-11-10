@@ -54,9 +54,6 @@ return require("packer").startup(function(use)
 			},
 			{
 				"jose-elias-alvarez/nvim-lsp-ts-utils",
-				config = function()
-					require("core.ts_utils").config()
-				end,
 				after = "cmp-nvim-lsp",
 			},
 			{
@@ -190,6 +187,9 @@ return require("packer").startup(function(use)
 				highlight = {
 					enable = true,
 					use_languagetree = true,
+				},
+				autopairs = {
+					enable = true,
 				},
 				indent = {
 					enable = true,

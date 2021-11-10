@@ -65,12 +65,7 @@ lsp_installer.on_server_ready(function(server)
 
 	-- set up default cosmic options
 	if server.name == "tsserver" then
-		-- local M = {}
-		-- M.init_options = require("nvim-lsp-ts-utils").init_options
-		-- opts.init_options = require("nvim-lsp-ts-utils").init_options
-		-- opts = vim.tbl_deep_extend("force", opts, M)
-		--
-		-- 	opts = vim.tbl_deep_extend("force", opts, require("cosmic.lsp.providers.tsserver"))
+		opts = vim.tbl_deep_extend("force", opts, require("core.lsp.providers.tsserver"))
 		-- elseif server.name == "efm" then
 		-- 	opts = vim.tbl_deep_extend("force", opts, require("cosmic.lsp.providers.efm"))
 		-- elseif server.name == "jsonls" then
@@ -79,6 +74,8 @@ lsp_installer.on_server_ready(function(server)
 		opts = vim.tbl_deep_extend("force", opts, require("core.lsp.providers.lua"))
 		-- elseif server.name == "eslint" then
 		-- 	opts = vim.tbl_deep_extend("force", opts, require("cosmic.lsp.providers.eslint"))
+	elseif server.name == "rust_analyzer" then
+		return
 	end
 	--
 	-- -- override options if user definds them
