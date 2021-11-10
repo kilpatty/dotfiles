@@ -58,6 +58,11 @@ cask 'mactex'
 #
 ##
 
+cask 'alacritty'
+
+# Stylua is a code formatter for Lua. Mainly used for helping me format my Neovim configuration.
+brew 'stylua'
+
 # Mainly used for Bitcoin compilation - helps automate compilation process.
 brew 'automake'
 
