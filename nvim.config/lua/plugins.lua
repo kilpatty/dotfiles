@@ -63,10 +63,12 @@ return require("packer").startup(function(use)
 			{ "onsails/lspkind-nvim", after = "lsp_signature.nvim" },
 		},
 		config = function()
+			-- @todo we need to move this to another location.
 			require("null-ls").config({
 				sources = {
 					require("null-ls").builtins.formatting.stylua,
 					require("null-ls").builtins.formatting.eslint_d,
+					require("null-ls").builtins.code_actions.gitsigns,
 				},
 			})
 			local on_attach = function(client)
@@ -264,6 +266,16 @@ return require("packer").startup(function(use)
 	--     require("core.dashboard").setup()
 	--   end,
 	-- }
+
+	-- git column signs
+	use({
+		"lewis6991/gitsigns.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+		event = "BufRead",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	})
 
 	-- @todo still need to write config for this, see: https://github.com/numToStr/Comment.nvim
 	-- Additionally check this out: https://www.reddit.com/r/neovim/comments/q35328/commentnvim_simple_and_powerful_comment_plugin/
