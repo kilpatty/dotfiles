@@ -29,9 +29,6 @@ cask 'firefox-developer-edition'
 # Brave web browser, which features security by default.
 cask 'brave-browser'
 
-# De-Googled Chrome
-cask 'eloston-chromium'
-
 ##
 #
 # Kubernetes
@@ -162,7 +159,6 @@ brew "getantibody/tap/antibody"
 cask 'alfred'
 cask 'docker'
 cask 'flux'
-cask 'chromedriver'
 cask 'firefox'
 cask 'iterm2'
 cask 'insomnia'
