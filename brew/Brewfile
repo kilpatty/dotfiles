@@ -85,6 +85,9 @@ brew 'berkeley-db@4'
 
 brew 'ack'
 
+# Utility that cleans up leftover files when deleting an application.
+cask 'appcleaner'
+
 # Atuin replaces your existing shell history with a SQLite database, and records additional context for your commands.
 brew 'atuin'
 
