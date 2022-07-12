@@ -40,9 +40,30 @@ M.config = function()
 			},
 		},
 		server = {
-			cmd = requested_server._default_options.cmd,
+			-- cmd = requested_server._default_options.cmd,
+			cmd_env = requested_server._default_options.cmd_env,
 			on_attach = require("core.lsp").common_on_attach,
-			on_init = require("core.lsp").common_on_init,
+			-- on_init = require("core.lsp").common_on_init,
+			settings = {
+				-- to enable rust-analyzer settings visit:
+				-- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+				["rust-analyzer"] = {
+					assist = {
+						importGranularity = "module",
+						importEnforceGranularity = true,
+					},
+					rustfmt = {
+						extraArgs = { "+nightly" },
+						enableRangeFormatting = true,
+					},
+					-- enable clippy on save
+					checkOnSave = {
+						enable = true,
+						command = "clippy",
+						extraArgs = { "--target-dir", "/tmp/rust-analyzer-check" },
+					},
+				},
+			},
 		},
 	}
 	rust_tools.setup(opts)

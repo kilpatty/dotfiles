@@ -1,15 +1,20 @@
-local default_on_attach = require("core.lsp").common_on_attach
 local M = {}
 
-function M.on_attach(client, bufnr)
-	default_on_attach(client, bufnr)
-
-	client.resolved_capabilities.document_formatting = false
-	client.resolved_capabilities.document_range_formatting = false
-end
-
 M.settings = {
-	json = { schemas = require("schemastore").json.schemas(), format = { enable = false } },
+    json = {
+        validate = { enable = true },
+        schemas = require("schemastore").json.schemas(),
+    },
+}
+
+M.setup = {
+    commands = {
+        Format = {
+            function()
+                vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line("$"), 0 })
+            end,
+        },
+    },
 }
 
 return M

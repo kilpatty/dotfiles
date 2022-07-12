@@ -1,3 +1,18 @@
+-- @todo this does not work...
+-- @todo but there are some new solutions I think check this out: https://github.com/wbthomason/packer.nvim/issues/750
+local fn = vim.fn
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+if fn.empty(fn.glob(install_path)) > 0 then
+	packer_bootstrap = fn.system({
+		"git",
+		"clone",
+		"--depth",
+		"1",
+		"https://github.com/wbthomason/packer.nvim",
+		install_path,
+	})
+end
+
 local packer = nil
 
 if packer == nil then
@@ -18,79 +33,70 @@ if packer == nil then
 	})
 end
 
--- @todo this does not work...
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
-end
+return packer.startup(function(use)
 
-return require("packer").startup(function(use)
+	use 'lewis6991/impatient.nvim'
+
 	use("wbthomason/packer.nvim")
 
 	-- @todo I might move this to init similar to cosmic vim.
-	use({
-		"lewis6991/impatient.nvim",
-		config = function()
-			require("impatient")
-		end,
-	})
+	-- use({
+	-- 	"lewis6991/impatient.nvim",
+	-- 	config = function()
+	-- 		require("impatient")
+	-- 	end,
+	-- })
 
 	-- This will be removed once https://github.com/neovim/neovim/pull/15436 is merged - so keep an eye on it
 
 	use({
 		"neovim/nvim-lspconfig",
 		requires = {
-			{
-				"hrsh7th/cmp-nvim-lsp",
-				after = "nvim-lspconfig",
-			},
-			{
-				"jose-elias-alvarez/nvim-lsp-ts-utils",
-				after = "cmp-nvim-lsp",
-			},
-			{
-				"ray-x/lsp_signature.nvim",
-				after = "nvim-lsp-ts-utils",
-			},
-			{ "onsails/lspkind-nvim", after = "lsp_signature.nvim" },
+			{ "b0o/SchemaStore.nvim" },
+			{ "williamboman/nvim-lsp-installer" },
+			{ "jose-elias-alvarez/nvim-lsp-ts-utils" },
+			{ "jose-elias-alvarez/null-ls.nvim", after = "nvim-lspconfig" },
+			{ "ray-x/lsp_signature.nvim", after = "nvim-lspconfig" },
 		},
-		config = function()
-			-- @todo we need to move this to another location.
-			require("null-ls").config({
-				sources = {
-					require("null-ls").builtins.formatting.stylua,
-					require("null-ls").builtins.formatting.eslint_d,
-					require("null-ls").builtins.code_actions.gitsigns,
-				},
-			})
-			local on_attach = function(client)
-				if client.resolved_capabilities.document_formatting then
-					vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-				end
-			end
-			require("lspconfig")["null-ls"].setup({
-				on_attach = on_attach,
-			})
-		end,
 	})
+
 	use({
-		"simrat39/rust-tools.nvim",
+		"hrsh7th/nvim-cmp",
 		config = function()
-			require("core.rust_tools").config()
+			require("core.plugins.nvim-cmp")
 		end,
+		requires = {
+			{
+				"L3MON4D3/LuaSnip",
+				config = function()
+					require("core.plugins.luasnips")
+				end,
+				requires = {
+					"rafamadriz/friendly-snippets",
+				},
+			},
+			{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
+			{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-path", after = "nvim-cmp" },
+			{
+				"windwp/nvim-autopairs",
+				config = function()
+					require("core.plugins.auto-pairs")
+				end,
+
+				after = "nvim-cmp",
+			},
+		},
 	})
-	use("tamago324/nlsp-settings.nvim")
-	use("jose-elias-alvarez/null-ls.nvim")
+
+	use({
+		-- "simrat39/rust-tools.nvim",
+		"kilpatty/rust-tools.nvim",
+	})
+
 	-- @todo look into autoinstalling here. I think that lunarvim handles it and I will eventually get to that, but just putting a note here in the scenario that they don't.
-	use("williamboman/nvim-lsp-installer")
 	-- @todo might want to tag theme here btw.
 	use("rcarriga/nvim-notify")
 
@@ -107,6 +113,9 @@ return require("packer").startup(function(use)
 				run = "make",
 			},
 		},
+		config = function()
+			require("core.telescope")
+		end,
 		event = "BufWinEnter",
 	})
 
@@ -136,12 +145,19 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	use("arkav/lualine-lsp-progress")
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		config = function()
 			require("lualine").setup({
 				options = { theme = "tokyonight" },
+				sections = {
+					lualine_c = {
+						"filename",
+						"lsp_progress",
+					},
+				},
 			})
 		end,
 		after = "nvim-web-devicons",
@@ -165,7 +181,7 @@ return require("packer").startup(function(use)
 		},
 	})
 
-	-- lang/syntax stuff
+	-- Tree Sitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		requires = {
@@ -174,89 +190,12 @@ return require("packer").startup(function(use)
 			"nvim-treesitter/nvim-treesitter-refactor",
 		},
 		run = ":TSUpdate",
-		event = "BufEnter",
 		config = function()
-			-- require('cosmic.core.treesitter')
-			-- local config = require('cosmic.config')
-			require("nvim-treesitter.configs").setup({
-				-- ensure_installed = config.treesitter.ensure_installed,
-				-- @todo - we want to move this to config similar to how it's commented out above - also let's review all the plugins here to see if we want anything different
-				-- @todo could just do this which is the maintained fn.
-				-- ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-				-- @todo let's review this btw
-				-- ignore_install = { "javascript" }, -- List of parsers to ignore installing
-				ensure_installed = "maintained",
-				highlight = {
-					enable = true,
-					use_languagetree = true,
-				},
-				autopairs = {
-					enable = true,
-				},
-				indent = {
-					enable = true,
-				},
-				autotag = {
-					enable = true,
-				},
-				context_commentstring = {
-					enable = true,
-				},
-				refactor = {
-					highlight_definitions = { enable = true },
-					highlight_current_scope = { enable = false },
-				},
-				playground = {
-					enable = true,
-					disable = {},
-					updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-					persist_queries = false, -- Whether the query persists across vim sessions
-					keybindings = {
-						toggle_query_editor = "o",
-						toggle_hl_groups = "i",
-						toggle_injected_languages = "t",
-						toggle_anonymous_nodes = "a",
-						toggle_language_display = "I",
-						focus_language = "f",
-						unfocus_language = "F",
-						update = "R",
-						goto_node = "<cr>",
-						show_help = "?",
-					},
-				},
-			})
+			require("core.plugins.treesitter")
 		end,
-	})
-
-	use("nvim-treesitter/playground")
-
-	use({
-		"L3MON4D3/LuaSnip",
-		event = "InsertEnter",
 	})
 
 	-- autocompletion
-	use({
-		"hrsh7th/nvim-cmp",
-		config = function()
-			require("core.autocomplete").init()
-		end,
-		requires = {
-			{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
-			{ "hrsh7th/cmp-buffer", after = "cmp_luasnip" },
-			{ "hrsh7th/cmp-nvim-lua", after = "cmp-buffer" },
-			{ "hrsh7th/cmp-path", after = "cmp-nvim-lua" },
-		},
-		after = "LuaSnip",
-	})
-
-	use({
-		"windwp/nvim-autopairs",
-		config = function()
-			require("core.autocomplete").autopairs()
-		end,
-		after = "nvim-cmp",
-	})
 
 	-- Dashboard
 	-- use {
@@ -268,6 +207,7 @@ return require("packer").startup(function(use)
 	-- }
 
 	-- git column signs
+	-- @todo revisit cnofig here, see: https://github.com/LunarVim/LunarVim/blob/rolling/lua/lvim/core/gitsigns.lua
 	use({
 		"lewis6991/gitsigns.nvim",
 		requires = { "nvim-lua/plenary.nvim" },

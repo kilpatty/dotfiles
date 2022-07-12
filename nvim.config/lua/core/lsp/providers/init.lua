@@ -1,91 +1,79 @@
+-- @todo going to use this for u.merge
+local u = require("utils")
+local config = require("core.lsp.config")
 -- local default_config = require("cosmic.lsp.providers.defaults")
 -- local config = require("cosmic.config")
-local lsp_installer = require("nvim-lsp-installer")
-
-lsp_installer.settings({
-	ui = {
-		keymaps = {
-			-- Keymap to expand a server in the UI
-			toggle_server_expand = "i",
-			-- Keymap to install a server
-			install_server = "<CR>",
-			-- Keymap to reinstall/update a server
-			update_server = "u",
-			-- Keymap to uninstall a server
-			uninstall_server = "x",
-		},
-	},
+require("nvim-lsp-installer").setup({
+    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+    ui = {
+        icons = {
+            server_installed = " ",
+            server_pending = " ",
+            server_uninstalled = " ﮊ",
+        },
+        keymaps = {
+            -- Keymap to expand a server in the UI
+            toggle_server_expand = "i",
+            -- Keymap to install a server
+            install_server = "<CR>",
+            -- Keymap to reinstall/update a server
+            update_server = "u",
+            -- Keymap to uninstall a server
+            uninstall_server = "x",
+        },
+    },
 })
--- initial default serverse
-local requested_servers = {
-	"tsserver",
-	"sumneko_lua",
-	"jsonls",
-	"cssls",
-	"html",
-}
 
--- get disabled servers from config - Maybe I do this later, but not going to do it for now
--- Was originally going to delete this, but might come in handy oneday.
--- local disabled_servers = {}
--- for config_server, config_opt in pairs(config.lsp.servers) do
--- 	if config_opt == false then
--- 		table.insert(disabled_servers, config_server)
--- 	elseif not vim.tbl_contains(requested_servers, config_server) then
--- 		-- add additonally defined servers to be installed
--- 		-- todo: how to handle non-default server opts?
--- 		table.insert(requested_servers, config_server)
+local lspconfig = require("lspconfig")
+
+local servers = { "tsserver", "jsonls", "sumneko_lua", "rust_analyzer", "tailwindcss" }
+
+for _, server in pairs(servers) do
+    local default_opts = config.default_opts()
+
+    local opts = {
+        on_init = require("core.lsp").common_on_init,
+    }
+
+    default_opts = vim.tbl_deep_extend("force", default_opts, opts)
+
+    local has_custom_opts, server_custom_opts = pcall(require, "core.lsp.providers." .. server)
+    if has_custom_opts then
+        default_opts = vim.tbl_deep_extend("force", default_opts, server_custom_opts)
+    end
+
+    lspconfig[server].setup(default_opts)
+end
+
+-- disable server if config disabled server list says so
+-- opts.autostart = true
+-- if vim.tbl_contains(disabled_servers, server.name) then
+-- 	opts.autostart = false
+-- end
+
+-- set up default cosmic options
+-- if server.name == "tsserver" then
+-- 	opts = vim.tbl_deep_extend("force", opts, require("core.lsp.providers.tsserver"))
+-- 	-- elseif server.name == "efm" then
+-- 	-- 	opts = vim.tbl_deep_extend("force", opts, require("cosmic.lsp.providers.efm"))
+-- elseif server.name == "jsonls" then
+-- 	opts = vim.tbl_deep_extend("force", opts, require("core.lsp.providers.jsonls"))
+-- elseif server.name == "sumneko_lua" then
+-- 	opts = vim.tbl_deep_extend("force", opts, require("core.lsp.providers.lua"))
+-- 	-- elseif server.name == "eslint" then
+-- 	-- 	opts = vim.tbl_deep_extend("force", opts, require("cosmic.lsp.providers.eslint"))
+-- end
+--
+-- if server.name == "rust_analyzer" then
+-- else
+--
+-- -- override options if user definds them
+-- if type(config.lsp.servers[server.name]) == "table" then
+-- 	if config.lsp.servers[server.name].opts ~= nil then
+-- 		opts = config.lsp.servers[server.name].opts
 -- 	end
 -- end
 
--- go through requested_servers and ensure installation
-local lsp_installer_servers = require("nvim-lsp-installer.servers")
-for _, requested_server in pairs(requested_servers) do
-	local ok, server = lsp_installer_servers.get_server(requested_server)
-	if ok then
-		if not server:is_installed() then
-			server:install()
-		end
-	end
-end
-
-lsp_installer.on_server_ready(function(server)
-	-- local opts = default_config
-	local opts = {
-		on_attach = require("core.lsp").common_on_attach,
-		on_init = require("core.lsp").common_on_init,
-		capabilities = require("core.lsp").common_capabilities(),
-	}
-
-	-- disable server if config disabled server list says so
-	-- opts.autostart = true
-	-- if vim.tbl_contains(disabled_servers, server.name) then
-	-- 	opts.autostart = false
-	-- end
-
-	-- set up default cosmic options
-	if server.name == "tsserver" then
-		opts = vim.tbl_deep_extend("force", opts, require("core.lsp.providers.tsserver"))
-		-- elseif server.name == "efm" then
-		-- 	opts = vim.tbl_deep_extend("force", opts, require("cosmic.lsp.providers.efm"))
-		-- elseif server.name == "jsonls" then
-		-- 	opts = vim.tbl_deep_extend("force", opts, require("cosmic.lsp.providers.jsonls"))
-	elseif server.name == "sumneko_lua" then
-		opts = vim.tbl_deep_extend("force", opts, require("core.lsp.providers.lua"))
-		-- elseif server.name == "eslint" then
-		-- 	opts = vim.tbl_deep_extend("force", opts, require("cosmic.lsp.providers.eslint"))
-	elseif server.name == "rust_analyzer" then
-		return
-	end
-	--
-	-- -- override options if user definds them
-	-- if type(config.lsp.servers[server.name]) == "table" then
-	-- 	if config.lsp.servers[server.name].opts ~= nil then
-	-- 		opts = config.lsp.servers[server.name].opts
-	-- 	end
-	-- end
-
-	-- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
-	server:setup(opts)
-	vim.cmd([[ do User LspAttachBuffers ]])
-end)
+-- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
+-- server:setup(opts)
+-- vim.cmd([[ do User LspAttachBuffers ]])

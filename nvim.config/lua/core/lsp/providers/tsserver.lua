@@ -50,8 +50,10 @@ function M.on_attach(client, bufnr)
 	})
 
 	-- disable tsserver formatting if you plan on formatting via null-ls
-	client.resolved_capabilities.document_formatting = false
-	client.resolved_capabilities.document_range_formatting = false
+	-- client.resolved_capabilities.document_formatting = false
+	-- client.resolved_capabilities.document_range_formatting = false
+	client.server_capabilities.documentFormattingProvider = false;
+        client.server_capabilities.documentRangeFormattingProvider = false;
 
 	-- required to fix code action ranges and filter diagnostics
 	ts_utils.setup_client(client)
