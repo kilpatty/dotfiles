@@ -2,6 +2,7 @@ local M = {}
 -- local Log = require("core.log")
 -- local utils = require("core.utils")
 local null_ls = require("core.lsp.null-ls")
+-- local typescript_ok, typescript = pcall(require, "typescript")
 
 local function lsp_highlight_document(client)
     --@todo come  back to this when config works
@@ -172,6 +173,11 @@ function M.common_on_attach(client, bufnr)
     add_lsp_buffer_keybindings(bufnr)
 end
 
+local function filter_format(client)
+    -- apply whatever logic you want (in this example, we'll only use null-ls)
+    return client.name == "null-ls"
+end
+
 function M.setup()
     -- Log:debug("Setting up LSP support")
 
@@ -179,6 +185,8 @@ function M.setup()
     if not lsp_status_ok then
         return
     end
+
+    require("fidget").setup()
 
     -- vim.lsp.set_log_level("trace")
 
@@ -198,11 +206,24 @@ function M.setup()
 
     require("core.lsp.config").handlers()
 
+    -- if typescript_ok then
+    --     typescript.setup({
+    --         disable_commands = false, -- prevent the plugin from creating Vim commands
+    --         debug = false, -- enable debug logging for commands
+    --         -- LSP Config options
+    --         server = {
+    --             capabilities = require("lsp.servers.tsserver").capabilities,
+    --             handlers = handlers,
+    --             on_attach = require("lsp.servers.tsserver").on_attach,
+    --         },
+    --     })
+    -- end
+
     require("core.lsp.providers")
 
     require("core.lsp.null-ls").setup()
 
-    require("core.autocmds").configure_format_on_save()
+    require("core.autocmds").configure_format_on_save(filter_format)
 end
 
 return M

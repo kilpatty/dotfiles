@@ -95,7 +95,7 @@ function M.disable_format_on_save()
     -- Log:debug("disabled format-on-save")
 end
 
-function M.configure_format_on_save()
+function M.configure_format_on_save(filter)
     -- local opts = get_format_on_save_opts()
     -- @todo  comback to this
     local opts = {
@@ -104,6 +104,7 @@ function M.configure_format_on_save()
         ---@usage timeout number timeout in ms for the format request (Default: 1000)
         timeout = 1000,
         async = false,
+        filter,
     }
     M.enable_format_on_save(opts)
     -- else
