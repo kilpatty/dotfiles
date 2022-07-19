@@ -125,7 +125,6 @@ local cmp_cfg = {
         { name = "path" },
         { name = "luasnip" },
         { name = "cmp_tabnine" },
-        { name = "nvim_lua" },
         { name = "buffer" },
         { name = "calc" },
         { name = "emoji" },

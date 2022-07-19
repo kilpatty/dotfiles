@@ -70,6 +70,9 @@ function M.default_on_attach(client, bufnr)
     end
 
     -- This automatically opens diagnostics in float
+    -- @todo do we only want to create this if the server is going to show us diagnostics? Not sure what variables have
+    -- that to make us able to check.
+    -- Might be available at textDocument/publishDiagnostics
     vim.api.nvim_create_autocmd("CursorHold", {
         buffer = bufnr,
         callback = function()
@@ -129,6 +132,7 @@ M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
 -- @todo Flags: https://github.com/AstroNvim/AstroNvim/blob/v2/lua/core/utils/lsp.lua
 
 -- @todo could do on_init
+
 function M.default_opts()
     return {
         on_attach = M.default_on_attach,

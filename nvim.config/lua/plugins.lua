@@ -68,7 +68,6 @@ return packer.startup(function(use)
         config = function()
             require("core.plugins.nvim-cmp")
         end,
-        event = "InsertEnter",
         requires = {
             {
                 "L3MON4D3/LuaSnip",
@@ -83,9 +82,6 @@ return packer.startup(function(use)
             { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
             { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
             { "hrsh7th/cmp-path", after = "nvim-cmp" },
-            { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
-            { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
-            { "hrsh7th/cmp-path", after = "nvim-cmp" },
             { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
 
             {
@@ -97,6 +93,11 @@ return packer.startup(function(use)
                 after = "nvim-cmp",
             },
         },
+    })
+
+    use({
+        "folke/lua-dev.nvim",
+        module = "lua-dev",
     })
 
     use({
@@ -122,7 +123,7 @@ return packer.startup(function(use)
             },
         },
         config = function()
-            require("core.telescope")
+            require("core.plugins.telescope")
         end,
         event = "BufWinEnter",
     })

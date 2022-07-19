@@ -26,7 +26,7 @@ require("nvim-lsp-installer").setup({
 
 local lspconfig = require("lspconfig")
 
-local servers = { "tsserver", "jsonls", "sumneko_lua", "rust_analyzer", "tailwindcss" }
+local servers = { "tsserver", "jsonls", "sumneko_lua", "rust_analyzer", "tailwindcss", "eslint" }
 
 for _, server in pairs(servers) do
     local default_opts = config.default_opts()

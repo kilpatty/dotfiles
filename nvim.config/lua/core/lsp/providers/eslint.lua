@@ -1,4 +1,10 @@
+local util = require("lspconfig").util
+
 local M = {}
+
+-- M.root_dir = function(fname)
+--     return util.root_pattern("tsconfig.json")(fname) or util.root_pattern(".eslintrc.js", ".git")(fname)
+-- end
 
 -- M.settings = {
 --     codeAction = {

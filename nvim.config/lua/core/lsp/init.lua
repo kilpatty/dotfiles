@@ -175,7 +175,7 @@ end
 
 local function filter_format(client)
     -- apply whatever logic you want (in this example, we'll only use null-ls)
-    return client.name == "null-ls"
+    return client.name == "null-ls" or "eslint"
 end
 
 function M.setup()
@@ -190,7 +190,7 @@ function M.setup()
 
     -- vim.lsp.set_log_level("trace")
 
-    require("core.rust_tools").config()
+    require("core.plugins.rust_tools").config()
 
     require("lsp_signature").setup({
         bind = true, -- This is mandatory, otherwise border config won't get registered.
