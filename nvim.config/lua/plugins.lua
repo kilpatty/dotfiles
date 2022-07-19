@@ -38,13 +38,14 @@ return packer.startup(function(use)
 
     use("wbthomason/packer.nvim")
 
-    -- @todo I might move this to init similar to cosmic vim.
-    -- use({
-    -- 	"lewis6991/impatient.nvim",
-    -- 	config = function()
-    -- 		require("impatient")
-    -- 	end,
-    -- })
+    -- Cursorhold fix
+    use({
+        "antoinemadec/FixCursorHold.nvim",
+        event = { "BufRead", "BufNewFile" },
+        config = function()
+            vim.g.cursorhold_updatetime = 100
+        end,
+    })
 
     -- This will be removed once https://github.com/neovim/neovim/pull/15436 is merged - so keep an eye on it
 
