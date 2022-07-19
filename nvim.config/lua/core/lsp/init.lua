@@ -173,11 +173,6 @@ function M.common_on_attach(client, bufnr)
     add_lsp_buffer_keybindings(bufnr)
 end
 
-local function filter_format(client)
-    -- apply whatever logic you want (in this example, we'll only use null-ls)
-    return client.name == "null-ls" or "eslint"
-end
-
 function M.setup()
     -- Log:debug("Setting up LSP support")
 
@@ -223,7 +218,7 @@ function M.setup()
 
     require("core.lsp.null-ls").setup()
 
-    require("core.autocmds").configure_format_on_save(filter_format)
+    require("core.autocmds").configure_format_on_save()
 end
 
 return M

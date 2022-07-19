@@ -73,8 +73,6 @@ end
 -- end
 
 function M.enable_format_on_save(opts)
-    -- @todo can use filter to only use null-ls for formatting
-    -- lua vim.lsp.buf.format({ async = true })
     vim.api.nvim_create_augroup("lsp_format_on_save", {})
     vim.api.nvim_create_autocmd("BufWritePre", {
         group = "lsp_format_on_save",
@@ -95,16 +93,19 @@ function M.disable_format_on_save()
     -- Log:debug("disabled format-on-save")
 end
 
-function M.configure_format_on_save(filter)
+function M.configure_format_on_save()
     -- local opts = get_format_on_save_opts()
     -- @todo  comback to this
+    -- @todo make this global configuration
     local opts = {
         ---@usage pattern string pattern used for the autocommand (Default: '*')
         pattern = "*",
         ---@usage timeout number timeout in ms for the format request (Default: 1000)
         timeout = 1000,
         async = false,
-        filter,
+        filter = function(client)
+            return client.name == "null-ls" or "eslint"
+        end,
     }
     M.enable_format_on_save(opts)
     -- else

@@ -49,11 +49,6 @@ end
 
 -- Check this out https://github.com/budswa/nvim/blob/master/lua/art/modules/lsp/null-ls.lua
 function M.default_on_attach(client, bufnr)
-    -- @todo we can have a default callback
-    -- @todo we are just defaulting to no formatting period.
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
-
     -- @todo in the future play w/ illuminate
     if client.server_capabilities.documentHighlightProvider then
         vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
