@@ -202,6 +202,15 @@ return packer.startup(function(use)
         end,
     })
 
+    -- Whichkey
+    use({
+        "max397574/which-key.nvim",
+        config = function()
+            require("core.plugins.which-key").setup()
+        end,
+        event = "BufWinEnter",
+    })
+
     -- autocompletion
 
     -- Dashboard
@@ -243,7 +252,6 @@ return packer.startup(function(use)
         end,
     })
 
-    -- @todo testing out trouble plugin... looks cool
     -- @todo finish playing with the config here: https://github.com/folke/trouble.nvim
     use({
         "folke/trouble.nvim",
