@@ -110,6 +110,7 @@ return packer.startup(function(use)
     use("rcarriga/nvim-notify")
 
     use("nvim-lua/plenary.nvim")
+    -- @todo need to configure this
     use("nvim-lua/popup.nvim")
 
     use({
@@ -127,8 +128,6 @@ return packer.startup(function(use)
         end,
         event = "BufWinEnter",
     })
-
-    use("nathom/filetype.nvim")
 
     use({ -- icons
         "kyazdani42/nvim-web-devicons",
@@ -232,7 +231,6 @@ return packer.startup(function(use)
         end,
     })
 
-    -- git column signs
     -- @todo revisit cnofig here, see: https://github.com/LunarVim/LunarVim/blob/rolling/lua/lvim/core/gitsigns.lua
     use({
         "lewis6991/gitsigns.nvim",
@@ -272,6 +270,14 @@ return packer.startup(function(use)
                 -- or leave it empty to use the default settings
                 -- refer to the configuration section below
             })
+        end,
+    })
+
+    use({
+        "stevearc/dressing.nvim",
+        module = "vim.ui",
+        config = function()
+            require("dressing").setup({})
         end,
     })
 

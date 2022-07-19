@@ -1,10 +1,19 @@
-local opts = {
-    settings = {
-        Lua = {
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { "vim", "packer_plugins" },
-            },
+local default_on_attach = require("core.lsp.config").default_on_attach
+
+local opts = {}
+
+function opts.on_attach(client, bufnr)
+    default_on_attach(client, bufnr)
+
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+end
+
+opts.settings = {
+    Lua = {
+        diagnostics = {
+            -- Get the language server to recognize the `vim` global
+            globals = { "vim", "packer_plugins" },
         },
     },
 }

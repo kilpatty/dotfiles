@@ -1,4 +1,5 @@
-local default_on_attach = require("core.lsp").common_on_attach
+local default_on_attach = require("core.lsp.config").default_on_attach
+
 local M = {}
 
 function M.on_attach(client, bufnr)

@@ -35,6 +35,48 @@ M.config = {
     },
 }
 
+M.buffer_mappings = {
+    normal_mode = {
+        ["K"] = { vim.lsp.buf.hover, "Show hover" },
+        ["gd"] = { vim.lsp.buf.definition, "Goto Definition" },
+        ["gD"] = { vim.lsp.buf.declaration, "Goto declaration" },
+        ["gr"] = { vim.lsp.buf.references, "Goto references" },
+        ["gI"] = { vim.lsp.buf.implementation, "Goto Implementation" },
+        ["gs"] = { vim.lsp.buf.signature_help, "show signature help" },
+        -- ["<leader>la"] = { function() vim.lsp.buf.code_action() end, desc = "LSP code action" },
+        -- ["<leader>lf"] = { function() vim.lsp.buf.formatting_sync() end, desc = "Format code" },
+        -- ["<leader>lh"] = { function() vim.lsp.buf.signature_help() end, desc = "Signature help" },
+        -- ["<leader>lr"] = { function() vim.lsp.buf.rename() end, desc = "Rename current symbol" },
+        -- ["<leader>ld"] = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" },
+        ["[d"] = {
+            vim.diagnostic.goto_prev,
+            desc = "Previous diagnostic",
+        },
+        ["]d"] = {
+            vim.diagnostic.goto_next,
+            desc = "Next diagnostic",
+        },
+        -- ["gl"] = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" },
+        -- ["gp"] = {
+        --     function()
+        --         require("lvim.lsp.peek").Peek("definition")
+        --     end,
+        --     "Peek definition",
+        -- },
+        -- ["gl"] = {
+        --     function()
+        --         local config = lvim.lsp.diagnostics.float
+        --         config.scope = "line"
+        --         vim.diagnostic.open_float(0, config)
+        --     end,
+        --     "Show line diagnostics",
+        -- },
+    },
+    insert_mode = {},
+    visual_mode = {},
+}
+
+-- @todo I low key want to move everything below this to a file called defaults
 function M.handlers()
     vim.diagnostic.config(M.config)
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
@@ -45,6 +87,21 @@ function M.handlers()
         vim.lsp.handlers.signature_help,
         { focusable = true, style = "minimal", border = "rounded" }
     )
+end
+
+local function add_lsp_buffer_keybindings(bufnr)
+    local mappings = {
+        normal_mode = "n",
+        insert_mode = "i",
+        visual_mode = "v",
+    }
+
+    for mode_name, mode_char in pairs(mappings) do
+        for key, remap in pairs(M.buffer_mappings[mode_name]) do
+            local opts = { buffer = bufnr, desc = remap[2], noremap = true, silent = true }
+            vim.keymap.set(mode_char, key, remap[1], opts)
+        end
+    end
 end
 
 -- Check this out https://github.com/budswa/nvim/blob/master/lua/art/modules/lsp/null-ls.lua
@@ -61,6 +118,16 @@ function M.default_on_attach(client, bufnr)
             group = "lsp_document_highlight",
             pattern = "<buffer>",
             callback = vim.lsp.buf.clear_references,
+        })
+    end
+
+    if client.supports_method("textDocument/codeLens") then
+        vim.pretty_print("Hi")
+        vim.api.nvim_create_augroup("lsp_code_lens_refresh", { clear = true })
+        vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave" }, {
+            group = "lsp_code_lens_refresh",
+            buffer = bufnr,
+            callback = vim.lsp.codelens.refresh,
         })
     end
 
@@ -83,8 +150,7 @@ function M.default_on_attach(client, bufnr)
         end,
     })
 
-    -- @todo codelens from lunarvim
-    -- @todo mappings
+    add_lsp_buffer_keybindings(bufnr)
 end
 
 -- @todo

@@ -1,5 +1,5 @@
 -- @todo going to use this for u.merge
-local u = require("utils")
+-- local u = require("utils")
 local config = require("core.lsp.config")
 -- local default_config = require("cosmic.lsp.providers.defaults")
 -- local config = require("cosmic.config")

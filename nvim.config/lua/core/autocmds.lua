@@ -1,6 +1,26 @@
+local cmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
+
 local M = {}
 -- local Log = require("lvim.core.log")
 
+-- augroup("highlighturl", { clear = true })
+-- cmd({ "VimEnter", "FileType", "BufEnter", "WinEnter" }, {
+--   desc = "URL Highlighting",
+--   group = "highlighturl",
+--   pattern = "*",
+--   callback = function() astronvim.set_url_match() end,
+-- })
+
+function M.load_defaults()
+    augroup("packer_user_config", { clear = true })
+    cmd("BufWritePost", {
+        desc = "Automatically Re-Compile Packer when editing the file",
+        group = "packer_user_config",
+        pattern = "*/plugins.lua",
+        command = "source <afile> | PackerSync",
+    })
+end
 --- Load the default set of autogroups and autocommands.
 function M.load_augroups()
     -- local user_config_file = vim.fn.resolve(require("lvim.config"):get_user_config_path())

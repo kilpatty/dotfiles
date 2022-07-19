@@ -29,6 +29,7 @@ M.settings = {
     --     enable = false,
     --     mode = "all",
     -- },
+    debug = true,
     format = true,
     nodePath = "",
     onIgnoredFiles = "off",

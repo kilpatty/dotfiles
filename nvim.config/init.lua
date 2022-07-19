@@ -6,7 +6,6 @@ end
 require("compiled")
 require("options")
 require("plugins")
-require("core.utils")
--- require("core.lsp")
+require("config"):init()
 require("core.lsp").setup()
 require("core.bindings")
