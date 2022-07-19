@@ -211,16 +211,24 @@ return packer.startup(function(use)
         event = "BufWinEnter",
     })
 
-    -- autocompletion
+    use({
+        "goolord/alpha-nvim",
+        requires = { "kyazdani42/nvim-web-devicons" },
+        config = function()
+            require("core.plugins.alpha")
+            -- require("alpha").setup(require("alpha.themes.startify").config)
+        end,
+    })
 
-    -- Dashboard
-    -- use {
-    --   "ChristianChiarulli/dashboard-nvim",
-    --   event = "BufWinEnter",
-    --   config = function()
-    --     require("core.dashboard").setup()
-    --   end,
-    -- }
+    -- Surround
+    use({
+        "kylechui/nvim-surround",
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end,
+    })
 
     -- git column signs
     -- @todo revisit cnofig here, see: https://github.com/LunarVim/LunarVim/blob/rolling/lua/lvim/core/gitsigns.lua
