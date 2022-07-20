@@ -37,14 +37,19 @@ jobs:
         labels: "review"
         title: Dotfile Review Week ${{needs.get_dates.outputs.week}} of ${{needs.get_dates.outputs.year}}
         body: |-
-          :wave: Hi, {{#each assignees}}@{{this}}{{#unless @last}}, {{/unless}}{{/each}}!
           ## Dotfile review for ${{ env.TODAY }}
           1. What do you feel like you got better at this week?
+          
           2. What is something that you’d like to get better at over the next week?
+          
           3. Are there any newly installed tools that worked well for you this week?
+          
           4. Are there any tools that you feel you no longer use, or don’t have the same usefulness as before?
+          
           5. Are there any aliases that you think would be useful to add?
+          
           6. Are there any tools that DON’T exists, but you think would help your workflow.
+          
         pinned: true
         close-previous: true
         linked-comments: true
