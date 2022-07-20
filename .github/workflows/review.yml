@@ -3,7 +3,6 @@
 #
 name: Weekly Standup
 on:
-  workflow_dispatch:
   schedule:
   # Every Thursday at Noon UTC (~7am CST)
   - cron: 0 12 * * 4
@@ -28,7 +27,7 @@ jobs:
         labels: "review"
         title: Dotfile Review Week ${{steps.week.outputs.week}} of ${{steps.year.outputs.year}}
         body: |-
-          ## Dotfile review for ${{ steps.today.outputs.today }}
+          ## Dotfile review for the week of ${{ steps.today.outputs.today }}
           1. What do you feel like you got better at this week?
           
           2. What is something that you’d like to get better at over the next week?
