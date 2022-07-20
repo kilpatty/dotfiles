@@ -191,6 +191,10 @@ end
 M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
 
 -- @todo Flags: https://github.com/AstroNvim/AstroNvim/blob/v2/lua/core/utils/lsp.lua
+M.flags = {
+    allow_incremental_sync = true,
+    debounce_text_changes = 200,
+}
 
 -- @todo could do on_init
 
@@ -198,6 +202,7 @@ function M.default_opts()
     return {
         on_attach = M.default_on_attach,
         capabilities = M.capabilities,
+        flags = M.flags,
     }
 end
 

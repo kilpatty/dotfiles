@@ -101,8 +101,7 @@ return packer.startup(function(use)
     })
 
     use({
-        -- "simrat39/rust-tools.nvim",
-        "kilpatty/rust-tools.nvim",
+        "simrat39/rust-tools.nvim",
     })
 
     -- @todo look into autoinstalling here. I think that lunarvim handles it and I will eventually get to that, but just putting a note here in the scenario that they don't.

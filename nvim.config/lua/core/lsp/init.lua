@@ -60,8 +60,6 @@ function M.setup()
 
     -- vim.lsp.set_log_level("trace")
 
-    require("core.plugins.rust_tools").config()
-
     require("lsp_signature").setup({
         bind = true, -- This is mandatory, otherwise border config won't get registered.
         handler_opts = {
@@ -90,6 +88,8 @@ function M.setup()
     -- end
 
     require("core.lsp.providers")
+
+    require("core.plugins.rust_tools").config()
 
     require("core.lsp.null-ls").setup()
 

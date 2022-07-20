@@ -27,26 +27,29 @@ require("nvim-lsp-installer").setup({
 local lspconfig = require("lspconfig")
 
 local servers = { "tsserver", "jsonls", "sumneko_lua", "rust_analyzer", "tailwindcss", "eslint" }
+local skip_setup = { "rust_analyzer" }
 
 for _, server in pairs(servers) do
-    local default_opts = config.default_opts()
+    if not vim.tbl_contains(skip_setup, server) then
+        local default_opts = config.default_opts()
 
-    local opts = {
-        on_init = require("core.lsp").common_on_init,
-    }
+        local opts = {
+            on_init = require("core.lsp").common_on_init,
+        }
 
-    default_opts = vim.tbl_deep_extend("force", default_opts, opts)
+        default_opts = vim.tbl_deep_extend("force", default_opts, opts)
 
-    local has_custom_opts, server_custom_opts = pcall(require, "core.lsp.providers." .. server)
-    if has_custom_opts then
-        default_opts = vim.tbl_deep_extend("force", default_opts, server_custom_opts)
+        local has_custom_opts, server_custom_opts = pcall(require, "core.lsp.providers." .. server)
+        if has_custom_opts then
+            default_opts = vim.tbl_deep_extend("force", default_opts, server_custom_opts)
+        end
+
+        -- if server == "eslint" then
+        --     vim.pretty_print(vim.inspect(default_opts))
+        -- end
+
+        lspconfig[server].setup(default_opts)
     end
-
-    -- if server == "eslint" then
-    --     vim.pretty_print(vim.inspect(default_opts))
-    -- end
-
-    lspconfig[server].setup(default_opts)
 end
 
 -- disable server if config disabled server list says so
