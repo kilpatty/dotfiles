@@ -9,13 +9,10 @@ on:
   - cron: 0 12 * * 4
 
 jobs:
-  get_dates:
-    name: Get Dates
+      
+  weekly_review:
+    name: Weekly Review
     runs-on: ubuntu-latest
-    outputs:
-      today: ${{ steps.today.outputs.today }}
-      week: ${{ steps.week.outputs.week }}
-      year: ${{ steps.year.outputs.year }}
     steps:
     - id: today
       run: echo "::set-output name=today::$(date '+%Y-%m-%d')"
@@ -23,21 +20,15 @@ jobs:
       run: echo "::set-output name=week::$(date '+%U')"
     - id: year
       run: echo "::set-output name=year::$(date '+%Y')"
-      
-  weekly_review:
-    name: Weekly Review
-    runs-on: ubuntu-latest
-    needs: get_dates
-    steps:
     # Generates and pins new standup issue, closes previous, writes linking comments, and assigns to all assignees in list
     - name: New review issue
       uses: imjohnbo/issue-bot@v3
       with:
         assignees: "kilpatty"
         labels: "review"
-        title: Dotfile Review Week ${{needs.get_dates.outputs.week}} of ${{needs.get_dates.outputs.year}}
+        title: Dotfile Review Week ${{steps.week.outputs.week}} of ${{steps.year.outputs.year}}
         body: |-
-          ## Dotfile review for ${{ env.TODAY }}
+          ## Dotfile review for ${{ steps.today.outputs.today }}
           1. What do you feel like you got better at this week?
           
           2. What is something that you’d like to get better at over the next week?
