@@ -3,6 +3,7 @@
 #
 name: Weekly Standup
 on:
+  workflow_dispatch:
   schedule:
   # Every Thursday at Noon UTC (~7am CST)
   - cron: 0 12 * * 4
