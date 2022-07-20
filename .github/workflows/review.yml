@@ -13,9 +13,9 @@ jobs:
     name: Get Dates
     runs-on: ubuntu-latest
     outputs:
-      today: ${{ steps.today.outputs.test }}
-      week: ${{ steps.week.outputs.test }}
-      year: ${{ steps.year.outputs.test }}
+      today: ${{ steps.today.outputs.today }}
+      week: ${{ steps.week.outputs.week }}
+      year: ${{ steps.year.outputs.year }}
     steps:
     - id: today
       run: echo "::set-output name=today::$(date '+%Y-%m-%d')"
