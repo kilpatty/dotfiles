@@ -35,6 +35,7 @@ function M.setup()
             --@todo luacheck https://github.com/mpeterv/luacheck for linter
             null_ls.builtins.formatting.stylua,
             -- null_ls.builtins.formatting.prettierd,
+            null_ls.builtins.diagnostics.yamllint,
             null_ls.builtins.diagnostics.vale,
         },
     })

@@ -122,7 +122,6 @@ function M.default_on_attach(client, bufnr)
     end
 
     if client.supports_method("textDocument/codeLens") then
-        vim.pretty_print("Hi")
         vim.api.nvim_create_augroup("lsp_code_lens_refresh", { clear = true })
         vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave" }, {
             group = "lsp_code_lens_refresh",

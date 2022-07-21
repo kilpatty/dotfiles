@@ -33,6 +33,8 @@ local options = {
     wrap = false, -- display lines as one long line
     scrolloff = 8, -- minimal number of screen lines to keep above and below the cursor.
     sidescrolloff = 8, -- minimal number of screen lines to keep left and right of the cursor.
+    -- @todo maybe we set this to something larger like 120, and then set it to 80 in Yaml files only
+    textwidth = 80,
 }
 -- clipboard = "unnamedplus", -- allows neovim to access the system clipboard
 -- shadafile = join_paths(get_cache_dir(), "lvim.shada"),

@@ -8,6 +8,7 @@ local defaults = {
     incremental_selection = { enable = true },
     indent = {
         enable = true,
+        disable = { "yaml" },
     },
     autotag = {
         enable = true,

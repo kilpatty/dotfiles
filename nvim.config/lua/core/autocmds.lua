@@ -20,6 +20,19 @@ function M.load_defaults()
         pattern = "*/plugins.lua",
         command = "source <afile> | PackerSync",
     })
+    augroup("_buffer_mappings", {})
+    cmd("FileType", {
+        group = "_buffer_mappings",
+        pattern = { "qf", "help", "man", "floaterm", "lspinfo", "lsp-installer", "null-ls-info" },
+        command = "nnoremap <silent> <buffer> q :close<CR>",
+    })
+
+    -- augroup("_format_options", {})
+    -- cmd({ "BufWinEnter", "BufRead", "BufNewFile" }, {
+    --     group = "_format_options",
+    --     pattern = "*",
+    --     command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o",
+    -- })
 end
 --- Load the default set of autogroups and autocommands.
 function M.load_augroups()
@@ -124,7 +137,8 @@ function M.configure_format_on_save()
         timeout = 1000,
         async = false,
         filter = function(client)
-            return client.name == "null-ls" or "eslint"
+            -- @todo I think we should probably just say anything except for tsserver
+            return client.name == "null-ls" or "eslint" or "yamlls"
         end,
     }
     M.enable_format_on_save(opts)
