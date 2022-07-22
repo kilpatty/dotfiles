@@ -26,7 +26,16 @@ require("nvim-lsp-installer").setup({
 
 local lspconfig = require("lspconfig")
 
-local servers = { "tsserver", "jsonls", "sumneko_lua", "rust_analyzer", "tailwindcss", "eslint", "yamlls" }
+local servers = {
+    "tsserver",
+    "jsonls",
+    "sumneko_lua",
+    "rust_analyzer",
+    "tailwindcss",
+    "eslint",
+    "yamlls",
+    "terraformls",
+}
 local skip_setup = { "rust_analyzer" }
 
 for _, server in pairs(servers) do

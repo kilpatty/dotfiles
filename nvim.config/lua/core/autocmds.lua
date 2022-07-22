@@ -27,12 +27,12 @@ function M.load_defaults()
         command = "nnoremap <silent> <buffer> q :close<CR>",
     })
 
-    -- augroup("_format_options", {})
-    -- cmd({ "BufWinEnter", "BufRead", "BufNewFile" }, {
-    --     group = "_format_options",
-    --     pattern = "*",
-    --     command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o",
-    -- })
+    augroup("_format_options", {})
+    cmd({ "BufWinEnter", "BufRead", "BufNewFile" }, {
+        group = "_format_options",
+        pattern = "*",
+        command = "setlocal formatoptions+=a",
+    })
 end
 --- Load the default set of autogroups and autocommands.
 function M.load_augroups()
