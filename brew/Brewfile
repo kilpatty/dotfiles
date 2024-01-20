@@ -6,7 +6,6 @@ cask_args appdir: '/Applications'
 
 # Tap homebrew
 tap 'homebrew/cask'
-tap 'homebrew/cask-drivers'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/core'
@@ -14,6 +13,7 @@ tap 'homebrew/bundle'
 tap 'homebrew/services'
 tap 'helm/tap'
 tap 'hashicorp/tap'
+tap 'vectordotdev/brew'
 
 ##
 # Browsers
@@ -50,19 +50,31 @@ cask 'lens'
 # MacOS implementation of Latex for building PDF documents
 cask 'mactex'
 
-##
-# Development
-#
-#
-##
+
+#############################################################
+# Software Development                                      #
+#############################################################
+
+# Development Apps
+# @todo iterm, etc
+
+# Development Langs, Compilers, Package Managers and SDKs
+brew 'gcc'
+brew 'go'
+brew 'lua'
+brew 'luarocks'
+
 
 # utility to run Github actions locally for testing.
-brew 'act' 
+brew 'act'
 
 cask 'alacritty'
 
 # Stylua is a code formatter for Lua. Mainly used for helping me format my Neovim configuration.
 brew 'stylua'
+
+# Docker Desktop alternative
+brew 'colima'
 
 # Mainly used for Bitcoin compilation - helps automate compilation process.
 brew 'automake'
@@ -81,6 +93,9 @@ brew 'libevent'
 
 # Bitcoin dep. Used for legacy wallets
 brew 'berkeley-db@4'
+
+# Logfile Highlighter
+brew 'tailspin'
 
 ##
 # Utilities
@@ -118,7 +133,6 @@ brew 'exa'
 brew 'fd'
 brew 'findutils'
 brew 'fzf'
-brew 'gcc'
 brew 'geckodriver'
 brew 'git'
 brew 'git-flow'
@@ -126,17 +140,15 @@ brew 'git-lfs'
 brew 'gnu-sed'
 brew 'gnupg2'
 brew 'gnuplot'
-brew 'go'
 brew 'htop'
 brew 'hugo'
 brew 'irssi'
 brew 'libyaml'
-brew 'luarocks'
 brew 'lynis'
 brew 'mas'
 brew 'moreutils'
 brew 'ncdu'
-brew 'neovim', args: ["HEAD"]
+brew 'neovim'
 brew 'nmap'
 brew 'openssh'
 brew 'openssl'
@@ -177,7 +189,6 @@ brew 'pipx'
 brew 'hashicorp/tap/terraform'
 brew 'fluxcd/tap/flux'
 brew 'kustomize'
-brew 'go-task/tap/go-task'
 brew 'terrascan'
 brew 'jq'
 brew 'pre-commit'
@@ -188,11 +199,14 @@ brew 'kubeaudit'
 brew 'age'
 brew 'sops'
 brew 'velero'
-brew 'leapp'
 brew 'just'
 brew 'terraformer'
 brew 'k9s'
 brew 'direnv'
+brew 'kubectx'
+brew 'kube-linter'
+brew 'hadolint'
+brew 'vector'
 
 
 #Casks
@@ -214,6 +228,9 @@ cask 'obsidian'
 cask 'stats'
 cask 'fig'
 cask 'github'
+cask '1password-cli'
+cask 'eloston-chromium'
+cask 'chromedriver'
 
 # @todo not sure how to do this yet but we need to include this one.
 # brew install --cask 1password/tap/1password-cli
