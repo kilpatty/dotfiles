@@ -5,10 +5,8 @@ cask_args appdir: '/Applications'
 ##
 
 # Tap homebrew
-tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
-tap 'homebrew/core'
 tap 'homebrew/bundle'
 tap 'homebrew/services'
 tap 'helm/tap'
