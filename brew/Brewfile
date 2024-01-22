@@ -184,7 +184,6 @@ brew 'yamllint'
 brew 'yamale'
 brew 'pipx'
 brew 'hashicorp/tap/terraform'
-brew 'fluxcd/tap/flux'
 brew 'kustomize'
 brew 'terrascan'
 brew 'jq'
@@ -219,7 +218,6 @@ cask 'lulu'
 cask 'rectangle'
 cask 'spotify'
 cask 'wireshark'
-cask 'telegram'
 cask 'raycast'
 cask 'obsidian'
 cask 'stats'
@@ -233,17 +231,19 @@ cask 'chromedriver'
 # brew install --cask 1password/tap/1password-cli
 #
 #Mac Applications
-#mas "Amphetamine" id: 937984704
-# mas "Bear", id: 1091189122
-# mas "GarageBand", id: 682658836
-# mas "iMovie", id: 408981434
-# mas "Keynote", id: 409183694
-# mas "LastPass", id: 926036361
-# mas "Magnet", id: 441258766
-# mas "Monit", id: 1014850245
-# mas "Numbers", id: 409203825
-# mas "Owly", id: 882812218
-# mas "Pages", id: 409201541
-# mas "Telegram", id: 747648890
-# mas "WireGuard", id: 1451685025
-# mas "Xcode", id: 497799835
+mas "1Password for Safari", id: 1569813296
+mas "Affinity Photo", id: 824183456
+mas "Amphetamine", id: 937984704
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Mayday", id: 1473168024
+mas "MoneyWiz", id: 1511185140
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Sorted", id: 1306893526
+mas "Spark", id: 1176895641
+mas "Sweet Home 3D", id: 669289700
+mas "Telegram", id: 747648890
+mas "Things", id: 904280696
+mas "Xcode", id: 497799835
