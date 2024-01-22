@@ -171,7 +171,6 @@ brew "yarn"
 brew "zola"
 brew "zstd"
 brew "zlib"
-brew "getantibody/tap/antibody"
 brew "pnpm"
 brew "fnm"
 brew 'vale'
