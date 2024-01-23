@@ -118,6 +118,9 @@ brew 'pueue'
 # Intuitive find & replace CLI (sed alternative)
 brew 'sd'
 
+# Replacement for Exa -- aka replacement for ls
+brew 'eza'
+
 # An alternative to OSX's native spotlight search. Comes with lots of nice features out of the gate to enhance productivity.
 cask 'raycast'
 
@@ -126,7 +129,6 @@ brew 'broot'
 brew 'coreutils'
 brew 'cmake'
 brew 'diff-so-fancy'
-brew 'exa'
 brew 'fd'
 brew 'findutils'
 brew 'fzf'
@@ -179,8 +181,6 @@ brew 'chart-releaser'
 brew 'chart-testing'
 # Needed for chart-testing
 brew 'yamllint'
-# Needed for chart-testing
-brew 'yamale'
 brew 'pipx'
 brew 'hashicorp/tap/terraform'
 brew 'kustomize'
