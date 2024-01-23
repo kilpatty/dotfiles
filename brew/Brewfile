@@ -176,18 +176,11 @@ brew "zlib"
 brew "pnpm"
 brew "fnm"
 brew 'vale'
-# Helm v3 helpers
-brew 'chart-releaser'
-brew 'chart-testing'
-# Needed for chart-testing
-brew 'yamllint'
 brew 'pipx'
 brew 'hashicorp/tap/terraform'
 brew 'kustomize'
 brew 'terrascan'
 brew 'jq'
-brew 'pre-commit'
-brew 'checkov'
 brew 'tfsec'
 brew 'tflint'
 brew 'kubeaudit'
