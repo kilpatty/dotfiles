@@ -124,6 +124,8 @@ brew 'eza'
 # An alternative to OSX's native spotlight search. Comes with lots of nice features out of the gate to enhance productivity.
 cask 'raycast'
 
+brew 'go-task'
+
 brew 'brotli'
 brew 'broot'
 brew 'coreutils'
