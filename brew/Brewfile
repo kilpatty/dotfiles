@@ -126,6 +126,8 @@ cask 'raycast'
 
 brew 'go-task'
 
+brew 'protobuf'
+
 brew 'brotli'
 brew 'broot'
 brew 'coreutils'
