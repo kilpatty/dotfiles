@@ -14,14 +14,26 @@ for file in ${(M)config_files:#*/path.zsh}; do
   source "$file"
 done
 
-# load antibody plugins
-source ~/.zsh_plugins.sh
+# @todo review these instructions, as this is a more efficient way to load antitode.
+# https://getantidote.github.io/install
+
+# source antidote
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+
+# initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
+antidote load ~/dotfiles/zsh/plugins.txt
+
 
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
   source "$file"
 done
 
+# for homebrew completions https://docs.brew.sh/Shell-Completion
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+# @todo fix this
+autoload bashcompinit && bashcompinit
 autoload -Uz compinit
 typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
 
@@ -57,3 +69,38 @@ eval "$(atuin init zsh)"
 
 #@todo let's move this, but this is what it is if I forget: https://dystroy.org/broot/
 #source /Users/sean/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+function set_win_title(){
+    echo -ne "\033]0; $(basename "$PWD") \007"
+}
+precmd_functions+=(set_win_title)
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+eval "$(fnm env --use-on-cd)"
+
+# pnpm
+export PNPM_HOME="/Users/spk/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+# Created by `pipx` on 2022-07-21 04:02:21
+export PATH="$PATH:/Users/spk/.local/bin"
+
+#@todo put this in kops config file.
+export AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id --profile kops)
+export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key --profile kops)
+#@todo automate this later
+# export NAME=staging.mara.urkel.com
+
+# ref: https://github.com/ahmetb/kubectx#interactive-mode
+export KUBECTX_IGNORE_FZF=1
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+#@todo move this to the kubernetes directory
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+eval "$(direnv hook zsh)"
+

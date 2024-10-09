@@ -14,10 +14,10 @@
 	command pyenv "$@"	
 }	
 
- python() {	
-	__pyenv_init	
-	command python "$@"	
-}	
+#  python() {	
+# 	__pyenv_init	
+# 	command python "$@"	
+# }	
 
  pip() {	
 	__pyenv_init	

@@ -74,10 +74,10 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 #   alias la='gls -A --color'
 # fi
 
-alias ls="exa -F"
-alias l="exa -la"
-alias ll="exa -l"
-alias la="exa -a"
+alias ls="eza -F"
+alias l="eza -la"
+alias ll="eza -l"
+alias la="eza -a"
 
 #Searches for files using fzf and then gives a preview with bat
 alias search="fzf --preview 'bat --color \"always\" {}'"
@@ -94,5 +94,8 @@ alias wiki="vim ~/Documents/Sean/vimwiki/index.wiki"
 
 alias testload="for i in \$(seq 1 10); do /usr/bin/time zsh -i -c exit; done;"
 
+alias install_node_global='cat ~/dotfiles/fnm/default-packages | grep \n | while read -r line ; do npm install -g "$line"; done'
 
-
+# Temporary until the brew bundle is updated
+# https://github.com/Homebrew/homebrew-core/pull/105381
+alias kops="/usr/local/bin/kops"

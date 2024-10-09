@@ -12,3 +12,5 @@ zstyle ':completion:*' rehash true
 
 # menu if nb items > 2
 zstyle ':completion:*' menu select=2
+
+complete -C '/usr/local/bin/aws_completer' aws
