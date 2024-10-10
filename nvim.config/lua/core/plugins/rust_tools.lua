@@ -51,7 +51,7 @@ M.config = function()
                 -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
                 ["rust-analyzer"] = {
                     procMacro = {
-                        enable = false,
+                        enable = true,
                     },
                     imports = {
                         imports = {
@@ -60,16 +60,14 @@ M.config = function()
                             },
                         },
                     },
-                    -- rustfmt = {
-                    --     extraArgs = { "+nightly" },
-                    --     enableRangeFormatting = true,
-                    -- },
+                    rustfmt = {
+                        extraArgs = { "+nightly" },
+                    },
                     -- enable clippy on save
-                    -- checkOnSave = {
-                    --     enable = true,
-                    --     command = "clippy",
-                    --     extraArgs = { "--target-dir", "/tmp/rust-analyzer-check" },
-                    -- },
+                    checkOnSave = {
+                        command = "clippy",
+                        -- extraArgs = { "--target-dir", "/tmp/rust-analyzer-check" },
+                    },
                 },
             },
         },

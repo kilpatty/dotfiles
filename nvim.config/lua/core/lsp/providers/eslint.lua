@@ -6,7 +6,9 @@ local M = {}
 function M.on_attach(client, bufnr)
     default_on_attach(client, bufnr)
 
-    client.server_capabilities.documentFormattingProvider = true
+    --[[ @todo figure out what the point of this would be and if we need to remove formatting from this setup. ]]
+    --[[ vim.api.nvim_create_autocmd("BufWritePre", { buffer = bufnr, command = "EslintFixAll", }) ]]
+    --[[ client.server_capabilities.documentFormattingProvider = true ]]
 end
 
 M.root_dir = util.find_git_ancestor
@@ -16,21 +18,22 @@ M.root_dir = util.find_git_ancestor
 -- end
 
 M.settings = {
-    -- codeAction = {
-    --     disableRuleComment = {
-    --         enable = true,
-    --         location = "separateLine",
-    --     },
-    --     showDocumentation = {
-    --         enable = true,
-    --     },
-    -- },
-    -- codeActionOnSave = {
-    --     enable = false,
-    --     mode = "all",
-    -- },
+    codeAction = {
+        disableRuleComment = {
+            enable = true,
+            location = "separateLine",
+        },
+        showDocumentation = {
+            enable = true,
+        },
+    },
+    codeActionOnSave = {
+        enable = false,
+        mode = "all",
+    },
     debug = true,
-    format = true,
+    --[[ @todo check ]]
+    format = false,
     nodePath = "",
     onIgnoredFiles = "off",
     packageManager = "pnpm",

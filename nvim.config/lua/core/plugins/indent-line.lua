@@ -1,4 +1,4 @@
-local status_ok, indent_blankline = pcall(require, "indent_blankline")
+local status_ok, indent_blankline = pcall(require, "ibl")
 if not status_ok then
     return
 end
@@ -49,10 +49,9 @@ vim.g.indent_blankline_context_patterns = {
 -- HACK: work-around for https://github.com/lukas-reineke/indent-blankline.nvim/issues/59
 vim.wo.colorcolumn = "99999"
 
-indent_blankline.setup({
-    show_trailing_blankline_indent = false,
-    use_treesitter = true,
-    char = "▏",
-    context_char = "▏",
-    show_current_context = true,
-})
+--[[ @todo use the latest setup here ]]
+--[[ show_trailing_blankline_indent = false, ]]
+--[[ char = "▏", ]]
+--[[ context_char = "▏", ]]
+--[[ show_current_context = true, ]]
+indent_blankline.setup()

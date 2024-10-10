@@ -30,11 +30,16 @@ function M.setup()
     -- }))
 
     null_ls.setup({
+        debug = true,
         default = true,
         sources = {
             --@todo luacheck https://github.com/mpeterv/luacheck for linter
             null_ls.builtins.formatting.stylua,
-            -- null_ls.builtins.formatting.prettierd,
+            null_ls.builtins.formatting.prettierd.with({
+                condition = function(utils)
+                    return utils.root_has_file({ "prettier.config.js" })
+                end,
+            }),
             null_ls.builtins.diagnostics.yamllint,
             null_ls.builtins.diagnostics.vale,
         },

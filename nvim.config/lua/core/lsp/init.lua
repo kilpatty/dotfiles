@@ -89,8 +89,6 @@ function M.setup()
 
     require("core.lsp.providers")
 
-    require("core.plugins.rust_tools").config()
-
     require("core.lsp.null-ls").setup()
 
     require("core.autocmds").configure_format_on_save()

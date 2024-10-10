@@ -18,7 +18,10 @@ M.settings = {
         completion = true,
         validate = true,
         schemaStore = {
-            enable = true,
+            -- enable = true,
+            -- Just until we can figure out the kops configuration, or yamlls allows
+            -- us to disable on a per-file basis.
+            enable = false,
             url = "",
         },
         trace = { server = "trace" },

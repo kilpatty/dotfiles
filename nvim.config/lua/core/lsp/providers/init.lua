@@ -3,39 +3,64 @@
 local config = require("core.lsp.config")
 -- local default_config = require("cosmic.lsp.providers.defaults")
 -- local config = require("cosmic.config")
-require("nvim-lsp-installer").setup({
-    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+--[[ require("nvim-lsp-installer").setup({ ]]
+--[[     automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig) ]]
+--[[     ui = { ]]
+--[[         icons = { ]]
+--[[             server_installed = " ", ]]
+--[[             server_pending = " ", ]]
+--[[             server_uninstalled = " ﮊ", ]]
+--[[         }, ]]
+--[[         keymaps = { ]]
+--[[             -- Keymap to expand a server in the UI ]]
+--[[             toggle_server_expand = "i", ]]
+--[[             -- Keymap to install a server ]]
+--[[             install_server = "<CR>", ]]
+--[[             -- Keymap to reinstall/update a server ]]
+--[[             update_server = "u", ]]
+--[[             -- Keymap to uninstall a server ]]
+--[[             uninstall_server = "x", ]]
+--[[         }, ]]
+--[[     }, ]]
+--[[ }) ]]
+
+require("mason").setup({
     ui = {
         icons = {
-            server_installed = " ",
-            server_pending = " ",
-            server_uninstalled = " ﮊ",
-        },
-        keymaps = {
-            -- Keymap to expand a server in the UI
-            toggle_server_expand = "i",
-            -- Keymap to install a server
-            install_server = "<CR>",
-            -- Keymap to reinstall/update a server
-            update_server = "u",
-            -- Keymap to uninstall a server
-            uninstall_server = "x",
+            package_installed = " ",
+            package_pending = " ",
+            package_uninstalled = " ﮊ",
         },
     },
 })
+--[[ require("mason-lspconfig").setup({ ]]
+--[[     ensure_installed = { "sumneko_lua" }, ]]
+--[[ }) ]]
 
-local lspconfig = require("lspconfig")
+local mason_status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_status_ok then
+    vim.notify("Couldn't load Mason-LSP-Config" .. mason_lspconfig, "error")
+    return
+end
 
 local servers = {
     "tsserver",
     "jsonls",
-    "sumneko_lua",
+    "lua_ls",
     "rust_analyzer",
     "tailwindcss",
     "eslint",
     "yamlls",
-    "terraformls",
+    "tflint",
 }
+
+-- Extension to bridge mason.nvim with the lspconfig plugin
+mason_lspconfig.setup({
+    automatic_installation = true,
+})
+
+local lspconfig = require("lspconfig")
+
 local skip_setup = { "rust_analyzer" }
 
 for _, server in pairs(servers) do

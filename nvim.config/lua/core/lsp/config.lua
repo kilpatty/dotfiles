@@ -79,14 +79,10 @@ M.buffer_mappings = {
 -- @todo I low key want to move everything below this to a file called defaults
 function M.handlers()
     vim.diagnostic.config(M.config)
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-        vim.lsp.handlers.hover,
-        { focusable = true, style = "minimal", border = "rounded" }
-    )
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-        vim.lsp.handlers.signature_help,
-        { focusable = true, style = "minimal", border = "rounded" }
-    )
+    vim.lsp.handlers["textDocument/hover"] =
+        vim.lsp.with(vim.lsp.handlers.hover, { focusable = true, style = "minimal", border = "rounded" })
+    vim.lsp.handlers["textDocument/signatureHelp"] =
+        vim.lsp.with(vim.lsp.handlers.signature_help, { focusable = true, style = "minimal", border = "rounded" })
 end
 
 local function add_lsp_buffer_keybindings(bufnr)
@@ -184,10 +180,8 @@ M.capabilities.textDocument.completion.completionItem = {
 -- @todo we can only use what cmp_nvim supports... See if there are better alternatives
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then
-    return
+    return cmp_nvim_lsp.default_capabilities()
 end
-
-M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
 
 -- @todo Flags: https://github.com/AstroNvim/AstroNvim/blob/v2/lua/core/utils/lsp.lua
 M.flags = {

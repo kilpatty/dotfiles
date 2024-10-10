@@ -27,12 +27,12 @@ function M.load_defaults()
         command = "nnoremap <silent> <buffer> q :close<CR>",
     })
 
-    augroup("_format_options", {})
-    cmd({ "BufWinEnter", "BufRead", "BufNewFile" }, {
-        group = "_format_options",
-        pattern = "*",
-        command = "setlocal formatoptions+=a",
-    })
+    -- augroup("_format_options", {})
+    -- cmd({ "BufWinEnter", "BufRead", "BufNewFile" }, {
+    --     group = "_format_options",
+    --     pattern = "*",
+    --     command = "setlocal formatoptions+=a formatoptions-=t",
+    -- })
 end
 --- Load the default set of autogroups and autocommands.
 function M.load_augroups()
@@ -114,7 +114,7 @@ function M.enable_format_on_save(opts)
             vim.lsp.buf.format({ timeout_ms = opts.timeout, filter = opts.filter, opts.async })
         end,
     })
-    local fmd_cmd = string.format(":silent lua vim.lsp.buf.formatting_sync({}, %s)", opts.timeout_ms)
+    local fmd_cmd = string.format(":silent lua vim.lsp.buf.format({}, %s)", opts.timeout_ms)
     M.define_augroups({
         format_on_save = { { "BufWritePre", opts.pattern, fmd_cmd } },
     })
