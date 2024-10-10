@@ -1,51 +1,14 @@
 cask_args appdir: '/Applications'
 
-##
-# Preflight
-##
+#############################################################
+# Preflight                                                 #
+#############################################################
 
 # Tap homebrew
 tap 'homebrew/bundle'
 tap 'homebrew/services'
 tap 'helm/tap'
 tap 'hashicorp/tap'
-tap 'vectordotdev/brew'
-
-##
-# Browsers
-#
-# We prefer Firefox because it's open source.
-##
-
-# Firefox web browser
-cask 'firefox'
-
-# Firefox developer edition, which features programming tools.
-cask 'firefox-developer-edition'
-
-# Brave web browser, which features security by default.
-cask 'brave-browser'
-
-##
-#
-# Kubernetes
-#
-##
-# Cluster management tool for AWS.
-brew 'kops'
-
-# Kubernetes command-line tool to run commands against Kubernetes clusters.
-brew 'kubectl'
-
-# Helmfile is a declarative spec for deploying helm charts.
-brew 'helmfile'
-
-# Lens is an IDE and Dashboard for Kubernetes
-cask 'lens'
-
-# MacOS implementation of Latex for building PDF documents
-cask 'mactex'
-
 
 #############################################################
 # Software Development                                      #
@@ -64,17 +27,16 @@ brew 'luarocks'
 # utility to run Github actions locally for testing.
 brew 'act'
 
-cask 'alacritty'
-
+# @todo review if this can be managed by Mason in nvim rather than here.
 # Stylua is a code formatter for Lua. Mainly used for helping me format my Neovim configuration.
 brew 'stylua'
 
-# Docker Desktop alternative
+# Container runtime (Replaces Docker Desktop)
 brew 'colima'
+
+# Docker Runtime (Used with Colima above)
 brew 'docker'
 brew 'docker-compose'
-brew 'kubectl'
-brew 'kuvectx'
 
 # Mainly used for Bitcoin compilation - helps automate compilation process.
 brew 'automake'
@@ -96,6 +58,29 @@ brew 'berkeley-db@4'
 
 # Logfile Highlighter
 brew 'tailspin'
+
+##
+#
+# Kubernetes
+#
+##
+# Cluster management tool for AWS.
+brew 'kops'
+
+# Kubernetes command-line tool to run commands against Kubernetes clusters.
+brew 'kubectl'
+
+# Faster context switching with Kubernetes
+brew 'kuvectx'
+
+# Helmfile is a declarative spec for deploying helm charts.
+brew 'helmfile'
+
+# Lens is an IDE and Dashboard for Kubernetes
+cask 'lens'
+
+# MacOS implementation of Latex for building PDF documents
+cask 'mactex'
 
 ##
 # Utilities
@@ -123,154 +108,360 @@ brew 'sd'
 # Replacement for Exa -- aka replacement for ls
 brew 'eza'
 
+# Protocol Buffers - used for protobuf development e.g. GRPC
+brew 'protobuf'
+
+# Lossless compression algorithm
+brew 'brotli'
+
+# Linux versions of Core Utilities (gls, gcp, etc)
+brew 'coreutils'
+
+
+# C / C++ Bundler?
+brew 'cmake'
+
+# Better Git Diffs
+brew 'diff-so-fancy'
+
+# Alternative to find
+brew 'fd'
+
+# Linux Find utilities xargs, etc
+brew 'findutils'
+
+# Fuzzy Finder
+brew 'fzf'
+
+# Like Chromedriver but for Firefox
+brew 'geckodriver'
+
+# Git...
+brew 'git'
+
+# Versioning Larger files with Git
+brew 'git-lfs'
+
+# Linux SED?
+brew 'gnu-sed'
+
+# GPG
+brew 'gnupg'
+
+# Terminal Plotting utility
+brew 'gnuplot'
+
+# Better "top" utility
+brew 'htop'
+
+# Terminal chat client
+brew 'irssi'
+
+# YAML parser
+brew 'libyaml'
+
+# Security utility
+brew 'lynis'
+
+# Mac Apple Store CLI
+brew 'mas'
+
+# More linux utilites
+brew 'moreutils'
+
+# Disk space analyzer
+brew 'ncdu'
+
+# Terminal based editor
+brew 'neovim'
+
+# Port scanning utility
+brew 'nmap'
+
+# Homebrew managed OpenSSH
+brew 'openssh'
+# Homebrew managed Open SSL
+brew 'openssl'
+
+# Format Converter
+brew 'pandoc'
+
+# GUI for PGP
+brew 'pinentry-mac'
+
+# Ruby version manager
+brew 'rbenv'
+
+# Improved version of grep
+brew 'ripgrep'
+
+# Terminal Multiplexer @todo maybe remove (tmux probs better alternative)
+brew 'screen'
+
+# Cache for Rust
+brew 'sccache'
+
+# Shell formatter
+brew 'shellcheck'
+
+# Sqlite DB
+brew 'sqlite'
+
+# Terminal Prompt
+brew 'starship'
+
+# Add ssh key to authorized keys @todo maybe remove
+brew 'ssh-copy-id'
+
+# Terminal Multiplexer
+brew 'tmux'
+
+# Http tool
+brew 'wget'
+
+# ZSH Shell
+brew 'zsh'
+
+# ZSH Completions
+brew 'zsh-completions'
+
+# Compression for executables (Probably delete can just use in docker or CI)
+brew "upx"
+# Tor network
+brew "tor"
+
+# Yarn utility for NPM
+brew "yarn"
+
+# Real time compression algorithm
+brew "zstd"
+
+# Lossless Compression Algorithm
+brew "zlib"
+
+# NPM new utility
+brew "pnpm"
+
+# Node version manager written in rust
+brew "fnm"
+
+# More or less fancy spell check
+brew 'vale'
+
+# Terraform infrastructure management
+brew 'hashicorp/tap/terraform'
+
+# Templater for Kubernetes deployments
+brew 'kustomize'
+
+# Auditor for Terraform files
+brew 'terrascan'
+
+# JSON Parser
+brew 'jq'
+
+# Terrafor Security Scanner
+brew 'tfsec'
+
+# Terraform Linter
+brew 'tflint'
+
+# Kubernetes auditor
+brew 'kubeaudit'
+
+# Encryption tool
+brew 'age'
+
+# Encryption tool
+brew 'sops'
+
+#Kubernetes backup tool
+brew 'velero'
+
+# Taskrunner written in rust
+brew 'just'
+
+# Generate Terraform files from existing infrastructure
+brew 'terraformer'
+
+# Kubernetes Manager Via CLI
+brew 'k9s'
+
+# Load environment varibles based on directory
+brew 'direnv'
+
+# Kubernetes context switcher
+brew 'kubectx'
+# Kubernetes linter
+brew 'kube-linter'
+
+# Dockerfile linter
+brew 'hadolint'
+
+# ZSH Plugin manager
+brew 'antidote'
+
+# Helm Utility for publishing charts
+brew "helm/tap/chart-releaser"
+
+# Yaml linter -> @todo see if we can install via Mason
+brew "yamllint"
+
+# Pre-commit hook
+brew "pre-commit"
+
+# Virtual Env for python -> @todo can be removed I believe when we setup python
+# environment manager
+brew "virtualenv", link: false
+
+# Lua compiler
+brew "luajit", args: ["HEAD"]
+
+# Library for Yubi keys
+brew "libfido2"
+
+# DNS library written in C @todo review if needed
+brew "ldns"
+
+# i18n library @todo review
+brew "pango"
+
+# Open type text shaping engine @Todo do we need?
+brew "harfbuzz"
+
+# Graphics library
+brew "gd"
+
+# Decoding .avi files
+brew "libavif"
+
+#DNS Resolver
+brew "unbound"
+
+# IoC tool for auditing setups
+brew "checkov"
+
+# Testing of helm charts
+brew "chart-testing"
+
+# YAML Validator
+brew "yamale"
+# Core app for C
+brew "glib"
+
+# GNU i18n library
+brew "gettext"
+
+# AV1 decoder
+brew "aom"
+
+# JPEG compression
+brew "jpeg-xl"
+
+# Image compression
+brew "webp"
+
+#############################################################
+# Non-Mac Store Applications
+#############################################################
+
+# Password Manager - Not available via Mac Store
+cask '1password'
+
+# CLI for 1Password
+cask '1password-cli'
+
+# Tints screen orange to protect my eyeballs at night
+cask 'flux'
+
+# Terminal used to replace Mac's base Terminal
+cask 'iterm2'
+
+# API Manager and Tester
+cask 'insomnia'
+
+# Screen recorder for mac
+cask 'kap'
+
+# Custom Keymapper - used currently to map caps lock to a hyper key.
+cask 'karabiner-elements'
+
+# Firewall Extension for mac
+cask 'lulu'
+
+# Window Manager via keybindings
+cask 'rectangle'
+
+# Spotifty
+cask 'spotify'
+
+# Network Protocol Analyzer
+cask 'wireshark'
+
 # An alternative to OSX's native spotlight search. Comes with lots of nice features out of the gate to enhance productivity.
 cask 'raycast'
 
-brew 'go-task'
-
-brew 'protobuf'
-
-brew 'brotli'
-brew 'broot'
-brew 'coreutils'
-brew 'cmake'
-brew 'diff-so-fancy'
-brew 'fd'
-brew 'findutils'
-brew 'fzf'
-brew 'geckodriver'
-brew 'git'
-brew 'git-flow'
-brew 'git-lfs'
-brew 'gnu-sed'
-#@todo review -> Rename to just gnupg i think.
-brew 'gnupg2'
-brew 'gnuplot'
-brew 'htop'
-brew 'hugo'
-brew 'irssi'
-brew 'libyaml'
-brew 'lynis'
-brew 'mas'
-brew 'moreutils'
-brew 'ncdu'
-brew 'neovim'
-brew 'nmap'
-brew 'openssh'
-brew 'openssl'
-brew 'pandoc'
-brew 'pinentry-mac'
-brew 'pyenv'
-brew 'rbenv'
-brew 'ripgrep'
-brew 'screen'
-brew 'sccache'
-brew 'shellcheck'
-brew 'sqlite'
-brew 'starship'
-brew 'ssh-copy-id'
-brew 'task'
-brew 'tmux'
-brew 'wget'
-brew 'zsh'
-brew 'zsh-completions'
-brew "upx"
-brew "tor"
-brew "yarn"
-brew "zola"
-brew "zstd"
-brew "zlib"
-brew "pnpm"
-brew "fnm"
-brew 'vale'
-brew 'pipx'
-brew 'hashicorp/tap/terraform'
-brew 'kustomize'
-brew 'terrascan'
-brew 'jq'
-brew 'tfsec'
-brew 'tflint'
-brew 'kubeaudit'
-brew 'age'
-brew 'sops'
-brew 'velero'
-brew 'just'
-brew 'terraformer'
-brew 'k9s'
-brew 'direnv'
-brew 'kubectx'
-brew 'kube-linter'
-brew 'hadolint'
-brew 'vector'
-brew 'antidote'
-#@todo review this
-brew "helm/tap/chart-releaser"
-#@todo review this
-brew "yamllint"
-#@todo review this
-brew "pre-commit"
-#@todo review this
-brew "virtualenv", link: false
-#@todo review this
-brew "luajit", args: ["HEAD"]
-#@todo review this
-brew "libfido2"
-#@todo review this
-brew "ldns"
-#@todo review this
-brew "pango"
-brew "harfbuzz"
-brew "gd"
-brew "libavif"
-brew "unbound"
-brew "checkov"
-brew "chart-testing"
-brew "yamale"
-brew "glib"
-brew "gettext"
-brew "aom"
-brew "jpeg-xl"
-brew "webp"
-
-cask '1password'
-cask 'alfred'
-cask 'flux'
-cask 'firefox'
-cask 'iterm2'
-cask 'insomnia'
-cask 'kap'
-cask 'karabiner-elements'
-cask 'lulu'
-cask 'rectangle'
-cask 'spotify'
-cask 'wireshark'
-cask 'raycast'
+# Note management application
 cask 'obsidian'
+
+# Shows mac stats in the menubar
 cask 'stats'
-cask 'fig'
+
+# Github Desktop
 cask 'github'
-cask '1password-cli'
+
+# Firefox web browser
+cask 'firefox'
+
+# Firefox developer edition, which features programming tools.
+cask 'firefox@developer-edition'
+
+# Brave web browser, which features security by default.
+cask 'brave-browser'
+
+# Ungoogled Chromium
 cask 'eloston-chromium'
-cask 'chromedriver'
+
+#############################################################
+# Fonts
+#############################################################
+
+# Font used for coding ligatures
 cask 'font-fira-code'
 
-# @todo not sure how to do this yet but we need to include this one.
-# brew install --cask 1password/tap/1password-cli
-#
-#Mac Applications
+#############################################################
+# Applications
+#############################################################
+
+# 1Password Safari Extensions
 mas "1Password for Safari", id: 1569813296
+
+# Photo editing software
 mas "Affinity Photo", id: 824183456
+
+# Prevents Mac from Sleeping
 mas "Amphetamine", id: 937984704
+
+# Music
 mas "GarageBand", id: 682658836
+
+# Movies
 mas "iMovie", id: 408981434
+
+# Slideshows
 mas "Keynote", id: 409183694
-mas "Mayday", id: 1473168024
+
+# Money Management
 mas "MoneyWiz", id: 1511185140
+
+# Excel
 mas "Numbers", id: 409203825
+
+# Docs
 mas "Pages", id: 409201541
-mas "Sorted", id: 1306893526
-mas "Spark", id: 1176895641
-mas "Sweet Home 3D", id: 669289700
+
+# Messaging Application
 mas "Telegram", id: 747648890
-mas "Things", id: 904280696
+
+# Mac Development
 mas "Xcode", id: 497799835
