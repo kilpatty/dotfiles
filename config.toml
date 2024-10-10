@@ -25,6 +25,22 @@
     from = ["gitconfig.local", "gitconfig", "gitignore", "gitmessage"]
     to = ["~/.gitconfig", ".gitconfig". ".gitignore", ".gitmessage"]
 
+[packages.rust]
+  check = 'command -v rust'
+  install = [
+    "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh",
+    'rustup component add rls rust-analysis rust-src clippy rustfmt',
+  ]
+  packages = [
+    'cargo-watch',
+    'cargo-release',
+    'cargo-make',
+    'cargo-udeps',
+  ]
+  update = [
+    'rustup update'
+]
+
   [packages.zsh]
     from = "zsh/zshrc"
     to = "~/.zshrc"
