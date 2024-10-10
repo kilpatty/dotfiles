@@ -312,10 +312,6 @@ brew "yamllint"
 # Pre-commit hook
 brew "pre-commit"
 
-# Virtual Env for python -> @todo can be removed I believe when we setup python
-# environment manager
-brew "virtualenv", link: false
-
 # Lua compiler
 brew "luajit", args: ["HEAD"]
 

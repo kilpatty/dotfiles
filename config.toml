@@ -8,6 +8,14 @@
       'brew bundle --file="${DOTFILES}/brew/Brewfile"',
     ]
 
+    [packages.rye]
+# Let's add this flag to show what service manages rye. E.g. Homebrew installs
+# rye, but we need some further install instructions. Same for fnm below
+    managed_by = "brew"
+    install = [
+    "rye self install -y --no-modify-path",
+]
+
 #@todo we need to add default global applications in here.
 # Look into doing something like this: https://github.com/Schniz/fnm/issues/139#issuecomment-529411514
   [packages.fnm]
