@@ -43,6 +43,16 @@ else
   compinit -C -i
 fi
 
+typeset -U completion_files
+completion_files=($DOTFILES/zsh/completions/*)
+
+for file in ${(M)completion_files}; do
+    source "$file"
+done
+
+unset completion_files
+
+# @todo remove this if the above works
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}; do
   source "$file"
