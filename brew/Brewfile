@@ -1,14 +1,16 @@
-cask_args appdir: '/Applications'
+# frozen_string_literal: true
+
+cask_args appdir: "/Applications"
 
 #############################################################
 # Preflight                                                 #
 #############################################################
 
 # Tap homebrew
-tap 'homebrew/bundle'
-tap 'homebrew/services'
-tap 'helm/tap'
-tap 'hashicorp/tap'
+tap "homebrew/bundle"
+tap "homebrew/services"
+tap "helm/tap"
+tap "hashicorp/tap"
 
 #############################################################
 # Software Development                                      #
@@ -18,46 +20,45 @@ tap 'hashicorp/tap'
 # @todo iterm, etc
 
 # Development Langs, Compilers, Package Managers and SDKs
-brew 'gcc'
-brew 'go'
-brew 'lua'
-brew 'luarocks'
-
+brew "gcc"
+brew "go"
+brew "lua"
+brew "luarocks"
 
 # utility to run Github actions locally for testing.
-brew 'act'
+brew "act"
 
 # @todo review if this can be managed by Mason in nvim rather than here.
 # Stylua is a code formatter for Lua. Mainly used for helping me format my Neovim configuration.
-brew 'stylua'
+brew "stylua"
 
 # Container runtime (Replaces Docker Desktop)
-brew 'colima'
+brew "colima"
 
 # Docker Runtime (Used with Colima above)
-brew 'docker'
-brew 'docker-compose'
+brew "docker"
+brew "docker-compose"
 
 # Mainly used for Bitcoin compilation - helps automate compilation process.
-brew 'automake'
+brew "automake"
 
 # Bitcoin dep. Used to help compile shared libraries.
-brew 'libtool'
+brew "libtool"
 
 # Bitcoin dep. Brings portable shared C++ libs.
-brew 'boost'
+brew "boost"
 
 # Bitcoin dep. Helps compiliation.
-brew 'pkg-config'
+brew "pkg-config"
 
 # Bitcoin dep. Async notifications.
-brew 'libevent'
+brew "libevent"
 
 # Bitcoin dep. Used for legacy wallets
-brew 'berkeley-db@4'
+brew "berkeley-db@4"
 
 # Logfile Highlighter
-brew 'tailspin'
+brew "tailspin"
 
 ##
 #
@@ -65,22 +66,22 @@ brew 'tailspin'
 #
 ##
 # Cluster management tool for AWS.
-brew 'kops'
+brew "kops"
 
 # Kubernetes command-line tool to run commands against Kubernetes clusters.
-brew 'kubectl'
+brew "kubectl"
 
 # Faster context switching with Kubernetes
-brew 'kuvectx'
+brew "kuvectx"
 
 # Helmfile is a declarative spec for deploying helm charts.
-brew 'helmfile'
+brew "helmfile"
 
 # Lens is an IDE and Dashboard for Kubernetes
-cask 'lens'
+cask "lens"
 
 # MacOS implementation of Latex for building PDF documents
-cask 'mactex'
+cask "mactex"
 
 ##
 # Utilities
@@ -88,142 +89,141 @@ cask 'mactex'
 # We prefer Firefox because it's open source.
 ##
 
-brew 'ack'
+brew "ack"
 
 # Utility that cleans up leftover files when deleting an application.
-cask 'appcleaner'
+cask "appcleaner"
 
 # Atuin replaces your existing shell history with a SQLite database, and records additional context for your commands.
-brew 'atuin'
+brew "atuin"
 
 # bat is like `cat` plus line numbers, syntax highlighting, and more.
-brew 'bat'
+brew "bat"
 
 # https://github.com/Nukesor/pueue#why-should-i-use-it (This is not implemented yet, but marking as a @todo).
-brew 'pueue'
+brew "pueue"
 
 # Intuitive find & replace CLI (sed alternative)
-brew 'sd'
+brew "sd"
 
 # Replacement for Exa -- aka replacement for ls
-brew 'eza'
+brew "eza"
 
 # Protocol Buffers - used for protobuf development e.g. GRPC
-brew 'protobuf'
+brew "protobuf"
 
 # Lossless compression algorithm
-brew 'brotli'
+brew "brotli"
 
 # Linux versions of Core Utilities (gls, gcp, etc)
-brew 'coreutils'
-
+brew "coreutils"
 
 # C / C++ Bundler?
-brew 'cmake'
+brew "cmake"
 
 # Better Git Diffs
-brew 'diff-so-fancy'
+brew "diff-so-fancy"
 
 # Alternative to find
-brew 'fd'
+brew "fd"
 
 # Linux Find utilities xargs, etc
-brew 'findutils'
+brew "findutils"
 
 # Fuzzy Finder
-brew 'fzf'
+brew "fzf"
 
 # Like Chromedriver but for Firefox
-brew 'geckodriver'
+brew "geckodriver"
 
 # Git...
-brew 'git'
+brew "git"
 
 # Versioning Larger files with Git
-brew 'git-lfs'
+brew "git-lfs"
 
 # Linux SED?
-brew 'gnu-sed'
+brew "gnu-sed"
 
 # GPG
-brew 'gnupg'
+brew "gnupg"
 
 # Terminal Plotting utility
-brew 'gnuplot'
+brew "gnuplot"
 
 # Better "top" utility
-brew 'htop'
+brew "htop"
 
 # Terminal chat client
-brew 'irssi'
+brew "irssi"
 
 # YAML parser
-brew 'libyaml'
+brew "libyaml"
 
 # Security utility
-brew 'lynis'
+brew "lynis"
 
 # Mac Apple Store CLI
-brew 'mas'
+brew "mas"
 
 # More linux utilites
-brew 'moreutils'
+brew "moreutils"
 
 # Disk space analyzer
-brew 'ncdu'
+brew "ncdu"
 
 # Terminal based editor
-brew 'neovim'
+brew "neovim"
 
 # Port scanning utility
-brew 'nmap'
+brew "nmap"
 
 # Homebrew managed OpenSSH
-brew 'openssh'
+brew "openssh"
 # Homebrew managed Open SSL
-brew 'openssl'
+brew "openssl"
 
 # Format Converter
-brew 'pandoc'
+brew "pandoc"
 
 # GUI for PGP
-brew 'pinentry-mac'
+brew "pinentry-mac"
 
 # Ruby version manager
-brew 'rbenv'
+brew "rbenv"
 
 # Improved version of grep
-brew 'ripgrep'
+brew "ripgrep"
 
 # Terminal Multiplexer @todo maybe remove (tmux probs better alternative)
-brew 'screen'
+brew "screen"
 
 # Cache for Rust
-brew 'sccache'
+brew "sccache"
 
 # Shell formatter
-brew 'shellcheck'
+brew "shellcheck"
 
 # Sqlite DB
-brew 'sqlite'
+brew "sqlite"
 
 # Terminal Prompt
-brew 'starship'
+brew "starship"
 
 # Add ssh key to authorized keys @todo maybe remove
-brew 'ssh-copy-id'
+brew "ssh-copy-id"
 
 # Terminal Multiplexer
-brew 'tmux'
+brew "tmux"
 
 # Http tool
-brew 'wget'
+brew "wget"
 
 # ZSH Shell
-brew 'zsh'
+brew "zsh"
 
 # ZSH Completions
-brew 'zsh-completions'
+brew "zsh-completions"
 
 # Compression for executables (Probably delete can just use in docker or CI)
 brew "upx"
@@ -246,60 +246,60 @@ brew "pnpm"
 brew "fnm"
 
 # More or less fancy spell check
-brew 'vale'
+brew "vale"
 
 # Terraform infrastructure management
-brew 'hashicorp/tap/terraform'
+brew "hashicorp/tap/terraform"
 
 # Templater for Kubernetes deployments
-brew 'kustomize'
+brew "kustomize"
 
 # Auditor for Terraform files
-brew 'terrascan'
+brew "terrascan"
 
 # JSON Parser
-brew 'jq'
+brew "jq"
 
 # Terrafor Security Scanner
-brew 'tfsec'
+brew "tfsec"
 
 # Terraform Linter
-brew 'tflint'
+brew "tflint"
 
 # Kubernetes auditor
-brew 'kubeaudit'
+brew "kubeaudit"
 
 # Encryption tool
-brew 'age'
+brew "age"
 
 # Encryption tool
-brew 'sops'
+brew "sops"
 
-#Kubernetes backup tool
-brew 'velero'
+# Kubernetes backup tool
+brew "velero"
 
 # Taskrunner written in rust
-brew 'just'
+brew "just"
 
 # Generate Terraform files from existing infrastructure
-brew 'terraformer'
+brew "terraformer"
 
 # Kubernetes Manager Via CLI
-brew 'k9s'
+brew "k9s"
 
 # Load environment varibles based on directory
-brew 'direnv'
+brew "direnv"
 
 # Kubernetes context switcher
-brew 'kubectx'
+brew "kubectx"
 # Kubernetes linter
-brew 'kube-linter'
+brew "kube-linter"
 
 # Dockerfile linter
-brew 'hadolint'
+brew "hadolint"
 
 # ZSH Plugin manager
-brew 'antidote'
+brew "antidote"
 
 # Helm Utility for publishing charts
 brew "helm/tap/chart-releaser"
@@ -335,7 +335,7 @@ brew "gd"
 # Decoding .avi files
 brew "libavif"
 
-#DNS Resolver
+# DNS Resolver
 brew "unbound"
 
 # IoC tool for auditing setups
@@ -366,102 +366,102 @@ brew "webp"
 #############################################################
 
 # Password Manager - Not available via Mac Store
-cask '1password'
+cask "1password"
 
 # CLI for 1Password
-cask '1password-cli'
+cask "1password-cli"
 
 # Tints screen orange to protect my eyeballs at night
-cask 'flux'
+cask "flux"
 
 # Terminal used to replace Mac's base Terminal
-cask 'iterm2'
+cask "iterm2"
 
 # API Manager and Tester
-cask 'insomnia'
+cask "insomnia"
 
 # Screen recorder for mac
-cask 'kap'
+cask "kap"
 
 # Custom Keymapper - used currently to map caps lock to a hyper key.
-cask 'karabiner-elements'
+cask "karabiner-elements"
 
 # Firewall Extension for mac
-cask 'lulu'
+cask "lulu"
 
 # Window Manager via keybindings
-cask 'rectangle'
+cask "rectangle"
 
 # Spotifty
-cask 'spotify'
+cask "spotify"
 
 # Network Protocol Analyzer
-cask 'wireshark'
+cask "wireshark"
 
 # An alternative to OSX's native spotlight search. Comes with lots of nice features out of the gate to enhance productivity.
-cask 'raycast'
+cask "raycast"
 
 # Note management application
-cask 'obsidian'
+cask "obsidian"
 
 # Shows mac stats in the menubar
-cask 'stats'
+cask "stats"
 
 # Github Desktop
-cask 'github'
+cask "github"
 
 # Firefox web browser
-cask 'firefox'
+cask "firefox"
 
 # Firefox developer edition, which features programming tools.
-cask 'firefox@developer-edition'
+cask "firefox@developer-edition"
 
 # Brave web browser, which features security by default.
-cask 'brave-browser'
+cask "brave-browser"
 
 # Ungoogled Chromium
-cask 'eloston-chromium'
+cask "eloston-chromium"
 
 #############################################################
 # Fonts
 #############################################################
 
 # Font used for coding ligatures
-cask 'font-fira-code'
+cask "font-fira-code"
 
 #############################################################
 # Applications
 #############################################################
 
 # 1Password Safari Extensions
-mas "1Password for Safari", id: 1569813296
+mas "1Password for Safari", id: 1_569_813_296
 
 # Photo editing software
-mas "Affinity Photo", id: 824183456
+mas "Affinity Photo", id: 824_183_456
 
 # Prevents Mac from Sleeping
-mas "Amphetamine", id: 937984704
+mas "Amphetamine", id: 937_984_704
 
 # Music
-mas "GarageBand", id: 682658836
+mas "GarageBand", id: 682_658_836
 
 # Movies
-mas "iMovie", id: 408981434
+mas "iMovie", id: 408_981_434
 
 # Slideshows
-mas "Keynote", id: 409183694
+mas "Keynote", id: 409_183_694
 
 # Money Management
-mas "MoneyWiz", id: 1511185140
+mas "MoneyWiz", id: 1_511_185_140
 
 # Excel
-mas "Numbers", id: 409203825
+mas "Numbers", id: 409_203_825
 
 # Docs
-mas "Pages", id: 409201541
+mas "Pages", id: 409_201_541
 
 # Messaging Application
-mas "Telegram", id: 747648890
+mas "Telegram", id: 747_648_890
 
 # Mac Development
-mas "Xcode", id: 497799835
+mas "Xcode", id: 497_799_835
