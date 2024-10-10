@@ -99,3 +99,5 @@ alias install_node_global='cat ~/dotfiles/fnm/default-packages | grep \n | while
 # Temporary until the brew bundle is updated
 # https://github.com/Homebrew/homebrew-core/pull/105381
 alias kops="/usr/local/bin/kops"
+
+alias vim="nvim"
