@@ -8,6 +8,23 @@
       'brew bundle --file="${DOTFILES}/brew/Brewfile"',
     ]
 
+#@todo we need to add default global applications in here.
+# Look into doing something like this: https://github.com/Schniz/fnm/issues/139#issuecomment-529411514
+  [packages.fnm]
+    check = 'command -v fnm'
+    install = [
+      'fnm install -lts',
+      'fnm default lts-latest',
+    ]
+
+#@todo I just wrote how I think this should look. There is probably better ways
+#to symlink these to where it makes sense. Maybe when multiple symlinks, we have
+#an Array of from/tos in a struct format. Then remove the .symlink preference
+#from the files in git
+  [packages.git]
+    from = ["gitconfig.local", "gitconfig", "gitignore", "gitmessage"]
+    to = ["~/.gitconfig", ".gitconfig". ".gitignore", ".gitmessage"]
+
   [packages.zsh]
     from = "zsh/zshrc"
     to = "~/.zshrc"
