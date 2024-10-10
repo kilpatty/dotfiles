@@ -14,6 +14,7 @@
     managed_by = "brew"
     install = [
     "rye self install -y --no-modify-path",
+    "rye config --set-bool behavior.global-python=true"
 ]
 
 #@todo we need to add default global applications in here.
