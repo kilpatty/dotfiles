@@ -73,6 +73,10 @@ brew 'stylua'
 
 # Docker Desktop alternative
 brew 'colima'
+brew 'docker'
+brew 'docker-compose'
+brew 'kubectl'
+brew 'kuvectx'
 
 # Mainly used for Bitcoin compilation - helps automate compilation process.
 brew 'automake'
@@ -141,6 +145,7 @@ brew 'git'
 brew 'git-flow'
 brew 'git-lfs'
 brew 'gnu-sed'
+#@todo review -> Rename to just gnupg i think.
 brew 'gnupg2'
 brew 'gnuplot'
 brew 'htop'
@@ -199,11 +204,38 @@ brew 'kubectx'
 brew 'kube-linter'
 brew 'hadolint'
 brew 'vector'
+brew 'antidote'
+#@todo review this
+brew "helm/tap/chart-releaser"
+#@todo review this
+brew "yamllint"
+#@todo review this
+brew "pre-commit"
+#@todo review this
+brew "virtualenv", link: false
+#@todo review this
+brew "luajit", args: ["HEAD"]
+#@todo review this
+brew "libfido2"
+#@todo review this
+brew "ldns"
+#@todo review this
+brew "pango"
+brew "harfbuzz"
+brew "gd"
+brew "libavif"
+brew "unbound"
+brew "checkov"
+brew "chart-testing"
+brew "yamale"
+brew "glib"
+brew "gettext"
+brew "aom"
+brew "jpeg-xl"
+brew "webp"
 
-
-#Casks
+cask '1password'
 cask 'alfred'
-cask 'docker'
 cask 'flux'
 cask 'firefox'
 cask 'iterm2'
@@ -222,6 +254,7 @@ cask 'github'
 cask '1password-cli'
 cask 'eloston-chromium'
 cask 'chromedriver'
+cask 'font-fira-code'
 
 # @todo not sure how to do this yet but we need to include this one.
 # brew install --cask 1password/tap/1password-cli
