@@ -24,6 +24,10 @@ brew "gcc"
 brew "go"
 brew "lua"
 brew "luarocks"
+# Python Version Manager
+brew "rye"
+# Node Version Manager
+brew "fnm"
 
 # utility to run Github actions locally for testing.
 brew "act"
@@ -242,8 +246,6 @@ brew "zlib"
 # NPM new utility
 brew "pnpm"
 
-# Node version manager written in rust
-brew "fnm"
 
 # More or less fancy spell check
 brew "vale"
