@@ -16,6 +16,15 @@
       'fnm install -lts',
       'fnm default lts-latest',
     ]
+    packages = [
+      "@fsouza/prettierd",
+    # @todo probably remove this
+      "sanity@dev-preview",
+    # @todo probably remove this
+      "corepack",
+      "eslint_d"
+
+    ]
 
 #@todo I just wrote how I think this should look. There is probably better ways
 #to symlink these to where it makes sense. Maybe when multiple symlinks, we have
