@@ -80,6 +80,7 @@ return packer.startup(function(use)
                 requires = {
                     "rafamadriz/friendly-snippets",
                 },
+                run = "make install_jsregexp",
             },
             { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
             { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },

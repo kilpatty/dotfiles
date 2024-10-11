@@ -16,6 +16,9 @@
     "rye self install -y --no-modify-path",
     "rye config --set-bool behavior.global-python=true"
 ]
+    packages = [
+    "pynvim"
+]
 
 #@todo we need to add default global applications in here.
 # Look into doing something like this: https://github.com/Schniz/fnm/issues/139#issuecomment-529411514
@@ -31,8 +34,8 @@
       "sanity@dev-preview",
     # @todo probably remove this
       "corepack",
-      "eslint_d"
-
+      "eslint_d",
+      "neovim"
     ]
 
 #@todo I just wrote how I think this should look. There is probably better ways
