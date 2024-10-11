@@ -24,6 +24,7 @@ brew "gcc"
 brew "go"
 brew "lua"
 brew "luarocks"
+
 # Python Version Manager
 brew "rye"
 # Node Version Manager

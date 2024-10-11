@@ -27,3 +27,6 @@ nvim.config/lua/compiled.lua
 
 #Don't commit auto backups from karabiner
 karabiner.config/automatic_backups
+
+# Don't commit Brew lockfile (unclear and naming is confusing but see: https://github.com/Homebrew/homebrew-bundle/issues/1188)
+brew/Brewfile.lock.json
