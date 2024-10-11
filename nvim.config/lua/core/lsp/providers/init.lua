@@ -44,7 +44,7 @@ if not mason_status_ok then
 end
 
 local servers = {
-    "tsserver",
+    "ts_ls",
     "jsonls",
     "lua_ls",
     "rust_analyzer",
