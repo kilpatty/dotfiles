@@ -87,6 +87,8 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 source "$HOME/.rye/env"
 eval "$(fnm env --use-on-cd)"
 
+source "$HOME/.cargo/env"
+
 # pnpm
 export PNPM_HOME="/Users/spk/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
