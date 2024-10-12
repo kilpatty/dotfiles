@@ -1,0 +1,45 @@
+#
+# Weekly dotfile review, powered by imjohnbo/issue-bot
+#
+name: Weekly Standup
+on:
+  schedule:
+  # Every Thursday at Noon UTC (~7am CST)
+  - cron: 0 12 * * 4
+
+jobs:
+      
+  weekly_review:
+    name: Weekly Review
+    runs-on: ubuntu-latest
+    steps:
+    - id: today
+      run: echo "::set-output name=today::$(date '+%Y-%m-%d')"
+    - id: week
+      run: echo "::set-output name=week::$(date '+%U')"
+    - id: year
+      run: echo "::set-output name=year::$(date '+%Y')"
+    # Generates and pins new standup issue, closes previous, writes linking comments, and assigns to all assignees in list
+    - name: New review issue
+      uses: imjohnbo/issue-bot@v3
+      with:
+        assignees: "kilpatty"
+        labels: "review"
+        title: Dotfile Review Week ${{steps.week.outputs.week}} of ${{steps.year.outputs.year}}
+        body: |-
+          ## Dotfile review for the week of ${{ steps.today.outputs.today }}
+          1. What do you feel like you got better at this week?
+          
+          2. What is something that you’d like to get better at over the next week?
+          
+          3. Are there any newly installed tools that worked well for you this week?
+          
+          4. Are there any tools that you feel you no longer use, or don’t have the same usefulness as before?
+          
+          5. Are there any aliases that you think would be useful to add?
+          
+          6. Are there any tools that DON’T exists, but you think would help your workflow.
+          
+        pinned: true
+        close-previous: true
+        linked-comments: true
