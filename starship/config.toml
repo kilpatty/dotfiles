@@ -5,6 +5,7 @@ add_newline = true
 format = "on [$symbol$profile]($style) "
 style = "bold blue"
 symbol = "🅰 "
+
 [aws.profile_aliases]
 Enterprise_Naming_Scheme-voidstars = 'void**'
 
@@ -14,4 +15,10 @@ success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being
 
 # Disable the package module, hiding it from the prompt completely
 [package]
+disabled = true
+
+# @todo temporary disable on Rust. This becoes unbearably slow in the "dot"
+# repo. It appears to only happen after adding the cargo run bin metadata to the
+# Cargo.toml. File an issue for this and then fix when fix is up.
+[rust]
 disabled = true
