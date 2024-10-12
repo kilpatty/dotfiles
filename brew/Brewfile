@@ -10,7 +10,6 @@ cask_args appdir: "/Applications"
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "helm/tap"
-tap "hashicorp/tap"
 
 #############################################################
 # Software Development                                      #
@@ -77,16 +76,13 @@ brew "kops"
 brew "kubectl"
 
 # Faster context switching with Kubernetes
-brew "kuvectx"
+brew "kubectx"
 
 # Helmfile is a declarative spec for deploying helm charts.
 brew "helmfile"
 
 # Lens is an IDE and Dashboard for Kubernetes
 cask "lens"
-
-# MacOS implementation of Latex for building PDF documents
-cask "mactex"
 
 ##
 # Utilities
@@ -293,8 +289,6 @@ brew "k9s"
 # Load environment varibles based on directory
 brew "direnv"
 
-# Kubernetes context switcher
-brew "kubectx"
 # Kubernetes linter
 brew "kube-linter"
 
@@ -393,9 +387,6 @@ cask "rectangle"
 
 # Spotifty
 cask "spotify"
-
-# Network Protocol Analyzer
-cask "wireshark"
 
 # An alternative to OSX's native spotlight search. Comes with lots of nice features out of the gate to enhance productivity.
 cask "raycast"
