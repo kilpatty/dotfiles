@@ -1,7 +1,17 @@
 [tools]
 # specify single or multiple versions
-terraform = '1.9.7'
+terraform = "latest"
+ruby = "latest"
+lua = "latest"
 # erlang = ['23.3', '24.0']
+
+# Global Rust packages
+"cargo:cargo-run-bin" = "latest"
+cargo-binstall = "latest"
 
 # supports everything you can do with .tool-versions currently
 # node = ['16', 'prefix:20', 'ref:master', 'path:~/.nodes/14']
+
+[settings]
+not_found_auto_install = true
+cargo_binstall = true

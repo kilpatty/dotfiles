@@ -20,12 +20,7 @@ tap "helm/tap"
 
 # Development Langs, Compilers, Package Managers and SDKs
 brew "gcc"
-# @todo this will just be managed by mise instead.
-# brew "go"
-# @todo this will be managed by mise
-brew "lua"
-# @todo do we need tghis?
-brew "luarocks"
+
 brew "mise"
 
 # @todo I think replace with mise
@@ -37,10 +32,6 @@ brew "fnm"
 
 # utility to run Github actions locally for testing.
 brew "act"
-
-# @todo review if this can be managed by Mason in nvim rather than here.
-# Stylua is a code formatter for Lua. Mainly used for helping me format my Neovim configuration.
-brew "stylua"
 
 # Container runtime (Replaces Docker Desktop)
 brew "colima"
@@ -164,9 +155,6 @@ brew "htop"
 # Terminal chat client
 brew "irssi"
 
-# YAML parser
-brew "libyaml"
-
 # Security utility
 brew "lynis"
 
@@ -208,12 +196,6 @@ brew "screen"
 # Cache for Rust
 brew "sccache"
 
-# Shell formatter
-brew "shellcheck"
-
-# Sqlite DB
-brew "sqlite"
-
 # Terminal Prompt
 brew "starship"
 
@@ -234,11 +216,9 @@ brew "zsh-completions"
 
 # Compression for executables (Probably delete can just use in docker or CI)
 brew "upx"
+
 # Tor network
 brew "tor"
-
-# Yarn utility for NPM
-brew "yarn"
 
 # Real time compression algorithm
 brew "zstd"
@@ -246,30 +226,11 @@ brew "zstd"
 # Lossless Compression Algorithm
 brew "zlib"
 
-# NPM new utility
-brew "pnpm"
-
-
-# More or less fancy spell check
-brew "vale"
-
-# Terraform infrastructure management
-brew "hashicorp/tap/terraform"
-
 # Templater for Kubernetes deployments
 brew "kustomize"
 
-# Auditor for Terraform files
-brew "terrascan"
-
 # JSON Parser
 brew "jq"
-
-# Terrafor Security Scanner
-brew "tfsec"
-
-# Terraform Linter
-brew "tflint"
 
 # Kubernetes auditor
 brew "kubeaudit"
@@ -292,29 +253,11 @@ brew "terraformer"
 # Kubernetes Manager Via CLI
 brew "k9s"
 
-# Load environment varibles based on directory
-brew "direnv"
-
-# Kubernetes linter
-brew "kube-linter"
-
-# Dockerfile linter
-brew "hadolint"
-
 # ZSH Plugin manager
 brew "antidote"
 
-# Helm Utility for publishing charts
-brew "helm/tap/chart-releaser"
-
-# Yaml linter -> @todo see if we can install via Mason
-brew "yamllint"
-
 # Pre-commit hook
 brew "pre-commit"
-
-# Lua compiler
-brew "luajit", args: ["HEAD"]
 
 # Library for Yubi keys
 brew "libfido2"
@@ -337,14 +280,6 @@ brew "libavif"
 # DNS Resolver
 brew "unbound"
 
-# IoC tool for auditing setups
-brew "checkov"
-
-# Testing of helm charts
-brew "chart-testing"
-
-# YAML Validator
-brew "yamale"
 # Core app for C
 brew "glib"
 
