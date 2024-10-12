@@ -9,3 +9,7 @@ require("plugins")
 require("config"):init()
 require("core.lsp").setup()
 require("core.bindings")
+
+--[[ @todo review if this is the best place for it.  ]]
+-- Prepend mise shims to PATH
+vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH

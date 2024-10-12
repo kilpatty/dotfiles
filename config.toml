@@ -1,5 +1,4 @@
 [packages]
-
   [packages.brew]
     check = 'command -v brew'
     install = [
@@ -7,61 +6,62 @@
       'brew update',
       'brew bundle --file="${DOTFILES}/brew/Brewfile"',
     ]
-
-    [packages.rye]
-# Let's add this flag to show what service manages rye. E.g. Homebrew installs
-# rye, but we need some further install instructions. Same for fnm below
-    managed_by = "brew"
+  [packages.rust]
+    check = 'command -v rustup'
     install = [
-    "rye self install -y --no-modify-path",
-    "rye config --set-bool behavior.global-python=true"
-]
-    packages = [
-    "pynvim"
-]
-
-#@todo we need to add default global applications in here.
-# Look into doing something like this: https://github.com/Schniz/fnm/issues/139#issuecomment-529411514
-  [packages.fnm]
-    check = 'command -v fnm'
-    install = [
-      'fnm install -lts',
-      'fnm default lts-latest',
+      "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh",
+      'rustup component add rls rust-analysis rust-src clippy rustfmt',
     ]
-    packages = [
-      "@fsouza/prettierd",
-    # @todo probably remove this
-      "sanity@dev-preview",
-    # @todo probably remove this
-      "corepack",
-      "eslint_d",
-      "neovim"
+    default_packages = [
+    'cargo-run-bin'
+      # 'cargo-watch',
+      # 'cargo-release',
+      # 'cargo-make',
+      # 'cargo-udeps',
     ]
-
-#@todo I just wrote how I think this should look. There is probably better ways
-#to symlink these to where it makes sense. Maybe when multiple symlinks, we have
-#an Array of from/tos in a struct format. Then remove the .symlink preference
-#from the files in git
-  [packages.git]
-    from = ["gitconfig.local", "gitconfig", "gitignore", "gitmessage"]
-    to = ["~/.gitconfig", ".gitconfig". ".gitignore", ".gitmessage"]
-
-[packages.rust]
-  check = 'command -v rust'
-  install = [
-    "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh",
-    'rustup component add rls rust-analysis rust-src clippy rustfmt',
-  ]
-  packages = [
-    'cargo-watch',
-    'cargo-release',
-    'cargo-make',
-    'cargo-udeps',
-  ]
-  update = [
-    'rustup update'
-]
-
+    update = [
+      'rustup update'
+    ]
   [packages.zsh]
     from = "zsh/zshrc"
     to = "~/.zshrc"
+
+#   [packages.rye]
+# # Let's add this flag to show what service manages rye. E.g. Homebrew installs
+# # rye, but we need some further install instructions. Same for fnm below
+#     managed_by = "brew"
+#     install = [
+#     "rye self install -y --no-modify-path",
+#     "rye config --set-bool behavior.global-python=true"
+#     ]
+#     packages = [
+#     "pynvim"
+#     ]
+#
+# #@todo we need to add default global applications in here.
+# # Look into doing something like this: https://github.com/Schniz/fnm/issues/139#issuecomment-529411514
+#   [packages.fnm]
+#     check = 'command -v fnm'
+#     install = [
+#       'fnm install -lts',
+#       'fnm default lts-latest',
+#     ]
+#     packages = [
+#       "@fsouza/prettierd",
+#     # @todo probably remove this
+#       "sanity@dev-preview",
+#     # @todo probably remove this
+#       "corepack",
+#       "eslint_d",
+#       "neovim"
+#     ]
+#
+# #@todo I just wrote how I think this should look. There is probably better ways
+# #to symlink these to where it makes sense. Maybe when multiple symlinks, we have
+# #an Array of from/tos in a struct format. Then remove the .symlink preference
+# #from the files in git
+#   [packages.git]
+#     from = ["gitconfig.local", "gitconfig", "gitignore", "gitmessage"]
+#     to = ["~/.gitconfig", ".gitconfig". ".gitignore", ".gitmessage"]
+#
+
