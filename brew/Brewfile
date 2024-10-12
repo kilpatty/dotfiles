@@ -23,6 +23,7 @@ brew "gcc"
 brew "go"
 brew "lua"
 brew "luarocks"
+brew "mise"
 
 # Python Version Manager
 brew "rye"
