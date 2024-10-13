@@ -78,6 +78,9 @@ brew "jq"
 # command-line unarchiving tools supporting multiple formats
 brew "unar"
 
+# Improved cd command
+brew "zoxide"
+
 # =============================================================================================
 # CLI Applications
 # =============================================================================================
