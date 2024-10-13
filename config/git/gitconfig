@@ -1,3 +1,7 @@
+[include]
+	path = ./catppuccin.gitconfig
+
+
 [alias]
 
 	aa = add --all
@@ -104,6 +108,9 @@
 	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	precomposeunicode = false
 
+    pager = delta
+
+
 [color]
 
 	# Use colors in Git commands that are capable of colored output when
@@ -157,10 +164,27 @@
 	log = true
 
     ff = only
+[interactive]
+    diffFilter = delta --color-only --features=interactive
 
-[pager]
-       diff = diff-so-fancy | less --tabs=1,5 -RFX
-       show = diff-so-fancy | less --tabs=1,5 -RFX
+[delta]
+	features = catppuccin-macchiato
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+
+#[pager]
+#       diff = diff-so-fancy | less --tabs=1,5 -RFX
+#       show = diff-so-fancy | less --tabs=1,5 -RFX
 
 [push]
 
@@ -200,15 +224,10 @@
 
 [url "git://gist.github.com/"]
 
-	insteadOf = "gist:"
 
+	insteadOf = "gist:"
 [gpg]
 	program = gpg
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
 [user]
     name = Sean Kilgarriff
 	email = sean@urkel.com

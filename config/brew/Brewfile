@@ -48,9 +48,6 @@ brew "sd"
 # Replacement for Exa -- aka replacement for ls
 brew "eza"
 
-# Better Git Diffs
-brew "diff-so-fancy"
-
 # Alternative to find
 brew "fd"
 
@@ -80,6 +77,9 @@ brew "unar"
 
 # Improved cd command
 brew "zoxide"
+
+# A syntax highlighter for Git diff, etc.
+brew "git-delta"
 
 # =============================================================================================
 # CLI Applications
