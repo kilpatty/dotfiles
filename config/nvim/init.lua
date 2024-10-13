@@ -1,14 +1,5 @@
-local impatient_ok, impatient = pcall(require, "impatient")
-if impatient_ok then
-    impatient.enable_profile()
-end
-
-require("compiled")
-require("options")
-require("plugins")
-require("config"):init()
-require("core.lsp").setup()
-require("core.bindings")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
 
 --[[ @todo review if this is the best place for it.  ]]
 -- Prepend mise shims to PATH
