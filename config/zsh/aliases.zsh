@@ -83,7 +83,7 @@ alias find="fd"
 alias top="bottom"
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 
-alias ls="eza -F"
+alias ls="eza -a --level=1 --icons"
 alias l="eza -la"
 alias ll="eza -l"
 alias la="eza -a"
