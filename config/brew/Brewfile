@@ -206,9 +206,6 @@ cask "obsidian"
 # Shows mac stats in the menubar
 cask "stats"
 
-# Github Desktop
-cask "github"
-
 # Firefox web browser
 cask "firefox"
 
