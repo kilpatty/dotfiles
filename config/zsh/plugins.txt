@@ -1,9 +1,27 @@
 mafredri/zsh-async
-zsh-users/zsh-completions
-zsh-users/zsh-autosuggestions
+
+# =============================================================================================
+# Completions
+# =============================================================================================
+
+# zsh-users/zsh-completions is a popular plugin for adding supplemental completions.
+# We combine the `path:` and `kind:fpath` annotations here:
+zsh-users/zsh-completions path:src kind:fpath
+
+# This is the recommended plugin for handling compinit and setting completion zstyles.
+# It's designed to handle all the complexity of the Zsh completion system so the user
+# doesn't have to.
+mattmc3/ez-compinit
+
 MichaelAquilina/zsh-you-should-use
 
 ohmyzsh/ohmyzsh path:plugins/gpg-agent
 
-# Need to be last
-zsh-users/zsh-syntax-highlighting
+# =============================================================================================
+# Final Plugins
+# =============================================================================================
+
+# Remember plugin order matters! Put plugins that need run last at the bottom of your plugin file
+
+zdharma-continuum/fast-syntax-highlighting kind:defer
+zsh-users/zsh-autosuggestions

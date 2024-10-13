@@ -33,14 +33,14 @@ done
 # for homebrew completions https://docs.brew.sh/Shell-Completion
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-autoload -Uz compinit
-typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
-
-if [ $(date +'%j') != $updated_at ]; then
-  compinit -i
-else
-  compinit -C -i
-fi
+# autoload -Uz compinit
+# typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
+#
+# if [ $(date +'%j') != $updated_at ]; then
+#   compinit -i
+# else
+#   compinit -C -i
+# fi
 
 typeset -U completion_files
 completion_files=($DOTFILES_CONFIG/zsh/completions/*)
