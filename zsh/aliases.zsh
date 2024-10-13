@@ -63,41 +63,29 @@ alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/La
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
-# grc overides for ls
-#   Made possible through contributions from generous benefactors like
-#   `brew install coreutils`
-# if $(gls &>/dev/null)
-# then
-#   alias ls="gls -F --color"
-#   alias l="gls -lAh --color"
-#   alias ll="gls -l --color"
-#   alias la='gls -A --color'
-# fi
+
+#Searches for files using fzf and then gives a preview with bat
+alias search="fzf --preview 'bat --color \"always\" {}'"
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort'"
+
+alias wiki="vim ~/Documents/Sean/vimwiki/index.wiki"
+
+alias testload="for i in \$(seq 1 10); do /usr/bin/time zsh -i -c exit; done;"
+
+# =============================================================================================
+# Application Aliases
+# =============================================================================================
+alias vim="nvim"
+alias tail="tspin"
+alias cat="bat"
+alias sed="sd"
+alias find="fd"
+alias top="bottom"
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 
 alias ls="eza -F"
 alias l="eza -la"
 alias ll="eza -l"
 alias la="eza -a"
 
-#Searches for files using fzf and then gives a preview with bat
-alias search="fzf --preview 'bat --color \"always\" {}'"
-export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort'"
 
-#Changes top to much better htop. Needs sudo to access all services
-alias top="sudo htop"
-
-alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
-
-alias develop="open -g /Applications/Docker.app; open -g /Applications/Karabiner-Elements.app;"
-
-alias wiki="vim ~/Documents/Sean/vimwiki/index.wiki"
-
-alias testload="for i in \$(seq 1 10); do /usr/bin/time zsh -i -c exit; done;"
-
-alias install_node_global='cat ~/dotfiles/fnm/default-packages | grep \n | while read -r line ; do npm install -g "$line"; done'
-
-# Temporary until the brew bundle is updated
-# https://github.com/Homebrew/homebrew-core/pull/105381
-alias kops="/usr/local/bin/kops"
-
-alias vim="nvim"

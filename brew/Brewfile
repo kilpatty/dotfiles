@@ -2,29 +2,22 @@
 
 cask_args appdir: "/Applications"
 
-#############################################################
-# Preflight                                                 #
-#############################################################
+# =============================================================================================
+# Taps
+# =============================================================================================
 
-# Tap homebrew
 tap "homebrew/bundle"
 tap "homebrew/services"
-tap "helm/tap"
 
-#############################################################
-# Software Development                                      #
-#############################################################
-
-# Development Apps
-# @todo iterm, etc
+# =============================================================================================
+# Programming languages
+# =============================================================================================
 
 # Development Langs, Compilers, Package Managers and SDKs
 brew "gcc"
 
+# Version Manager for all of our local and global languages (Any not listed here)
 brew "mise"
-
-# utility to run Github actions locally for testing.
-brew "act"
 
 # Container runtime (Replaces Docker Desktop)
 brew "colima"
@@ -33,57 +26,15 @@ brew "colima"
 brew "docker"
 brew "docker-compose"
 
-# Mainly used for Bitcoin compilation - helps automate compilation process.
-brew "automake"
+# =============================================================================================
+# CLI Tools
+# =============================================================================================
 
-# Bitcoin dep. Used to help compile shared libraries.
-brew "libtool"
+# utility to run Github actions locally for testing.
+brew "act"
 
-# Bitcoin dep. Brings portable shared C++ libs.
-brew "boost"
-
-# Bitcoin dep. Helps compiliation.
-brew "pkg-config"
-
-# Bitcoin dep. Async notifications.
-brew "libevent"
-
-# Bitcoin dep. Used for legacy wallets
-brew "berkeley-db@4"
-
-# Logfile Highlighter
+# Logfile Highlighter mappedf to "tail"
 brew "tailspin"
-
-##
-#
-# Kubernetes
-#
-##
-# Cluster management tool for AWS.
-brew "kops"
-
-# Kubernetes command-line tool to run commands against Kubernetes clusters.
-brew "kubectl"
-
-# Faster context switching with Kubernetes
-brew "kubectx"
-
-# Helmfile is a declarative spec for deploying helm charts.
-brew "helmfile"
-
-# Lens is an IDE and Dashboard for Kubernetes
-cask "lens"
-
-##
-# Utilities
-#
-# We prefer Firefox because it's open source.
-##
-
-brew "ack"
-
-# Utility that cleans up leftover files when deleting an application.
-cask "appcleaner"
 
 # Atuin replaces your existing shell history with a SQLite database, and records additional context for your commands.
 brew "atuin"
@@ -91,26 +42,11 @@ brew "atuin"
 # bat is like `cat` plus line numbers, syntax highlighting, and more.
 brew "bat"
 
-# https://github.com/Nukesor/pueue#why-should-i-use-it (This is not implemented yet, but marking as a @todo).
-brew "pueue"
-
 # Intuitive find & replace CLI (sed alternative)
 brew "sd"
 
 # Replacement for Exa -- aka replacement for ls
 brew "eza"
-
-# Protocol Buffers - used for protobuf development e.g. GRPC
-brew "protobuf"
-
-# Lossless compression algorithm
-brew "brotli"
-
-# Linux versions of Core Utilities (gls, gcp, etc)
-brew "coreutils"
-
-# C / C++ Bundler?
-brew "cmake"
 
 # Better Git Diffs
 brew "diff-so-fancy"
@@ -118,73 +54,73 @@ brew "diff-so-fancy"
 # Alternative to find
 brew "fd"
 
-# Linux Find utilities xargs, etc
-brew "findutils"
-
 # Fuzzy Finder
 brew "fzf"
 
-# Like Chromedriver but for Firefox
-brew "geckodriver"
-
-# Git...
-brew "git"
-
-# Versioning Larger files with Git
-brew "git-lfs"
-
-# Linux SED?
-brew "gnu-sed"
-
-# GPG
-brew "gnupg"
-
-# Terminal Plotting utility
-brew "gnuplot"
-
 # Better "top" utility
-brew "htop"
-
-# Terminal chat client
-brew "irssi"
-
-# Security utility
-brew "lynis"
-
-# Mac Apple Store CLI
-brew "mas"
-
-# More linux utilites
-brew "moreutils"
+brew "bottom"
 
 # Disk space analyzer
 brew "ncdu"
 
-# Terminal based editor
-brew "neovim"
-
 # Port scanning utility
 brew "nmap"
 
-# Homebrew managed OpenSSH
-brew "openssh"
-# Homebrew managed Open SSL
-brew "openssl"
-
-# Format Converter
-brew "pandoc"
-
-# GUI for PGP
-brew "pinentry-mac"
-
-# Ruby version manager
-brew "rbenv"
+# Http tool
+brew "wget"
 
 # Improved version of grep
 brew "ripgrep"
 
-# Terminal Multiplexer @todo maybe remove (tmux probs better alternative)
-brew "screen"
+# JSON Parser
+brew "jq"
+
+# command-line unarchiving tools supporting multiple formats
+brew "unar"
+
+# =============================================================================================
+# CLI Applications
+# =============================================================================================
+
+# Security utility
+brew "lynis"
+
+# Terminal based editor
+brew "neovim"
+
+# Git - Keeps it up to date
+brew "git"
+
+# ZSH Plugin manager
+brew "antidote"
+
+# Cluster management tool for AWS.
+brew "kops"
+
+# GPG
+brew "gnupg"
+
+# Terminal Multiplexer
+brew "tmux"
+
+# Terminal based file manager
+brew "yazi"
+
+# =============================================================================================
+# Development Packages
+# =============================================================================================
+
+# Protocol Buffers - used for protobuf development e.g. GRPC
+brew "protobuf"
+
+# Lossless compression algorithm
+brew "brotli"
+
+# Like Chromedriver but for Firefox
+brew "geckodriver"
+
+# GUI for PGP
+brew "pinentry-mac"
 
 # Cache for Rust
 brew "sccache"
@@ -192,14 +128,17 @@ brew "sccache"
 # Terminal Prompt
 brew "starship"
 
-# Add ssh key to authorized keys @todo maybe remove
-brew "ssh-copy-id"
+# Mac Apple Store CLI
+brew "mas"
 
-# Terminal Multiplexer
-brew "tmux"
+# Homebrew managed OpenSSH
+brew "openssh"
 
-# Http tool
-brew "wget"
+# Homebrew managed Open SSL
+brew "openssl"
+
+# Library for Yubi keys
+brew "libfido2"
 
 # ZSH Shell
 brew "zsh"
@@ -207,90 +146,26 @@ brew "zsh"
 # ZSH Completions
 brew "zsh-completions"
 
-# Compression for executables (Probably delete can just use in docker or CI)
-brew "upx"
-
-# Tor network
-brew "tor"
-
 # Real time compression algorithm
 brew "zstd"
 
 # Lossless Compression Algorithm
 brew "zlib"
 
-# Templater for Kubernetes deployments
-brew "kustomize"
+# Tor network
+brew "tor"
 
-# JSON Parser
-brew "jq"
-
-# Kubernetes auditor
-brew "kubeaudit"
-
-# Encryption tool
-brew "age"
-
-# Encryption tool
-brew "sops"
-
-# Kubernetes backup tool
-brew "velero"
-
-# Taskrunner written in rust
-brew "just"
-
-# Generate Terraform files from existing infrastructure
-brew "terraformer"
-
-# Kubernetes Manager Via CLI
-brew "k9s"
-
-# ZSH Plugin manager
-brew "antidote"
-
-# Pre-commit hook
-brew "pre-commit"
-
-# Library for Yubi keys
-brew "libfido2"
-
-# DNS library written in C @todo review if needed
-brew "ldns"
-
-# i18n library @todo review
-brew "pango"
-
-# Open type text shaping engine @Todo do we need?
-brew "harfbuzz"
-
-# Graphics library
-brew "gd"
-
-# Decoding .avi files
-brew "libavif"
-
-# DNS Resolver
-brew "unbound"
-
-# Core app for C
-brew "glib"
-
-# GNU i18n library
-brew "gettext"
-
-# AV1 decoder
-brew "aom"
-
-# JPEG compression
-brew "jpeg-xl"
-
-# Image compression
-brew "webp"
-
-#############################################################
+# =============================================================================================
 # Non-Mac Store Applications
-#############################################################
+# =============================================================================================
+
+cask "discord"
+
+# Lens is an IDE and Dashboard for Kubernetes
+cask "lens"
+
+# Pear Cleaner - Mac application cleaner
+cask "pearcleaner"
 
 # Password Manager - Not available via Mac Store
 cask "1password"
@@ -346,16 +221,17 @@ cask "brave-browser"
 # Ungoogled Chromium
 cask "eloston-chromium"
 
-#############################################################
+# =============================================================================================
 # Fonts
-#############################################################
+# =============================================================================================
 
 # Font used for coding ligatures
 cask "font-fira-code"
+cask "font-jetbrains-mono-nerd-font"
 
-#############################################################
+# =============================================================================================
 # Applications
-#############################################################
+# =============================================================================================
 
 # 1Password Safari Extensions
 mas "1Password for Safari", id: 1_569_813_296
