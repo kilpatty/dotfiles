@@ -147,7 +147,7 @@
 	# Automatically correct and execute mistyped commands
 	autocorrect = 1
 
-[init] 
+[init]
 
   defaultBranch = "master"
 
@@ -210,7 +210,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 [user]
-	name = Sean Kilgarriff
-	; email = seanpkilgarriff@gmail.com
+    name = Sean Kilgarriff
 	email = sean@urkel.com
-  signingkey = A0F98DD6A1AE0E8E
+    signingkey = A0F98DD6A1AE0E8E
