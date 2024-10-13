@@ -1,13 +1,11 @@
 [packages]
   [packages.brew]
-    check = 'command -v brew'
     install = [
       '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"',
       'brew update',
-      'brew bundle --file="${DOTFILES}/brew/Brewfile"',
+      'brew bundle --file="${DOTFILES}/config/brew/Brewfile"',
     ]
   [packages.rust]
-    check = 'command -v rustup'
     install = [
       "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh",
       'rustup component add rls rust-analysis rust-src clippy rustfmt',
@@ -21,6 +19,7 @@
     from = "zsh/zshrc"
     to = "~/.zshrc"
 
+# @todo
   [links.git]
     from = ["gitconfig.local", "gitconfig", "gitignore", "gitmessage"]
     to = ["~/.gitconfig", "~/.gitconfig". "~/.gitignore", "~/.gitmessage"]

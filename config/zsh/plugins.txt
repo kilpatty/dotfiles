@@ -3,6 +3,7 @@ zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 MichaelAquilina/zsh-you-should-use
 
+ohmyzsh/ohmyzsh path:plugins/gpg-agent
 
 # Need to be last
 zsh-users/zsh-syntax-highlighting
