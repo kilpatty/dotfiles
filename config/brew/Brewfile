@@ -81,6 +81,9 @@ brew "zoxide"
 # A syntax highlighter for Git diff, etc.
 brew "git-delta"
 
+# MacOS utiltiy to manage docker applications
+brew "dockutil"
+
 # =============================================================================================
 # CLI Applications
 # =============================================================================================
