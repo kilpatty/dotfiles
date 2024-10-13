@@ -8,25 +8,21 @@ Desktop.ini
 
 
 #GPG things we don't want online
-gnupg.symlink/*
+config/gnupg/*
 
-!gnupg.symlink/gpg*.conf
+!config/gnupg/gpg*.conf
 
 #SSH things we don't want online
-ssh.symlink/*
+config/ssh/*
 
 #Don't commit local gitconfig
-git/gitconfig.local.symlink
-
-#Don't commit vim plugged
-vim/vim.symlink/plugged
-vim/vim.symlink/autoload/plug.vim.old
+config/git/gitconfig.local
 
 #Don't commit compiled Lua plugins for Neovim
-nvim.config/lua/compiled.lua
+config/nvim/lua/compiled.lua
 
 #Don't commit auto backups from karabiner
-karabiner.config/automatic_backups
+config/karabiner/automatic_backups
 
 # Don't commit Brew lockfile (unclear and naming is confusing but see: https://github.com/Homebrew/homebrew-bundle/issues/1188)
-brew/Brewfile.lock.json
+config/brew/Brewfile.lock.json

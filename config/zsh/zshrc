@@ -4,10 +4,11 @@ zmodload zsh/zprof
 
 # @todo can we move this to exports?
 export DOTFILES=$HOME/dotfiles
+export DOTFILES_CONFIG=$DOTFILES/config
 
 # all of our zsh files
 typeset -U config_files
-config_files=($DOTFILES/**/*.zsh)
+config_files=($DOTFILES_CONFIG/**/*.zsh)
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}; do
@@ -21,7 +22,7 @@ done
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 
 # initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
-antidote load ~/dotfiles/zsh/plugins.txt
+antidote load ${DOTFILES_CONFIG}/zsh/plugins.txt
 
 
 # load everything but the path and completion files
@@ -42,7 +43,7 @@ else
 fi
 
 typeset -U completion_files
-completion_files=($DOTFILES/zsh/completions/*)
+completion_files=($DOTFILES_CONFIG/zsh/completions/*)
 
 for file in ${(M)completion_files}; do
     source "$file"
