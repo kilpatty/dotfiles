@@ -7,6 +7,9 @@ return {
     event = "VeryLazy",
     opts = {
       hints = { enabled = false },
+      behavior = {
+        auto_apply_diff_after_generation = true,
+      },
     },
     -- build = LazyVim.is_win() and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" or "make",
   },
