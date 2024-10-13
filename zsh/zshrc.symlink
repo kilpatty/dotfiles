@@ -59,37 +59,15 @@ then
   source ~/.localrc
 fi
 
-# @todo
-export PATH="/Users/sean/.local/share/solana/install/active_release/bin:$PATH"
-
-
-eval "$(atuin init zsh)"
-
-
-#@todo let's move this, but this is what it is if I forget: https://dystroy.org/broot/
-#source /Users/sean/Library/Preferences/org.dystroy.broot/launcher/bash/br
-
 function set_win_title(){
     echo -ne "\033]0; $(basename "$PWD") \007"
 }
+
 precmd_functions+=(set_win_title)
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
-source "$HOME/.rye/env"
-
-eval "$(fnm env --use-on-cd)"
 
 source "$HOME/.cargo/env"
 
-#@todo put this in kops config file.
-# export AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id --profile kops)
-# export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key --profile kops)
-
-# ref: https://github.com/ahmetb/kubectx#interactive-mode
-# export KUBECTX_IGNORE_FZF=1
-
-#@todo move this to the kubernetes directory
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+eval "$(atuin init zsh)"
 
 eval "$(starship init zsh)"
 

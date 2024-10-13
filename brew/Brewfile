@@ -23,13 +23,6 @@ brew "gcc"
 
 brew "mise"
 
-# @todo I think replace with mise
-# Python Version Manager
-brew "rye"
-# @todo I think replace with mise
-# Node Version Manager
-brew "fnm"
-
 # utility to run Github actions locally for testing.
 brew "act"
 
