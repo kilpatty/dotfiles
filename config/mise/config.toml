@@ -17,6 +17,7 @@ cargo-binstall = "latest"
 # =============================================================================================
 "npm:neovim" = "latest"
 uv = "latest"
+yarn = "latest"
 
 # =============================================================================================
 # Python
@@ -31,5 +32,3 @@ experimental = true
 
 [settings.python]
 default_packages_file = "~/dotfiles/config/default_python_packages"
-
-

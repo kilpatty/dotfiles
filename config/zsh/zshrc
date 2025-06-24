@@ -77,3 +77,11 @@ eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
 
 # zprof
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+
+# bun completions
+[ -s "/Users/seankilgarriff/.bun/_bun" ] && source "/Users/seankilgarriff/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
