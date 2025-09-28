@@ -138,6 +138,7 @@ return {
         "shellcheck",
         "shfmt",
         "flake8",
+        "biome",
       },
     },
   },

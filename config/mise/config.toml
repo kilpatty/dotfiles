@@ -29,6 +29,7 @@ not_found_auto_install = true
 cargo_binstall = true
 pipx_uvx = true
 experimental = true
+idiomatic_version_file_enable_tools = ["rust"]
 
 [settings.python]
 default_packages_file = "~/dotfiles/config/default_python_packages"
